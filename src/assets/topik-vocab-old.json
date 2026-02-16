@@ -1,0 +1,332 @@
+[
+  {
+    "word": "안녕하세요",
+    "level": 1,
+    "translations": {
+      "en": "Hello",
+      "zh": "你好",
+      "ja": "こんにちは"
+    },
+    "pos": "expression"
+  },
+  {
+    "word": "친구",
+    "level": 1,
+    "translations": {
+      "en": "friend",
+      "zh": "朋友",
+      "ja": "友達"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "책",
+    "level": 1,
+    "translations": {
+      "en": "book",
+      "zh": "书",
+      "ja": "本"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "학교",
+    "level": 1,
+    "translations": {
+      "en": "school",
+      "zh": "学校",
+      "ja": "学校"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "음식",
+    "level": 1,
+    "translations": {
+      "en": "food",
+      "zh": "食物",
+      "ja": "食べ物"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "도서관",
+    "level": 1,
+    "translations": {
+      "en": "library",
+      "zh": "图书馆",
+      "ja": "図書館"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "한국어",
+    "level": 1,
+    "translations": {
+      "en": "Korean language",
+      "zh": "韩语",
+      "ja": "韓国語"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "선생님",
+    "level": 1,
+    "translations": {
+      "en": "teacher",
+      "zh": "老师",
+      "ja": "先生"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "학생",
+    "level": 1,
+    "translations": {
+      "en": "student",
+      "zh": "学生",
+      "ja": "学生"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "가족",
+    "level": 1,
+    "translations": {
+      "en": "family",
+      "zh": "家人",
+      "ja": "家族"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "사람",
+    "level": 1,
+    "translations": {
+      "en": "person",
+      "zh": "人",
+      "ja": "人"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "시간",
+    "level": 1,
+    "translations": {
+      "en": "time",
+      "zh": "时间",
+      "ja": "時間"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "오늘",
+    "level": 1,
+    "translations": {
+      "en": "today",
+      "zh": "今天",
+      "ja": "今日"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "어제",
+    "level": 1,
+    "translations": {
+      "en": "yesterday",
+      "zh": "昨天",
+      "ja": "昨日"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "내일",
+    "level": 1,
+    "translations": {
+      "en": "tomorrow",
+      "zh": "明天",
+      "ja": "明日"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "주말",
+    "level": 2,
+    "translations": {
+      "en": "weekend",
+      "zh": "周末",
+      "ja": "週末"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "약속",
+    "level": 2,
+    "translations": {
+      "en": "promise/appointment",
+      "zh": "约定",
+      "ja": "約束"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "생활",
+    "level": 2,
+    "translations": {
+      "en": "life/living",
+      "zh": "生活",
+      "ja": "生活"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "경험",
+    "level": 2,
+    "translations": {
+      "en": "experience",
+      "zh": "经验",
+      "ja": "経験"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "여행",
+    "level": 2,
+    "translations": {
+      "en": "travel",
+      "zh": "旅行",
+      "ja": "旅行"
+    },
+    "pos": "noun"
+  },
+  {
+    "word": "먹다",
+    "level": 1,
+    "translations": {
+      "en": "to eat",
+      "zh": "吃",
+      "ja": "食べる"
+    },
+    "pos": "verb"
+  },
+  {
+    "word": "보다",
+    "level": 1,
+    "translations": {
+      "en": "to see/watch",
+      "zh": "看",
+      "ja": "見る"
+    },
+    "pos": "verb"
+  },
+  {
+    "word": "가다",
+    "level": 1,
+    "translations": {
+      "en": "to go",
+      "zh": "去",
+      "ja": "行く"
+    },
+    "pos": "verb"
+  },
+  {
+    "word": "오다",
+    "level": 1,
+    "translations": {
+      "en": "to come",
+      "zh": "来",
+      "ja": "来る"
+    },
+    "pos": "verb"
+  },
+  {
+    "word": "하다",
+    "level": 1,
+    "translations": {
+      "en": "to do",
+      "zh": "做",
+      "ja": "する"
+    },
+    "pos": "verb"
+  },
+  {
+    "word": "읽다",
+    "level": 1,
+    "translations": {
+      "en": "to read",
+      "zh": "读",
+      "ja": "読む"
+    },
+    "pos": "verb"
+  },
+  {
+    "word": "쓰다",
+    "level": 1,
+    "translations": {
+      "en": "to write",
+      "zh": "写",
+      "ja": "書く"
+    },
+    "pos": "verb"
+  },
+  {
+    "word": "만나다",
+    "level": 1,
+    "translations": {
+      "en": "to meet",
+      "zh": "见面",
+      "ja": "会う"
+    },
+    "pos": "verb"
+  },
+  {
+    "word": "좋다",
+    "level": 1,
+    "translations": {
+      "en": "to be good",
+      "zh": "好",
+      "ja": "良い"
+    },
+    "pos": "adjective"
+  },
+  {
+    "word": "크다",
+    "level": 1,
+    "translations": {
+      "en": "to be big",
+      "zh": "大",
+      "ja": "大きい"
+    },
+    "pos": "adjective"
+  },
+  {
+    "word": "작다",
+    "level": 1,
+    "translations": {
+      "en": "to be small",
+      "zh": "小",
+      "ja": "小さい"
+    },
+    "pos": "adjective"
+  },
+  {
+    "word": "많다",
+    "level": 1,
+    "translations": {
+      "en": "to be many",
+      "zh": "多",
+      "ja": "多い"
+    },
+    "pos": "adjective"
+  },
+  {
+    "word": "있다",
+    "level": 1,
+    "translations": {
+      "en": "to exist/have",
+      "zh": "有/在",
+      "ja": "ある/いる"
+    },
+    "pos": "verb"
+  }
+]

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WordWise Korean - Test Page</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.8;
+      background: #f7fafc;
+    }
+    h1 {
+      color: #2d3748;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .korean-text {
+      font-size: 18px;
+      line-height: 2.2;
+      margin: 15px 0;
+      padding: 15px;
+      background: #edf2f7;
+      border-left: 4px solid #667eea;
+      border-radius: 4px;
+    }
+    .label {
+      font-weight: 600;
+      color: #4a5568;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .instruction {
+      background: #fff5e6;
+      padding: 15px;
+      border-left: 4px solid #f6ad55;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .dynamic-content {
+      background: #e6fffa;
+      padding: 15px;
+      border-left: 4px solid #4fd1c5;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #5a67d8;
+    }
+    #dynamic-text {
+      min-height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 WordWise Korean Test Page</h1>
+
+  <div class="instruction">
+    <strong>📝 Instructions:</strong>
+    <ol>
+      <li>Make sure the WordWise Korean extension is installed and enabled</li>
+      <li>Open the extension popup and ensure it's turned on</li>
+      <li>You should see translations appear above Korean words below</li>
+      <li>Try changing the vocabulary level in the popup to see different words annotated</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Basic Greetings (TOPIK 1)</h2>
+    <div class="korean-text">
+      안녕하세요! 저는 한국어를 공부하는 학생입니다.
+    </div>
+    <div class="korean-text">
+      친구와 함께 도서관에서 책을 읽었어요.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Daily Life (TOPIK 1)</h2>
+    <div class="korean-text">
+      오늘 학교에 갔어요. 선생님과 학생들이 도서관에서 공부했어요.
+    </div>
+    <div class="korean-text">
+      어제 친구와 음식을 먹었어요. 내일 가족과 시간을 보낼 거예요.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Intermediate (TOPIK 2)</h2>
+    <div class="korean-text">
+      주말에 친구와 여행 약속이 있어요. 새로운 경험을 하고 싶어요.
+    </div>
+    <div class="korean-text">
+      한국에서의 생활은 정말 재미있어요. 많은 사람들을 만났어요.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Mixed Levels</h2>
+    <div class="korean-text">
+      저는 매일 도서관에서 한국어 책을 읽어요. 새로운 단어를 배우는 것이 즐거워요.
+    </div>
+    <div class="korean-text">
+      친구들과 함께 주말에 여행을 가요. 좋은 경험과 추억을 만들어요.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Test Dynamic Content</h2>
+    <div class="dynamic-content">
+      <p><strong>🔄 Dynamic Content Test:</strong> Click the button to add new Korean text. The extension should annotate it automatically.</p>
+      <div id="dynamic-text"></div>
+      <button onclick="addDynamicContent()">Add Korean Text</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Test Cases</h2>
+    <div class="label">Overlapping Words (should handle correctly):</div>
+    <div class="korean-text">
+      한국어 한국 - "한국어" should be annotated as whole word, not "한국" separately
+    </div>
+
+    <div class="label">Repeated Words:</div>
+    <div class="korean-text">
+      친구 친구 친구 - all instances should be annotated
+    </div>
+
+    <div class="label">Mixed Korean and English:</div>
+    <div class="korean-text">
+      I am a 학생 studying 한국어 at the 도서관 with my 친구들.
+    </div>
+
+    <div class="label">No spaces:</div>
+    <div class="korean-text">
+      친구학교도서관책음식
+    </div>
+  </div>
+
+  <script>
+    const koreanTexts = [
+      '새로운 친구를 만났어요!',
+      '오늘 날씨가 정말 좋아요.',
+      '도서관에서 책을 읽고 있어요.',
+      '한국어 공부는 재미있어요.',
+      '내일 시간이 있으면 같이 가요.',
+    ];
+
+    let textIndex = 0;
+
+    function addDynamicContent() {
+      const container = document.getElementById('dynamic-text');
+      const p = document.createElement('p');
+      p.className = 'korean-text';
+      p.textContent = koreanTexts[textIndex % koreanTexts.length];
+      container.appendChild(p);
+      textIndex++;
+    }
+  </script>
+
+  <div style="margin-top: 40px; padding: 20px; background: #f7fafc; border-radius: 8px; text-align: center; color: #718096;">
+    <p>✨ If you see translations above Korean words, the extension is working correctly! ✨</p>
+    <p style="margin-top: 10px;">Try adjusting settings in the popup to see different results.</p>
+  </div>
+</body>
+</html>
