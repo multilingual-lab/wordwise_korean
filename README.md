@@ -28,6 +28,8 @@ Hello      friend        library
 안녕하세요! 친구와 함께 도서관에 갔어요.
 ```
 
+![Demo Screenshot](.github/images/demo-x.jpg)
+
 ## 🚀 Installation
 
 ### For Users
