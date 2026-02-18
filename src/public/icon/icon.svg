@@ -1,0 +1,36 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7FCDBB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5FB8A8;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Rounded background -->
+  <rect width="128" height="128" rx="24" fill="url(#bg)"/>
+  
+  <!-- Book shape -->
+  <g filter="url(#shadow)">
+    <!-- Left page -->
+    <rect x="24" y="28" width="40" height="72" fill="#FFFFFF" opacity="0.95"/>
+    
+    <!-- Right page -->
+    <rect x="64" y="28" width="40" height="72" fill="#FFFFFF" opacity="1"/>
+    
+    <!-- Book spine -->
+    <rect x="61" y="28" width="6" height="72" fill="#E0F5F0"/>
+    
+    <!-- Lines on left page -->
+    <line x1="30" y1="42" x2="58" y2="42" stroke="#5FB8A8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="30" y1="52" x2="58" y2="52" stroke="#5FB8A8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="30" y1="62" x2="58" y2="62" stroke="#5FB8A8" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  
+  <!-- Korean character 한 (Han - Korean) -->
+  <text x="84" y="78" font-family="Arial, sans-serif" font-size="36" font-weight="bold" 
+        fill="#5FB8A8" text-anchor="middle">한</text>
+</svg>
