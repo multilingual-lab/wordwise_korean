@@ -38,6 +38,16 @@
 
 ---
 
+## Installation
+
+1. Download the `.zip` file below
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable **Developer mode** (toggle in top right)
+4. Drag and drop the `.zip` directly onto the page
+5. Click the extension icon to configure
+
+---
+
 ## [v0.1.0] — 2026-02-16
 
 Initial release.

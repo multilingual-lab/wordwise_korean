@@ -38,11 +38,10 @@ Hello     friend     library
 **Download the extension:**
 
 1. Get the latest ZIP from [GitHub Releases](https://github.com/leahyums/wordwise_korean/releases/latest)
-2. Extract the ZIP file
-3. Open Chrome and go to `chrome://extensions/`
-4. Enable "Developer mode" (toggle in top right)
-5. Click "Load unpacked" and select the extracted folder
-6. Click the extension icon and enable it!
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable **Developer mode** (toggle in top right)
+4. Drag and drop the ZIP directly onto the page
+5. Click the extension icon and enable it!
 
 ### For Developers
 
