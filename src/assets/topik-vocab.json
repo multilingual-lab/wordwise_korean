@@ -54,7 +54,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to go",
+      "en": "go",
       "zh": "去",
       "ja": "行く"
     }
@@ -1234,7 +1234,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to study",
+      "en": "study",
       "zh": "学习",
       "ja": "勉強する"
     }
@@ -2264,7 +2264,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be long",
+      "en": "long",
       "zh": "长",
       "ja": "長い"
     }
@@ -2334,7 +2334,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be black",
+      "en": "black",
       "zh": "黑",
       "ja": "黒い"
     }
@@ -2574,7 +2574,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be bad",
+      "en": "bad",
       "zh": "坏",
       "ja": "悪い"
     }
@@ -2784,7 +2784,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be low",
+      "en": "low",
       "zh": "低",
       "ja": "低い"
     }
@@ -3054,7 +3054,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be yellow",
+      "en": "yellow",
       "zh": "黄",
       "ja": "黄色い"
     }
@@ -3114,7 +3114,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to play",
+      "en": "play",
       "zh": "玩",
       "ja": "遊ぶ"
     }
@@ -3144,7 +3144,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be high/tall",
+      "en": "high/tall",
       "zh": "高",
       "ja": "高い"
     }
@@ -3284,7 +3284,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be slow",
+      "en": "slow",
       "zh": "慢",
       "ja": "遅い"
     }
@@ -4284,7 +4284,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to hear/listen",
+      "en": "hear/listen",
       "zh": "听",
       "ja": "聞く"
     }
@@ -4694,7 +4694,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to drink",
+      "en": "drink",
       "zh": "喝",
       "ja": "飲む"
     }
@@ -4764,7 +4764,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to meet",
+      "en": "meet",
       "zh": "见面",
       "ja": "会う"
     }
@@ -4784,7 +4784,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to make",
+      "en": "make",
       "zh": "做/制作",
       "ja": "作る"
     }
@@ -4824,7 +4824,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be many",
+      "en": "many",
       "zh": "多",
       "ja": "多い"
     }
@@ -5004,7 +5004,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to eat",
+      "en": "eat",
       "zh": "吃",
       "ja": "食べる"
     }
@@ -6224,7 +6224,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to see/watch",
+      "en": "see/watch",
       "zh": "看",
       "ja": "見る"
     }
@@ -6694,7 +6694,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be fast",
+      "en": "fast",
       "zh": "快",
       "ja": "速い"
     }
@@ -6714,7 +6714,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be red",
+      "en": "red",
       "zh": "红",
       "ja": "赤い"
     }
@@ -6844,7 +6844,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to buy",
+      "en": "buy",
       "zh": "买",
       "ja": "買う"
     }
@@ -7364,7 +7364,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to stand",
+      "en": "stand",
       "zh": "站",
       "ja": "立つ"
     }
@@ -8644,7 +8644,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to write",
+      "en": "write",
       "zh": "写",
       "ja": "書く"
     }
@@ -9134,7 +9134,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to sit",
+      "en": "sit",
       "zh": "坐",
       "ja": "座る"
     }
@@ -9584,7 +9584,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to not exist/not have",
+      "en": "not exist/not have",
       "zh": "没有/不在",
       "ja": "ない"
     }
@@ -10104,7 +10104,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to come",
+      "en": "come",
       "zh": "来",
       "ja": "来る"
     }
@@ -11574,7 +11574,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to wake up/get up",
+      "en": "wake up/get up",
       "zh": "起床",
       "ja": "起きる"
     }
@@ -11634,7 +11634,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to work",
+      "en": "work",
       "zh": "工作",
       "ja": "働く"
     }
@@ -11664,7 +11664,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to read",
+      "en": "read",
       "zh": "读",
       "ja": "読む"
     }
@@ -11734,7 +11734,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to exist/have",
+      "en": "exist/have",
       "zh": "有/在",
       "ja": "ある/いる"
     }
@@ -11784,7 +11784,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to sleep",
+      "en": "sleep",
       "zh": "睡觉",
       "ja": "寝る"
     }
@@ -11894,7 +11894,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be small",
+      "en": "small",
       "zh": "小",
       "ja": "小さい"
     }
@@ -12274,7 +12274,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be few",
+      "en": "few",
       "zh": "少",
       "ja": "少ない"
     }
@@ -12794,7 +12794,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be good",
+      "en": "good",
       "zh": "好",
       "ja": "良い"
     }
@@ -13444,7 +13444,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be short",
+      "en": "short",
       "zh": "短",
       "ja": "短い"
     }
@@ -14304,7 +14304,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be big",
+      "en": "big",
       "zh": "大",
       "ja": "大きい"
     }
@@ -14644,7 +14644,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be blue",
+      "en": "blue",
       "zh": "蓝",
       "ja": "青い"
     }
@@ -14674,7 +14674,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to sell",
+      "en": "sell",
       "zh": "卖",
       "ja": "売る"
     }
@@ -15004,7 +15004,7 @@
     "level": 1,
     "pos": "verb",
     "translations": {
-      "en": "to do",
+      "en": "do",
       "zh": "做",
       "ja": "する"
     }
@@ -15054,7 +15054,7 @@
     "level": 1,
     "pos": "adjective",
     "translations": {
-      "en": "to be white",
+      "en": "white",
       "zh": "白",
       "ja": "白い"
     }
@@ -15844,7 +15844,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be thin",
+      "en": "thin",
       "zh": "to be thin",
       "ja": "to be thin"
     }
@@ -15874,7 +15874,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be possible",
+      "en": "possible",
       "zh": "to be possible",
       "ja": "to be possible"
     }
@@ -16004,7 +16004,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to teach",
+      "en": "teach",
       "zh": "教",
       "ja": "教える"
     }
@@ -16024,7 +16024,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to indicate",
+      "en": "indicate",
       "zh": "to indicate",
       "ja": "to indicate"
     }
@@ -16140,16 +16140,6 @@
     }
   },
   {
-    "word": "가장",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "most",
-      "zh": "most",
-      "ja": "most"
-    }
-  },
-  {
     "word": "가전제품",
     "level": 2,
     "pos": "noun",
@@ -16194,7 +16184,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being family-oriented",
+      "en": "family-oriented",
       "zh": "being family-oriented",
       "ja": "being family-oriented"
     }
@@ -16207,16 +16197,6 @@
       "en": "leather",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "가지",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "branch",
-      "zh": "branch",
-      "ja": "branch"
     }
   },
   {
@@ -16270,16 +16250,6 @@
     }
   },
   {
-    "word": "각",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "each",
-      "zh": "each",
-      "ja": "each"
-    }
-  },
-  {
     "word": "각각",
     "level": 2,
     "pos": "noun",
@@ -16327,16 +16297,6 @@
       "en": "various",
       "zh": "various",
       "ja": "various"
-    }
-  },
-  {
-    "word": "간",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "while",
-      "zh": "while",
-      "ja": "while"
     }
   },
   {
@@ -16504,7 +16464,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to change clothes",
+      "en": "change clothes",
       "zh": "to change clothes",
       "ja": "to change clothes"
     }
@@ -16517,16 +16477,6 @@
       "en": "thirst",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "감",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "persimmon",
-      "zh": "persimmon",
-      "ja": "persimmon"
     }
   },
   {
@@ -16544,19 +16494,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be twined",
+      "en": "twined",
       "zh": "to be twined",
       "ja": "to be twined"
-    }
-  },
-  {
-    "word": "감다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "wrap, wire",
-      "zh": "close ~ (eyes)",
-      "ja": "close ~ (eyes)"
     }
   },
   {
@@ -16567,16 +16507,6 @@
       "en": "director",
       "zh": "director",
       "ja": "director"
-    }
-  },
-  {
-    "word": "감동",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "sensation",
-      "zh": "sensation",
-      "ja": "sensation"
     }
   },
   {
@@ -16844,7 +16774,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be strong",
+      "en": "strong",
       "zh": "to be strong",
       "ja": "to be strong"
     }
@@ -16874,7 +16804,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to return, to reward",
+      "en": "return, to reward",
       "zh": "to return, to reward",
       "ja": "to return, to reward"
     }
@@ -16907,16 +16837,6 @@
       "en": "naughty child",
       "zh": "naughty child",
       "ja": "naughty child"
-    }
-  },
-  {
-    "word": "개나리",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "forsythia",
-      "zh": "forsythia",
-      "ja": "forsythia"
     }
   },
   {
@@ -16984,7 +16904,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being open",
+      "en": "open",
       "zh": "being open",
       "ja": "being open"
     }
@@ -17024,19 +16944,9 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being characteristic",
+      "en": "characteristic",
       "zh": "being characteristic",
       "ja": "being characteristic"
-    }
-  },
-  {
-    "word": "개인",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "individual",
-      "zh": "individual",
-      "ja": "individual"
     }
   },
   {
@@ -17104,7 +17014,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be slim and long",
+      "en": "slim and long",
       "zh": "to be slim and long",
       "ja": "to be slim and long"
     }
@@ -17450,16 +17360,6 @@
     }
   },
   {
-    "word": "걷다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "walk",
-      "zh": "walk",
-      "ja": "walk"
-    }
-  },
-  {
     "word": "걸레",
     "level": 2,
     "pos": "noun",
@@ -17644,7 +17544,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be lazy",
+      "en": "lazy",
       "zh": "to be lazy",
       "ja": "to be lazy"
     }
@@ -17734,7 +17634,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being as a result",
+      "en": "as a result",
       "zh": "being as a result",
       "ja": "being as a result"
     }
@@ -17910,26 +17810,6 @@
     }
   },
   {
-    "word": "경기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "economy",
-      "zh": "competition, game",
-      "ja": "competition, game"
-    }
-  },
-  {
-    "word": "경기장",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "stadium",
-      "zh": "stadium, arena",
-      "ja": "stadium, arena"
-    }
-  },
-  {
     "word": "경력",
     "level": 2,
     "pos": "noun",
@@ -17937,16 +17817,6 @@
       "en": "career",
       "zh": "career",
       "ja": "career"
-    }
-  },
-  {
-    "word": "경복궁",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Gyeongbokgung",
-      "zh": "Gyeongbokgung",
-      "ja": "Gyeongbokgung"
     }
   },
   {
@@ -18077,16 +17947,6 @@
       "en": "economics",
       "zh": "economics",
       "ja": "economics"
-    }
-  },
-  {
-    "word": "경찰관",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "police officer",
-      "zh": "police officer",
-      "ja": "police officer"
     }
   },
   {
@@ -18254,7 +18114,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being planned, as planned",
+      "en": "planned, as planned",
       "zh": "being planned, as planned",
       "ja": "being planned, as planned"
     }
@@ -18540,16 +18400,6 @@
     }
   },
   {
-    "word": "고장",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "hometown",
-      "zh": "broken, malfunction",
-      "ja": "broken, malfunction"
-    }
-  },
-  {
     "word": "고전",
     "level": 2,
     "pos": "noun",
@@ -18587,16 +18437,6 @@
       "en": "stubborn",
       "zh": "persistence",
       "ja": "persistence"
-    }
-  },
-  {
-    "word": "고추",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "pepper",
-      "zh": "red pepper",
-      "ja": "red pepper"
     }
   },
   {
@@ -18750,16 +18590,6 @@
     }
   },
   {
-    "word": "골목",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "alley",
-      "zh": "alley",
-      "ja": "alley"
-    }
-  },
-  {
     "word": "골목길",
     "level": 2,
     "pos": "noun",
@@ -18780,16 +18610,6 @@
     }
   },
   {
-    "word": "골프",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "golf",
-      "zh": "golf",
-      "ja": "golf"
-    }
-  },
-  {
     "word": "곰",
     "level": 2,
     "pos": "noun",
@@ -18797,16 +18617,6 @@
       "en": "bear",
       "zh": "bear",
       "ja": "bear"
-    }
-  },
-  {
-    "word": "곱다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "beautiful",
-      "zh": "beautiful",
-      "ja": "beautiful"
     }
   },
   {
@@ -18837,26 +18647,6 @@
       "en": "everywhere",
       "zh": "here and there, everywhere",
       "ja": "here and there, everywhere"
-    }
-  },
-  {
-    "word": "공",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "ball",
-      "zh": "ball",
-      "ja": "ball"
-    }
-  },
-  {
-    "word": "공간",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "space",
-      "zh": "space",
-      "ja": "space"
     }
   },
   {
@@ -18940,16 +18730,6 @@
     }
   },
   {
-    "word": "공기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "air",
-      "zh": "air",
-      "ja": "air"
-    }
-  },
-  {
     "word": "공동",
     "level": 2,
     "pos": "noun",
@@ -19020,16 +18800,6 @@
     }
   },
   {
-    "word": "공연",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "show",
-      "zh": "show, public performance",
-      "ja": "show, public performance"
-    }
-  },
-  {
     "word": "공연장",
     "level": 2,
     "pos": "noun",
@@ -19067,16 +18837,6 @@
       "en": "princess",
       "zh": "princess",
       "ja": "princess"
-    }
-  },
-  {
-    "word": "공중전화",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "payphone",
-      "zh": "payphone, public phone",
-      "ja": "payphone, public phone"
     }
   },
   {
@@ -19127,16 +18887,6 @@
       "en": "pollution",
       "zh": "pollution",
       "ja": "pollution"
-    }
-  },
-  {
-    "word": "과",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "division",
-      "zh": "division",
-      "ja": "division"
     }
   },
   {
@@ -19234,7 +18984,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to exaggerate",
+      "en": "exaggerate",
       "zh": "to exaggerate",
       "ja": "to exaggerate"
     }
@@ -19257,16 +19007,6 @@
       "en": "task",
       "zh": "task",
       "ja": "task"
-    }
-  },
-  {
-    "word": "과학",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "science",
-      "zh": "science",
-      "ja": "science"
     }
   },
   {
@@ -19524,7 +19264,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be distressed",
+      "en": "distressed",
       "zh": "to be distressed",
       "ja": "to be distressed"
     }
@@ -19710,16 +19450,6 @@
     }
   },
   {
-    "word": "교체",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "substitute",
-      "zh": "substitute, change",
-      "ja": "substitute, change"
-    }
-  },
-  {
     "word": "교통수단",
     "level": 2,
     "pos": "noun",
@@ -19767,16 +19497,6 @@
       "en": "lesson",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "구",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "9",
-      "zh": "9",
-      "ja": "9"
     }
   },
   {
@@ -19980,16 +19700,6 @@
     }
   },
   {
-    "word": "구하다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "find",
-      "zh": "save, seek, get",
-      "ja": "save, seek, get"
-    }
-  },
-  {
     "word": "국가",
     "level": 2,
     "pos": "noun",
@@ -20040,16 +19750,6 @@
     }
   },
   {
-    "word": "국립",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "national",
-      "zh": "nationalestablished, state",
-      "ja": "nationalestablished, state"
-    }
-  },
-  {
     "word": "국문학",
     "level": 2,
     "pos": "noun",
@@ -20097,16 +19797,6 @@
       "en": "traditional Korean music",
       "zh": "traditional Korean music",
       "ja": "traditional Korean music"
-    }
-  },
-  {
-    "word": "국어",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Korean language",
-      "zh": "Korean language",
-      "ja": "Korean language"
     }
   },
   {
@@ -20244,7 +19934,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be thick",
+      "en": "thick",
       "zh": "to be thick",
       "ja": "to be thick"
     }
@@ -20294,19 +19984,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be curious",
+      "en": "curious",
       "zh": "to be curious",
       "ja": "to be curious"
-    }
-  },
-  {
-    "word": "권",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "~ book(s)",
-      "zh": "~ book(s)",
-      "ja": "~ book(s)"
     }
   },
   {
@@ -20424,7 +20104,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be bothersome, to be tedious",
+      "en": "bothersome, to be tedious",
       "zh": "to be bothersome, to be tedious",
       "ja": "to be bothersome, to be tedious"
     }
@@ -20590,16 +20270,6 @@
     }
   },
   {
-    "word": "그램",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "gram",
-      "zh": "gram",
-      "ja": "gram"
-    }
-  },
-  {
     "word": "그러게",
     "level": 2,
     "pos": "noun",
@@ -20744,7 +20414,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to miss, to be nostalgic",
+      "en": "miss, to be nostalgic",
       "zh": "to miss, to be nostalgic",
       "ja": "to miss, to be nostalgic"
     }
@@ -20784,7 +20454,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be nostalgic, to be missed",
+      "en": "nostalgic, to be missed",
       "zh": "to be nostalgic, to be missed",
       "ja": "to be nostalgic, to be missed"
     }
@@ -20794,7 +20464,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to quit",
+      "en": "quit",
       "zh": "to quit",
       "ja": "to quit"
     }
@@ -20857,16 +20527,6 @@
       "en": "at last, only then",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "그중",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "among them",
-      "zh": "among them",
-      "ja": "among them"
     }
   },
   {
@@ -21100,16 +20760,6 @@
     }
   },
   {
-    "word": "금연",
-    "level": 2,
-    "pos": "expression",
-    "translations": {
-      "en": "no smoking",
-      "zh": "no smoking",
-      "ja": "no smoking"
-    }
-  },
-  {
     "word": "금융",
     "level": 2,
     "pos": "noun",
@@ -21304,7 +20954,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to wait",
+      "en": "wait",
       "zh": "等",
       "ja": "待つ"
     }
@@ -21424,7 +21074,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be happy",
+      "en": "happy",
       "zh": "高兴",
       "ja": "嬉しい"
     }
@@ -21437,16 +21087,6 @@
       "en": "joy, happiness",
       "zh": "joy, happiness",
       "ja": "joy, happiness"
-    }
-  },
-  {
-    "word": "기사",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "driver",
-      "zh": "article, driver, engineer",
-      "ja": "article, driver, engineer"
     }
   },
   {
@@ -21484,7 +21124,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to remember, to recall",
+      "en": "remember, to recall",
       "zh": "to remember, to recall",
       "ja": "to remember, to recall"
     }
@@ -21660,16 +21300,6 @@
     }
   },
   {
-    "word": "기타",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "other",
-      "zh": "other",
-      "ja": "other"
-    }
-  },
-  {
     "word": "기행문",
     "level": 2,
     "pos": "noun",
@@ -21780,16 +21410,6 @@
     }
   },
   {
-    "word": "길다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "long",
-      "zh": "长",
-      "ja": "長い"
-    }
-  },
-  {
     "word": "길이",
     "level": 2,
     "pos": "noun",
@@ -21797,16 +21417,6 @@
       "en": "lenth",
       "zh": "lenth",
       "ja": "lenth"
-    }
-  },
-  {
-    "word": "김",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "seaweed",
-      "zh": "seaweed",
-      "ja": "seaweed"
     }
   },
   {
@@ -21824,7 +21434,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be deep",
+      "en": "deep",
       "zh": "to be deep",
       "ja": "to be deep"
     }
@@ -21964,19 +21574,9 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be clean",
+      "en": "clean",
       "zh": "干净",
       "ja": "きれい"
-    }
-  },
-  {
-    "word": "깨다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "break",
-      "zh": "wake up, crack, break",
-      "ja": "wake up, crack, break"
     }
   },
   {
@@ -22037,16 +21637,6 @@
       "en": "wake up",
       "zh": "to wake someone up",
       "ja": "to wake someone up"
-    }
-  },
-  {
-    "word": "깨지다",
-    "level": 2,
-    "pos": "adjective",
-    "translations": {
-      "en": "be broken",
-      "zh": "chip, crack, break",
-      "ja": "chip, crack, break"
     }
   },
   {
@@ -22117,16 +21707,6 @@
       "en": "properly (without failure), faithfully",
       "zh": "properly (without failure), faithfully",
       "ja": "properly (without failure), faithfully"
-    }
-  },
-  {
-    "word": "꼭",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "firmly, certainly",
-      "zh": "exactly, absolutely",
-      "ja": "exactly, absolutely"
     }
   },
   {
@@ -22280,16 +21860,6 @@
     }
   },
   {
-    "word": "꾸다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "dream",
-      "zh": "dream",
-      "ja": "dream"
-    }
-  },
-  {
     "word": "꾸리다",
     "level": 2,
     "pos": "verb",
@@ -22344,7 +21914,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to scold",
+      "en": "scold",
       "zh": "to scold",
       "ja": "to scold"
     }
@@ -22434,7 +22004,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to cut",
+      "en": "cut",
       "zh": "to cut",
       "ja": "to cut"
     }
@@ -22514,7 +22084,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to finish",
+      "en": "finish",
       "zh": "结束",
       "ja": "終わる"
     }
@@ -22557,16 +22127,6 @@
       "en": "meal",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "끼다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "cloudy",
-      "zh": "put on, plug, (fog) rolls in",
-      "ja": "put on, plug, (fog) rolls in"
     }
   },
   {
@@ -22730,16 +22290,6 @@
     }
   },
   {
-    "word": "나빠지다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "get worse",
-      "zh": "spoil, deteriorate",
-      "ja": "spoil, deteriorate"
-    }
-  },
-  {
     "word": "나서다",
     "level": 2,
     "pos": "verb",
@@ -22864,7 +22414,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to fly",
+      "en": "fly",
       "zh": "to fly",
       "ja": "to fly"
     }
@@ -22924,7 +22474,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to fly around",
+      "en": "fly around",
       "zh": "to fly around",
       "ja": "to fly around"
     }
@@ -22944,7 +22494,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to fly up, to soar",
+      "en": "fly up, to soar",
       "zh": "to fly up, to soar",
       "ja": "to fly up, to soar"
     }
@@ -22967,16 +22517,6 @@
       "en": "old",
       "zh": "to be old",
       "ja": "to be old"
-    }
-  },
-  {
-    "word": "남",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "man, male",
-      "zh": "south, man",
-      "ja": "south, man"
     }
   },
   {
@@ -23004,7 +22544,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to remain, to be left",
+      "en": "remain, to be left",
       "zh": "to remain, to be left",
       "ja": "to remain, to be left"
     }
@@ -23020,16 +22560,6 @@
     }
   },
   {
-    "word": "남미",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "South America",
-      "zh": "South America",
-      "ja": "South America"
-    }
-  },
-  {
     "word": "남부",
     "level": 2,
     "pos": "noun",
@@ -23037,16 +22567,6 @@
       "en": "southern",
       "zh": "southern",
       "ja": "southern"
-    }
-  },
-  {
-    "word": "남북",
-    "level": 2,
-    "pos": "expression",
-    "translations": {
-      "en": "north and south",
-      "zh": "north and south",
-      "ja": "north and south"
     }
   },
   {
@@ -23074,7 +22594,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to heal",
+      "en": "heal",
       "zh": "to heal",
       "ja": "to heal"
     }
@@ -23117,16 +22637,6 @@
       "en": "give birth",
       "zh": "to give birth",
       "ja": "to give birth"
-    }
-  },
-  {
-    "word": "내",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "within",
-      "zh": "of mine, my",
-      "ja": "of mine, my"
     }
   },
   {
@@ -23494,7 +23004,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to pass over",
+      "en": "pass over",
       "zh": "to hand over",
       "ja": "to hand over"
     }
@@ -23564,7 +23074,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be squared",
+      "en": "squared",
       "zh": "to be squared",
       "ja": "to be squared"
     }
@@ -24120,16 +23630,6 @@
     }
   },
   {
-    "word": "눈",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "eye",
-      "zh": "眼睛",
-      "ja": "目"
-    }
-  },
-  {
     "word": "눈가",
     "level": 2,
     "pos": "noun",
@@ -24230,16 +23730,6 @@
     }
   },
   {
-    "word": "눈사람",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "snowman",
-      "zh": "snowman",
-      "ja": "snowman"
-    }
-  },
-  {
     "word": "눈사태",
     "level": 2,
     "pos": "noun",
@@ -24247,16 +23737,6 @@
       "en": "avalanche",
       "zh": "avalanche",
       "ja": "avalanche"
-    }
-  },
-  {
-    "word": "눈싸움",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "snowball fight",
-      "zh": "staring contest, snowball fight",
-      "ja": "staring contest, snowball fight"
     }
   },
   {
@@ -24294,7 +23774,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to wear deeply",
+      "en": "wear deeply",
       "zh": "to wear deeply",
       "ja": "to wear deeply"
     }
@@ -24384,7 +23864,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to get old",
+      "en": "get old",
       "zh": "to get old",
       "ja": "to get old"
     }
@@ -24440,16 +23920,6 @@
     }
   },
   {
-    "word": "늦잠",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "oversleeping",
-      "zh": "overslept, sleeping in late",
-      "ja": "overslept, sleeping in late"
-    }
-  },
-  {
     "word": "늦추다",
     "level": 2,
     "pos": "verb",
@@ -24457,16 +23927,6 @@
       "en": "delay",
       "zh": "to delay",
       "ja": "to delay"
-    }
-  },
-  {
-    "word": "님",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Sir",
-      "zh": "Sir",
-      "ja": "Sir"
     }
   },
   {
@@ -24644,7 +24104,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be varied",
+      "en": "varied",
       "zh": "to be varied",
       "ja": "to be varied"
     }
@@ -24684,7 +24144,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be compassionate, to be kind",
+      "en": "compassionate, to be kind",
       "zh": "to be compassionate, to be kind",
       "ja": "to be compassionate, to be kind"
     }
@@ -24814,7 +24274,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being independent",
+      "en": "independent",
       "zh": "",
       "ja": ""
     }
@@ -24864,7 +24324,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be simple",
+      "en": "simple",
       "zh": "to be simple",
       "ja": "to be simple"
     }
@@ -24887,16 +24347,6 @@
       "en": "unit",
       "zh": "unit",
       "ja": "unit"
-    }
-  },
-  {
-    "word": "단점",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "disadvantage",
-      "zh": "disadvantage, shortcoming, drawback",
-      "ja": "disadvantage, shortcoming, drawback"
     }
   },
   {
@@ -24940,26 +24390,6 @@
     }
   },
   {
-    "word": "닫히다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "shut",
-      "zh": "shut, close",
-      "ja": "shut, close"
-    }
-  },
-  {
-    "word": "달다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "sweet",
-      "zh": "sweet",
-      "ja": "sweet"
-    }
-  },
-  {
     "word": "달라지다",
     "level": 2,
     "pos": "verb",
@@ -24977,16 +24407,6 @@
       "en": "soothe, calm",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "달러",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "dollar",
-      "zh": "dollar",
-      "ja": "dollar"
     }
   },
   {
@@ -25037,16 +24457,6 @@
       "en": "running",
       "zh": "running",
       "ja": "running"
-    }
-  },
-  {
-    "word": "달리다",
-    "level": 2,
-    "pos": "adjective",
-    "translations": {
-      "en": "run",
-      "zh": "run",
-      "ja": "run"
     }
   },
   {
@@ -25137,16 +24547,6 @@
       "en": "wall",
       "zh": "wall, fence, hedge",
       "ja": "wall, fence, hedge"
-    }
-  },
-  {
-    "word": "담그다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "dip",
-      "zh": "dip, pickle",
-      "ja": "dip, pickle"
     }
   },
   {
@@ -25254,7 +24654,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be stuffy, to be suffocating",
+      "en": "stuffy, to be suffocating",
       "zh": "to be stuffy, to be suffocating",
       "ja": "to be stuffy, to be suffocating"
     }
@@ -25287,16 +24687,6 @@
       "en": "per",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "당근",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "carrot",
-      "zh": "carrot",
-      "ja": "carrot"
     }
   },
   {
@@ -25337,16 +24727,6 @@
       "en": "at the time",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "당신",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "you",
-      "zh": "you",
-      "ja": "you"
     }
   },
   {
@@ -25424,7 +24804,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be embarrassed, to be bewildered",
+      "en": "embarrassed, to be bewildered",
       "zh": "to be embarrassed, to be bewildered",
       "ja": "to be embarrassed, to be bewildered"
     }
@@ -25437,16 +24817,6 @@
       "en": "reach",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "대",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "versus, large",
-      "zh": "versus, large",
-      "ja": "versus, large"
     }
   },
   {
@@ -25900,16 +25270,6 @@
     }
   },
   {
-    "word": "대한민국",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Republic of Korea",
-      "zh": "Republic of Korea, South Korea",
-      "ja": "Republic of Korea, South Korea"
-    }
-  },
-  {
     "word": "대형",
     "level": 2,
     "pos": "noun",
@@ -25964,7 +25324,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be dirty",
+      "en": "dirty",
       "zh": "脏",
       "ja": "汚い"
     }
@@ -26064,7 +25424,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to throw",
+      "en": "throw",
       "zh": "to throw",
       "ja": "to throw"
     }
@@ -26094,7 +25454,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be hot",
+      "en": "hot",
       "zh": "热",
       "ja": "暑い"
     }
@@ -26117,16 +25477,6 @@
       "en": "lump, mass",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "덮다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "cover",
-      "zh": "cover",
-      "ja": "cover"
     }
   },
   {
@@ -26164,19 +25514,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to bring",
+      "en": "bring",
       "zh": "to bring",
       "ja": "to bring"
-    }
-  },
-  {
-    "word": "데리다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "bring with",
-      "zh": "bring, take along",
-      "ja": "bring, take along"
     }
   },
   {
@@ -26247,16 +25587,6 @@
       "en": "thief",
       "zh": "thief",
       "ja": "thief"
-    }
-  },
-  {
-    "word": "도로",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "road",
-      "zh": "road",
-      "ja": "road"
     }
   },
   {
@@ -26414,7 +25744,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to arrive",
+      "en": "arrive",
       "zh": "到达",
       "ja": "到着する"
     }
@@ -26534,7 +25864,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to spin, to get around",
+      "en": "spin, to get around",
       "zh": "to spin, to get around",
       "ja": "to spin, to get around"
     }
@@ -26564,7 +25894,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to return",
+      "en": "return",
       "zh": "to return",
       "ja": "to return"
     }
@@ -26574,7 +25904,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to turn",
+      "en": "turn",
       "zh": "to turn",
       "ja": "to turn"
     }
@@ -26654,7 +25984,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to help",
+      "en": "help",
       "zh": "帮助",
       "ja": "助ける"
     }
@@ -26780,26 +26110,6 @@
     }
   },
   {
-    "word": "동아리",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "club",
-      "zh": "club, group",
-      "ja": "club, group"
-    }
-  },
-  {
-    "word": "동양",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "eastern, orient",
-      "zh": "eastern, orient",
-      "ja": "eastern, orient"
-    }
-  },
-  {
     "word": "동양인",
     "level": 2,
     "pos": "noun",
@@ -26864,7 +26174,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "being the same",
+      "en": "the same",
       "zh": "being the same",
       "ja": "being the same"
     }
@@ -26994,7 +26304,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to look back, to think back",
+      "en": "look back, to think back",
       "zh": "to look back, to think back",
       "ja": "to look back, to think back"
     }
@@ -27184,7 +26494,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be dull",
+      "en": "dull",
       "zh": "to be dull",
       "ja": "to be dull"
     }
@@ -27500,16 +26810,6 @@
     }
   },
   {
-    "word": "듣기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "listening",
-      "zh": "listening, hearing",
-      "ja": "listening, hearing"
-    }
-  },
-  {
     "word": "들려오다",
     "level": 2,
     "pos": "adjective",
@@ -27534,7 +26834,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to stop by",
+      "en": "stop by",
       "zh": "to stop by",
       "ja": "to stop by"
     }
@@ -27554,7 +26854,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to try hearing",
+      "en": "try hearing",
       "zh": "to try hearing",
       "ja": "to try hearing"
     }
@@ -27610,16 +26910,6 @@
     }
   },
   {
-    "word": "등",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "etc, back",
-      "zh": "etc, back",
-      "ja": "etc, back"
-    }
-  },
-  {
     "word": "등기",
     "level": 2,
     "pos": "noun",
@@ -27667,16 +26957,6 @@
       "en": "lights, lamp",
       "zh": "lights, lamp",
       "ja": "lights, lamp"
-    }
-  },
-  {
-    "word": "등산복",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "mountaineering clothes",
-      "zh": "mountaineering clothing",
-      "ja": "mountaineering clothing"
     }
   },
   {
@@ -27744,19 +27024,9 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be warm",
+      "en": "warm",
       "zh": "温暖",
       "ja": "暖かい"
-    }
-  },
-  {
-    "word": "따라가다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "follow",
-      "zh": "follow",
-      "ja": "follow"
     }
   },
   {
@@ -27780,16 +27050,6 @@
     }
   },
   {
-    "word": "따라오다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "follow, catch up",
-      "zh": "come with, follow",
-      "ja": "come with, follow"
-    }
-  },
-  {
     "word": "따로따로",
     "level": 2,
     "pos": "noun",
@@ -27797,16 +27057,6 @@
       "en": "separately",
       "zh": "separately",
       "ja": "separately"
-    }
-  },
-  {
-    "word": "따르다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "follow",
-      "zh": "follow",
-      "ja": "follow"
     }
   },
   {
@@ -27897,16 +27147,6 @@
       "en": "peanuts",
       "zh": "peanuts",
       "ja": "peanuts"
-    }
-  },
-  {
-    "word": "때",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "time",
-      "zh": "time",
-      "ja": "time"
     }
   },
   {
@@ -28074,7 +27314,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be clever, to be smart",
+      "en": "clever, to be smart",
       "zh": "to be clever, to be smart",
       "ja": "to be clever, to be smart"
     }
@@ -28144,19 +27384,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be fat",
+      "en": "fat",
       "zh": "to be fat",
       "ja": "to be fat"
-    }
-  },
-  {
-    "word": "뛰다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "run",
-      "zh": "run",
-      "ja": "run"
     }
   },
   {
@@ -28164,7 +27394,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to run",
+      "en": "run",
       "zh": "to run",
       "ja": "to run"
     }
@@ -28244,7 +27474,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to run (to come)",
+      "en": "run (to come)",
       "zh": "to run (to come)",
       "ja": "to run (to come)"
     }
@@ -28254,7 +27484,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to rush out, to leap out",
+      "en": "rush out, to leap out",
       "zh": "to rush out, to leap out",
       "ja": "to rush out, to leap out"
     }
@@ -28264,19 +27494,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to become hot",
+      "en": "become hot",
       "zh": "to become hot",
       "ja": "to become hot"
-    }
-  },
-  {
-    "word": "뜨다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "(sth) rise",
-      "zh": "rise, open (the eyes)",
-      "ja": "rise, open (the eyes)"
     }
   },
   {
@@ -28580,16 +27800,6 @@
     }
   },
   {
-    "word": "마늘",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "garlic",
-      "zh": "garlic",
-      "ja": "garlic"
-    }
-  },
-  {
     "word": "마당",
     "level": 2,
     "pos": "noun",
@@ -28654,7 +27864,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to provide, to prepare",
+      "en": "provide, to prepare",
       "zh": "to provide, to prepare",
       "ja": "to provide, to prepare"
     }
@@ -28824,7 +28034,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to come face to face",
+      "en": "come face to face",
       "zh": "to come face to face",
       "ja": "to come face to face"
     }
@@ -28987,16 +28197,6 @@
       "en": "last train",
       "zh": "last train",
       "ja": "last train"
-    }
-  },
-  {
-    "word": "만",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "only",
-      "zh": "only, ten thousand",
-      "ja": "only, ten thousand"
     }
   },
   {
@@ -29200,21 +28400,11 @@
     }
   },
   {
-    "word": "말하기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "speaking",
-      "zh": "speaking",
-      "ja": "speaking"
-    }
-  },
-  {
     "word": "말하다",
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to speak/say",
+      "en": "speak/say",
       "zh": "说",
       "ja": "話す"
     }
@@ -29254,7 +28444,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to taste",
+      "en": "taste",
       "zh": "to taste",
       "ja": "to taste"
     }
@@ -29264,7 +28454,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be not delicious",
+      "en": "not delicious",
       "zh": "不好吃",
       "ja": "まずい"
     }
@@ -29274,7 +28464,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be delicious",
+      "en": "delicious",
       "zh": "好吃",
       "ja": "美味しい"
     }
@@ -29284,7 +28474,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to break, to ruin",
+      "en": "break, to ruin",
       "zh": "to break, to ruin",
       "ja": "to break, to ruin"
     }
@@ -29330,16 +28520,6 @@
     }
   },
   {
-    "word": "맞다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "right, fit, correct",
-      "zh": "right, fit, correct",
-      "ja": "right, fit, correct"
-    }
-  },
-  {
     "word": "맞벌이",
     "level": 2,
     "pos": "noun",
@@ -29357,16 +28537,6 @@
       "en": "face, confront",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "맞은편",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "opposite side",
-      "zh": "across, the other side, opposite",
-      "ja": "across, the other side, opposite"
     }
   },
   {
@@ -29394,7 +28564,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to assemble",
+      "en": "assemble",
       "zh": "to assemble",
       "ja": "to assemble"
     }
@@ -29504,7 +28674,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being attractive",
+      "en": "attractive",
       "zh": "being attractive",
       "ja": "being attractive"
     }
@@ -29594,7 +28764,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be sweet and spicy",
+      "en": "sweet and spicy",
       "zh": "to be sweet and spicy",
       "ja": "to be sweet and spicy"
     }
@@ -29734,7 +28904,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be not distant",
+      "en": "not distant",
       "zh": "to be not distant",
       "ja": "to be not distant"
     }
@@ -29854,7 +29024,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to stop",
+      "en": "stop",
       "zh": "to stop",
       "ja": "to stop"
     }
@@ -29874,7 +29044,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be cool/stylish",
+      "en": "cool/stylish",
       "zh": "帅",
       "ja": "かっこいい"
     }
@@ -30020,16 +29190,6 @@
     }
   },
   {
-    "word": "면도",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "shave",
-      "zh": "razor, shaving",
-      "ja": "razor, shaving"
-    }
-  },
-  {
     "word": "면세점",
     "level": 2,
     "pos": "noun",
@@ -30120,16 +29280,6 @@
     }
   },
   {
-    "word": "명",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "~ person(s)",
-      "zh": "~ person(s)",
-      "ja": "~ person(s)"
-    }
-  },
-  {
     "word": "명단",
     "level": 2,
     "pos": "noun",
@@ -30154,7 +29304,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be cheerful, to be bright",
+      "en": "cheerful, to be bright",
       "zh": "to be cheerful, to be bright",
       "ja": "to be cheerful, to be bright"
     }
@@ -30314,7 +29464,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to not know",
+      "en": "not know",
       "zh": "不知道",
       "ja": "知らない"
     }
@@ -30370,21 +29520,11 @@
     }
   },
   {
-    "word": "모자",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "hat",
-      "zh": "hat",
-      "ja": "hat"
-    }
-  },
-  {
     "word": "모자라다",
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be insufficient",
+      "en": "insufficient",
       "zh": "to be insufficient",
       "ja": "to be insufficient"
     }
@@ -30437,16 +29577,6 @@
       "en": "model, figure",
       "zh": "model, figure",
       "ja": "model, figure"
-    }
-  },
-  {
-    "word": "목",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Fri",
-      "zh": "neck, throat",
-      "ja": "neck, throat"
     }
   },
   {
@@ -30630,16 +29760,6 @@
     }
   },
   {
-    "word": "몸살",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "sickness, body aching",
-      "zh": "sickness, disease that comes from fatigue",
-      "ja": "sickness, disease that comes from fatigue"
-    }
-  },
-  {
     "word": "몸속",
     "level": 2,
     "pos": "noun",
@@ -30714,7 +29834,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be ugly",
+      "en": "ugly",
       "zh": "to be ugly",
       "ja": "to be ugly"
     }
@@ -30747,16 +29867,6 @@
       "en": "describe",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "무",
-    "level": 2,
-    "pos": "expression",
-    "translations": {
-      "en": "radish",
-      "zh": "radish",
-      "ja": "radish"
     }
   },
   {
@@ -30880,16 +29990,6 @@
     }
   },
   {
-    "word": "무리",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "impracticality",
-      "zh": "swarm, unreasonable",
-      "ja": "swarm, unreasonable"
-    }
-  },
-  {
     "word": "무사히",
     "level": 2,
     "pos": "noun",
@@ -30937,26 +30037,6 @@
       "en": "ignore",
       "zh": "disregard, neglect",
       "ja": "disregard, neglect"
-    }
-  },
-  {
-    "word": "무역",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "trade",
-      "zh": "trade",
-      "ja": "trade"
-    }
-  },
-  {
-    "word": "무용",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "dance",
-      "zh": "dance",
-      "ja": "dance"
     }
   },
   {
@@ -31060,16 +30140,6 @@
     }
   },
   {
-    "word": "문",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "door, gate",
-      "zh": "door, gate",
-      "ja": "door, gate"
-    }
-  },
-  {
     "word": "문구",
     "level": 2,
     "pos": "noun",
@@ -31077,16 +30147,6 @@
       "en": "stationery",
       "zh": "stationery",
       "ja": "stationery"
-    }
-  },
-  {
-    "word": "문구점",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "stationery store",
-      "zh": "stationery store",
-      "ja": "stationery store"
     }
   },
   {
@@ -31170,16 +30230,6 @@
     }
   },
   {
-    "word": "문장",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "sentence",
-      "zh": "sentence",
-      "ja": "sentence"
-    }
-  },
-  {
     "word": "문제점",
     "level": 2,
     "pos": "noun",
@@ -31240,16 +30290,6 @@
     }
   },
   {
-    "word": "묻다",
-    "level": 2,
-    "pos": "adjective",
-    "translations": {
-      "en": "ask",
-      "zh": "ask",
-      "ja": "ask"
-    }
-  },
-  {
     "word": "묻히다",
     "level": 2,
     "pos": "verb",
@@ -31257,16 +30297,6 @@
       "en": "smear, stain",
       "zh": "to put on, to get buried",
       "ja": "to put on, to get buried"
-    }
-  },
-  {
-    "word": "물",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "water",
-      "zh": "水",
-      "ja": "水"
     }
   },
   {
@@ -31384,7 +30414,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to pass on, to leave",
+      "en": "pass on, to leave",
       "zh": "to pass on, to leave",
       "ja": "to pass on, to leave"
     }
@@ -31444,7 +30474,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to ask",
+      "en": "ask",
       "zh": "问",
       "ja": "尋ねる"
     }
@@ -31534,7 +30564,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to slide",
+      "en": "slide",
       "zh": "to slide",
       "ja": "to slide"
     }
@@ -31617,16 +30647,6 @@
       "en": "smile",
       "zh": "smile",
       "ja": "smile"
-    }
-  },
-  {
-    "word": "미술",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "art",
-      "zh": "art",
-      "ja": "art"
     }
   },
   {
@@ -31804,7 +30824,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to believe in",
+      "en": "believe in",
       "zh": "to believe in",
       "ja": "to believe in"
     }
@@ -31824,7 +30844,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be reliable",
+      "en": "reliable",
       "zh": "to be reliable",
       "ja": "to be reliable"
     }
@@ -31834,7 +30854,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be trustworthy",
+      "en": "trustworthy",
       "zh": "to be trustworthy",
       "ja": "to be trustworthy"
     }
@@ -31844,7 +30864,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to push",
+      "en": "push",
       "zh": "to push",
       "ja": "to push"
     }
@@ -31854,19 +30874,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to rush in, to be pushed into",
+      "en": "rush in, to be pushed into",
       "zh": "to rush in, to be pushed into",
       "ja": "to rush in, to be pushed into"
-    }
-  },
-  {
-    "word": "밀리다",
-    "level": 2,
-    "pos": "adjective",
-    "translations": {
-      "en": "be jammed",
-      "zh": "be shaved, be pushed",
-      "ja": "be shaved, be pushed"
     }
   },
   {
@@ -31994,7 +31004,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to run out",
+      "en": "run out",
       "zh": "to run out",
       "ja": "to run out"
     }
@@ -32024,7 +31034,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to look at",
+      "en": "look at",
       "zh": "to look at",
       "ja": "to look at"
     }
@@ -32067,16 +31077,6 @@
       "en": "adjust, correct",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "바르다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "right, righteous",
-      "zh": "right, paint, wear",
-      "ja": "right, paint, wear"
     }
   },
   {
@@ -32204,7 +31204,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be pleased, to be glad",
+      "en": "pleased, to be glad",
       "zh": "to be pleased, to be glad",
       "ja": "to be pleased, to be glad"
     }
@@ -32247,16 +31247,6 @@
       "en": "return date",
       "zh": "return date",
       "ja": "return date"
-    }
-  },
-  {
-    "word": "반달",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "half-moon",
-      "zh": "half-moon",
-      "ja": "half-moon"
     }
   },
   {
@@ -32610,16 +31600,6 @@
     }
   },
   {
-    "word": "발음",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "pronunciation",
-      "zh": "pronunciation",
-      "ja": "pronunciation"
-    }
-  },
-  {
     "word": "발자국",
     "level": 2,
     "pos": "noun",
@@ -32630,16 +31610,6 @@
     }
   },
   {
-    "word": "발전",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "development",
-      "zh": "development",
-      "ja": "development"
-    }
-  },
-  {
     "word": "발톱",
     "level": 2,
     "pos": "noun",
@@ -32647,16 +31617,6 @@
       "en": "toenail",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "발표",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "presentation",
-      "zh": "announcement, presentation",
-      "ja": "announcement, presentation"
     }
   },
   {
@@ -32724,7 +31684,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to step on",
+      "en": "step on",
       "zh": "to step on",
       "ja": "to step on"
     }
@@ -32737,16 +31697,6 @@
       "en": "be stepped on",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "밤",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "night",
-      "zh": "晚上",
-      "ja": "夜"
     }
   },
   {
@@ -33010,26 +31960,6 @@
     }
   },
   {
-    "word": "배고프다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "hungry",
-      "zh": "hungry",
-      "ja": "hungry"
-    }
-  },
-  {
-    "word": "배구",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "volleyball",
-      "zh": "volleyball",
-      "ja": "volleyball"
-    }
-  },
-  {
     "word": "배꼽",
     "level": 2,
     "pos": "noun",
@@ -33080,16 +32010,6 @@
     }
   },
   {
-    "word": "배부르다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "full",
-      "zh": "be full (I am full.)",
-      "ja": "be full (I am full.)"
-    }
-  },
-  {
     "word": "배송",
     "level": 2,
     "pos": "noun",
@@ -33104,7 +32024,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to learn",
+      "en": "learn",
       "zh": "学",
       "ja": "習う"
     }
@@ -33170,16 +32090,6 @@
     }
   },
   {
-    "word": "백",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "100",
-      "zh": "100",
-      "ja": "100"
-    }
-  },
-  {
     "word": "뱀",
     "level": 2,
     "pos": "noun",
@@ -33224,7 +32134,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to have bad manners",
+      "en": "have bad manners",
       "zh": "to have bad manners",
       "ja": "to have bad manners"
     }
@@ -33724,7 +32634,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to change",
+      "en": "change",
       "zh": "to change",
       "ja": "to change"
     }
@@ -33737,16 +32647,6 @@
       "en": "change",
       "zh": "change",
       "ja": "change"
-    }
-  },
-  {
-    "word": "별",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "star",
-      "zh": "star",
-      "ja": "star"
     }
   },
   {
@@ -33907,16 +32807,6 @@
       "en": "bonus",
       "zh": "bonus",
       "ja": "bonus"
-    }
-  },
-  {
-    "word": "보도",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "report",
-      "zh": "sidewalk, report",
-      "ja": "sidewalk, report"
     }
   },
   {
@@ -34230,16 +33120,6 @@
     }
   },
   {
-    "word": "복숭아",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "peach",
-      "zh": "peach",
-      "ja": "peach"
-    }
-  },
-  {
     "word": "복습",
     "level": 2,
     "pos": "noun",
@@ -34430,16 +33310,6 @@
     }
   },
   {
-    "word": "봉지",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "bag",
-      "zh": "bag",
-      "ja": "bag"
-    }
-  },
-  {
     "word": "뵈다",
     "level": 2,
     "pos": "verb",
@@ -34494,7 +33364,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be shy, to be ashamed",
+      "en": "shy, to be ashamed",
       "zh": "to be shy, to be ashamed",
       "ja": "to be shy, to be ashamed"
     }
@@ -34527,16 +33397,6 @@
       "en": "army unit",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "부동산",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "real estate",
-      "zh": "real estate",
-      "ja": "real estate"
     }
   },
   {
@@ -34584,7 +33444,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be envious of",
+      "en": "envious of",
       "zh": "to be envious of",
       "ja": "to be envious of"
     }
@@ -34597,16 +33457,6 @@
       "en": "do (to show sth)",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "부모",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "parents",
-      "zh": "parents",
-      "ja": "parents"
     }
   },
   {
@@ -34707,16 +33557,6 @@
       "en": "part",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "부인",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "wife, Mrs.",
-      "zh": "wife, Mrs.",
-      "ja": "wife, Mrs."
     }
   },
   {
@@ -34984,7 +33824,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be distinct, to be clear",
+      "en": "distinct, to be clear",
       "zh": "to be distinct, to be clear",
       "ja": "to be distinct, to be clear"
     }
@@ -35080,16 +33920,6 @@
     }
   },
   {
-    "word": "불",
-    "level": 2,
-    "pos": "expression",
-    "translations": {
-      "en": "not be able to-",
-      "zh": "fire, electrical light",
-      "ja": "fire, electrical light"
-    }
-  },
-  {
     "word": "불가",
     "level": 2,
     "pos": "expression",
@@ -35114,7 +33944,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be impossible",
+      "en": "impossible",
       "zh": "to be impossible",
       "ja": "to be impossible"
     }
@@ -35304,7 +34134,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be pathetic",
+      "en": "pathetic",
       "zh": "to be pathetic",
       "ja": "to be pathetic"
     }
@@ -35344,7 +34174,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to increase, to become bigger",
+      "en": "increase, to become bigger",
       "zh": "to increase, to become bigger",
       "ja": "to increase, to become bigger"
     }
@@ -35414,7 +34244,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to burn",
+      "en": "burn",
       "zh": "to burn",
       "ja": "to burn"
     }
@@ -35484,7 +34314,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be red",
+      "en": "red",
       "zh": "to be red",
       "ja": "to be red"
     }
@@ -35497,16 +34327,6 @@
       "en": "crowded",
       "zh": "to be crowded",
       "ja": "to be crowded"
-    }
-  },
-  {
-    "word": "붓다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "pour",
-      "zh": "pour",
-      "ja": "pour"
     }
   },
   {
@@ -35684,7 +34504,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be vacant, to be empty",
+      "en": "vacant, to be empty",
       "zh": "to be vacant, to be empty",
       "ja": "to be vacant, to be empty"
     }
@@ -35844,7 +34664,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be expensive",
+      "en": "expensive",
       "zh": "贵",
       "ja": "高い"
     }
@@ -36017,16 +34837,6 @@
       "en": "airplane",
       "zh": "飞机",
       "ja": "飛行機"
-    }
-  },
-  {
-    "word": "비행장",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "airfield, airport",
-      "zh": "airfield, airport",
-      "ja": "airfield, airport"
     }
   },
   {
@@ -36230,16 +35040,6 @@
     }
   },
   {
-    "word": "빨다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "suck",
-      "zh": "suck, do laundry",
-      "ja": "suck, do laundry"
-    }
-  },
-  {
     "word": "빼놓다",
     "level": 2,
     "pos": "verb",
@@ -36294,7 +35094,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be obvious, to be clear",
+      "en": "obvious, to be clear",
       "zh": "to be obvious, to be clear",
       "ja": "to be obvious, to be clear"
     }
@@ -36334,7 +35134,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to pull out, to choose",
+      "en": "pull out, to choose",
       "zh": "to pull out, to choose",
       "ja": "to pull out, to choose"
     }
@@ -36390,16 +35190,6 @@
     }
   },
   {
-    "word": "사",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "4",
-      "zh": "4",
-      "ja": "4"
-    }
-  },
-  {
     "word": "사건",
     "level": 2,
     "pos": "noun",
@@ -36420,16 +35210,6 @@
     }
   },
   {
-    "word": "사과",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "apple",
-      "zh": "苹果",
-      "ja": "りんご"
-    }
-  },
-  {
     "word": "사교적",
     "level": 2,
     "pos": "noun",
@@ -36444,7 +35224,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to date",
+      "en": "date",
       "zh": "to date",
       "ja": "to date"
     }
@@ -36517,16 +35297,6 @@
       "en": "lovely, adorable",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "사례",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "example",
-      "zh": "case, example",
-      "ja": "case, example"
     }
   },
   {
@@ -36620,16 +35390,6 @@
     }
   },
   {
-    "word": "사물",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "object",
-      "zh": "object, thing",
-      "ja": "object, thing"
-    }
-  },
-  {
     "word": "사방",
     "level": 2,
     "pos": "noun",
@@ -36697,16 +35457,6 @@
       "en": "fact",
       "zh": "fact",
       "ja": "fact"
-    }
-  },
-  {
-    "word": "사업가",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "entrepreneur",
-      "zh": "entrepreneur, businessman",
-      "ja": "entrepreneur, businessman"
     }
   },
   {
@@ -36850,16 +35600,6 @@
     }
   },
   {
-    "word": "사전",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "dictionary",
-      "zh": "dictionary",
-      "ja": "dictionary"
-    }
-  },
-  {
     "word": "사정",
     "level": 2,
     "pos": "noun",
@@ -36897,16 +35637,6 @@
       "en": "photo album",
       "zh": "photo album",
       "ja": "photo album"
-    }
-  },
-  {
-    "word": "사촌",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "cousin",
-      "zh": "cousin",
-      "ja": "cousin"
     }
   },
   {
@@ -37280,16 +36010,6 @@
     }
   },
   {
-    "word": "상관",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "relation",
-      "zh": "relation",
-      "ja": "relation"
-    }
-  },
-  {
     "word": "상관없다",
     "level": 2,
     "pos": "verb",
@@ -37504,7 +36224,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being commercial",
+      "en": "commercial",
       "zh": "being commercial",
       "ja": "being commercial"
     }
@@ -37620,16 +36340,6 @@
     }
   },
   {
-    "word": "새",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "bird, new",
-      "zh": "bird, new",
-      "ja": "bird, new"
-    }
-  },
-  {
     "word": "새기다",
     "level": 2,
     "pos": "verb",
@@ -37674,7 +36384,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be new",
+      "en": "new",
       "zh": "to be new",
       "ja": "to be new"
     }
@@ -37707,16 +36417,6 @@
       "en": "stepmother",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "새우",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "shrimp",
-      "zh": "shrimp",
-      "ja": "shrimp"
     }
   },
   {
@@ -37804,7 +36504,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to remember, to recall",
+      "en": "remember, to recall",
       "zh": "to remember, to recall",
       "ja": "to remember, to recall"
     }
@@ -37814,7 +36514,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to think",
+      "en": "think",
       "zh": "想",
       "ja": "考える"
     }
@@ -38000,16 +36700,6 @@
     }
   },
   {
-    "word": "샴푸",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "shampoo",
-      "zh": "shampoo",
-      "ja": "shampoo"
-    }
-  },
-  {
     "word": "서",
     "level": 2,
     "pos": "noun",
@@ -38054,7 +36744,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to hurry, to rush",
+      "en": "hurry, to rush",
       "zh": "to hurry, to rush",
       "ja": "to hurry, to rush"
     }
@@ -38224,7 +36914,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to mix, to rub",
+      "en": "mix, to rub",
       "zh": "to mix, to rub",
       "ja": "to mix, to rub"
     }
@@ -38284,7 +36974,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be cool, to be chilly",
+      "en": "cool, to be chilly",
       "zh": "to be cool, to be chilly",
       "ja": "to be cool, to be chilly"
     }
@@ -38484,7 +37174,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be sorry, to be regrettable",
+      "en": "sorry, to be regrettable",
       "zh": "to be sorry, to be regrettable",
       "ja": "to be sorry, to be regrettable"
     }
@@ -38497,16 +37187,6 @@
       "en": "celsius",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "성",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "characteristics",
-      "zh": "castle, last name",
-      "ja": "castle, last name"
     }
   },
   {
@@ -38930,16 +37610,6 @@
     }
   },
   {
-    "word": "소",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "small",
-      "zh": "small, cow",
-      "ja": "small, cow"
-    }
-  },
-  {
     "word": "소감",
     "level": 2,
     "pos": "noun",
@@ -39190,16 +37860,6 @@
     }
   },
   {
-    "word": "소설가",
-    "level": 2,
-    "pos": "expression",
-    "translations": {
-      "en": "novelist",
-      "zh": "novelist",
-      "ja": "novelist"
-    }
-  },
-  {
     "word": "소설책",
     "level": 2,
     "pos": "noun",
@@ -39244,7 +37904,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be timid, to be cowardly",
+      "en": "timid, to be cowardly",
       "zh": "to be timid, to be cowardly",
       "ja": "to be timid, to be cowardly"
     }
@@ -39344,7 +38004,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be important",
+      "en": "important",
       "zh": "to be important",
       "ja": "to be important"
     }
@@ -39750,16 +38410,6 @@
     }
   },
   {
-    "word": "송이",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "cluster",
-      "zh": "bunch, flower, cluster",
-      "ja": "bunch, flower, cluster"
-    }
-  },
-  {
     "word": "쇠",
     "level": 2,
     "pos": "noun",
@@ -39880,16 +38530,6 @@
     }
   },
   {
-    "word": "수도",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "water supply",
-      "zh": "capital, water supply",
-      "ja": "capital, water supply"
-    }
-  },
-  {
     "word": "수도권",
     "level": 2,
     "pos": "noun",
@@ -39907,16 +38547,6 @@
       "en": "faucet",
       "zh": "water faucet",
       "ja": "water faucet"
-    }
-  },
-  {
-    "word": "수돗물",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "tap water",
-      "zh": "tap water",
-      "ja": "tap water"
     }
   },
   {
@@ -40074,7 +38704,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to repair (clothes)",
+      "en": "repair (clothes)",
       "zh": "to repair (clothes)",
       "ja": "to repair (clothes)"
     }
@@ -40237,16 +38867,6 @@
       "en": "check",
       "zh": "(money) check",
       "ja": "(money) check"
-    }
-  },
-  {
-    "word": "수학",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "math",
-      "zh": "mathematics",
-      "ja": "mathematics"
     }
   },
   {
@@ -40520,21 +39140,11 @@
     }
   },
   {
-    "word": "쉬다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "rest",
-      "zh": "rest",
-      "ja": "rest"
-    }
-  },
-  {
     "word": "쉽다",
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be easy",
+      "en": "easy",
       "zh": "容易",
       "ja": "易しい"
     }
@@ -40660,16 +39270,6 @@
     }
   },
   {
-    "word": "스타킹",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "stockings",
-      "zh": "stockings",
-      "ja": "stockings"
-    }
-  },
-  {
     "word": "스튜디오",
     "level": 2,
     "pos": "noun",
@@ -40734,7 +39334,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be sad",
+      "en": "sad",
       "zh": "悲伤",
       "ja": "悲しい"
     }
@@ -40880,16 +39480,6 @@
     }
   },
   {
-    "word": "시",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "city, time",
-      "zh": "city, time",
-      "ja": "city, time"
-    }
-  },
-  {
     "word": "시각",
     "level": 2,
     "pos": "noun",
@@ -40980,16 +39570,6 @@
     }
   },
   {
-    "word": "시디",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "CD",
-      "zh": "CD",
-      "ja": "CD"
-    }
-  },
-  {
     "word": "시력",
     "level": 2,
     "pos": "noun",
@@ -41004,7 +39584,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to feel a chill, to be painfully cold",
+      "en": "feel a chill, to be painfully cold",
       "zh": "to feel a chill, to be painfully cold",
       "ja": "to feel a chill, to be painfully cold"
     }
@@ -41060,16 +39640,6 @@
     }
   },
   {
-    "word": "시설",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "facility",
-      "zh": "facility",
-      "ja": "facility"
-    }
-  },
-  {
     "word": "시스템",
     "level": 2,
     "pos": "noun",
@@ -41110,16 +39680,6 @@
     }
   },
   {
-    "word": "시외",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "suburbs",
-      "zh": "suburbs",
-      "ja": "suburbs"
-    }
-  },
-  {
     "word": "시외버스",
     "level": 2,
     "pos": "noun",
@@ -41134,7 +39694,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be cool",
+      "en": "cool",
       "zh": "凉爽",
       "ja": "涼しい"
     }
@@ -41164,19 +39724,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to start",
+      "en": "start",
       "zh": "开始",
       "ja": "始める"
-    }
-  },
-  {
-    "word": "시장",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "market",
-      "zh": "market",
-      "ja": "market"
     }
   },
   {
@@ -41227,16 +39777,6 @@
       "en": "(female) get married",
       "zh": "to get married (for women)",
       "ja": "to get married (for women)"
-    }
-  },
-  {
-    "word": "시청",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "city hall",
-      "zh": "city hall",
-      "ja": "city hall"
     }
   },
   {
@@ -41510,16 +40050,6 @@
     }
   },
   {
-    "word": "신",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "god, new",
-      "zh": "god, new",
-      "ja": "god, new"
-    }
-  },
-  {
     "word": "신경",
     "level": 2,
     "pos": "noun",
@@ -41544,7 +40074,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to make someone wear (shoe)",
+      "en": "make someone wear (shoe)",
       "zh": "to make someone wear (shoe)",
       "ja": "to make someone wear (shoe)"
     }
@@ -41734,7 +40264,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be fresh",
+      "en": "fresh",
       "zh": "to be fresh",
       "ja": "to be fresh"
     }
@@ -41817,16 +40347,6 @@
       "en": "caution",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "신청서",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "application form",
-      "zh": "application forms",
-      "ja": "application forms"
     }
   },
   {
@@ -41924,7 +40444,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to put on, to pile on",
+      "en": "put on, to pile on",
       "zh": "to put on, to pile on",
       "ja": "to put on, to pile on"
     }
@@ -41967,16 +40487,6 @@
       "en": "ability",
       "zh": "ability",
       "ja": "ability"
-    }
-  },
-  {
-    "word": "실례",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "excuse",
-      "zh": "excuse",
-      "ja": "excuse"
     }
   },
   {
@@ -42204,7 +40714,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to plant",
+      "en": "plant",
       "zh": "to plant",
       "ja": "to plant"
     }
@@ -42274,7 +40784,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be bored",
+      "en": "bored",
       "zh": "to be bored",
       "ja": "to be bored"
     }
@@ -42414,7 +40924,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be chilly",
+      "en": "chilly",
       "zh": "to be chilly",
       "ja": "to be chilly"
     }
@@ -42444,19 +40954,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to stack, to build",
+      "en": "stack, to build",
       "zh": "to stack, to build",
       "ja": "to stack, to build"
-    }
-  },
-  {
-    "word": "쌓이다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "pile up",
-      "zh": "stack up, pile up",
-      "ja": "stack up, pile up"
     }
   },
   {
@@ -42550,16 +41050,6 @@
     }
   },
   {
-    "word": "쓰기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "writing",
-      "zh": "writing, dictation",
-      "ja": "writing, dictation"
-    }
-  },
-  {
     "word": "쓰다듬다",
     "level": 2,
     "pos": "verb",
@@ -42587,16 +41077,6 @@
       "en": "trash can",
       "zh": "trash can",
       "ja": "trash can"
-    }
-  },
-  {
-    "word": "쓰이다",
-    "level": 2,
-    "pos": "adjective",
-    "translations": {
-      "en": "be written",
-      "zh": "be written, be used",
-      "ja": "be written, be used"
     }
   },
   {
@@ -42660,16 +41140,6 @@
     }
   },
   {
-    "word": "씨",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "seed",
-      "zh": "seed, Mr.",
-      "ja": "seed, Mr."
-    }
-  },
-  {
     "word": "씨름",
     "level": 2,
     "pos": "noun",
@@ -42687,16 +41157,6 @@
       "en": "seed",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "씩",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "one by one",
-      "zh": "each, every, per",
-      "ja": "each, every, per"
     }
   },
   {
@@ -42950,16 +41410,6 @@
     }
   },
   {
-    "word": "아시아",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Asia",
-      "zh": "Asia",
-      "ja": "Asia"
-    }
-  },
-  {
     "word": "아예",
     "level": 2,
     "pos": "noun",
@@ -42977,16 +41427,6 @@
       "en": "also, both",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "아이",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "child",
-      "zh": "child",
-      "ja": "child"
     }
   },
   {
@@ -43020,16 +41460,6 @@
     }
   },
   {
-    "word": "아침밥",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "breakfast",
-      "zh": "breakfast",
-      "ja": "breakfast"
-    }
-  },
-  {
     "word": "아침저녁",
     "level": 2,
     "pos": "noun",
@@ -43044,19 +41474,9 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be sick/hurt",
+      "en": "sick/hurt",
       "zh": "疼/生病",
       "ja": "痛い/病気"
-    }
-  },
-  {
-    "word": "아프리카",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Africa",
-      "zh": "Africa",
-      "ja": "Africa"
     }
   },
   {
@@ -43384,7 +41804,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to know",
+      "en": "know",
       "zh": "知道",
       "ja": "知る"
     }
@@ -43444,7 +41864,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to recognize",
+      "en": "recognize",
       "zh": "to recognize",
       "ja": "to recognize"
     }
@@ -43650,16 +42070,6 @@
     }
   },
   {
-    "word": "애",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "child",
-      "zh": "child",
-      "ja": "child"
-    }
-  },
-  {
     "word": "애기",
     "level": 2,
     "pos": "noun",
@@ -43727,16 +42137,6 @@
       "en": "after-sales service",
       "zh": "after-sales service",
       "ja": "after-sales service"
-    }
-  },
-  {
-    "word": "액세서리",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "accessory",
-      "zh": "accessory",
-      "ja": "accessory"
     }
   },
   {
@@ -43814,7 +42214,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be scolded",
+      "en": "scolded",
       "zh": "to be scolded",
       "ja": "to be scolded"
     }
@@ -43824,7 +42224,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to scold",
+      "en": "scold",
       "zh": "to scold",
       "ja": "to scold"
     }
@@ -43914,7 +42314,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be weak",
+      "en": "weak",
       "zh": "to be weak",
       "ja": "to be weak"
     }
@@ -43964,19 +42364,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be calm, to be gentle",
+      "en": "calm, to be gentle",
       "zh": "to be calm, to be gentle",
       "ja": "to be calm, to be gentle"
-    }
-  },
-  {
-    "word": "양",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "sheep",
-      "zh": "amount, sheep",
-      "ja": "amount, sheep"
     }
   },
   {
@@ -44060,16 +42450,6 @@
     }
   },
   {
-    "word": "양식",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "pattern, form",
-      "zh": "form, western style",
-      "ja": "form, western style"
-    }
-  },
-  {
     "word": "양심",
     "level": 2,
     "pos": "noun",
@@ -44097,16 +42477,6 @@
       "en": "both",
       "zh": "both",
       "ja": "both"
-    }
-  },
-  {
-    "word": "양파",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "onion",
-      "zh": "onion",
-      "ja": "onion"
     }
   },
   {
@@ -44194,7 +42564,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be such a one's thoughts",
+      "en": "such a one's thoughts",
       "zh": "to be such a one's thoughts",
       "ja": "to be such a one's thoughts"
     }
@@ -44234,7 +42604,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be difficult",
+      "en": "difficult",
       "zh": "难",
       "ja": "難しい"
     }
@@ -44290,16 +42660,6 @@
     }
   },
   {
-    "word": "어머",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "oh my",
-      "zh": "oh, well",
-      "ja": "oh, well"
-    }
-  },
-  {
     "word": "어버이날",
     "level": 2,
     "pos": "noun",
@@ -44317,16 +42677,6 @@
       "en": "awkward",
       "zh": "to be awkward",
       "ja": "to be awkward"
-    }
-  },
-  {
-    "word": "어저께",
-    "level": 2,
-    "pos": "expression",
-    "translations": {
-      "en": "yesterday",
-      "zh": "yesterday",
-      "ja": "yesterday"
     }
   },
   {
@@ -44574,7 +42924,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to obtain",
+      "en": "obtain",
       "zh": "to obtain",
       "ja": "to obtain"
     }
@@ -44594,7 +42944,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to freeze",
+      "en": "freeze",
       "zh": "to freeze",
       "ja": "to freeze"
     }
@@ -44654,7 +43004,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be strict",
+      "en": "strict",
       "zh": "to be strict",
       "ja": "to be strict"
     }
@@ -44747,16 +43097,6 @@
       "en": "disappear",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "없이",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "without",
-      "zh": "without",
-      "ja": "without"
     }
   },
   {
@@ -45574,7 +43914,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being a younger, younger person",
+      "en": "a younger, younger person",
       "zh": "being a younger, younger person",
       "ja": "being a younger, younger person"
     }
@@ -45637,16 +43977,6 @@
       "en": "reading room",
       "zh": "reading room",
       "ja": "reading room"
-    }
-  },
-  {
-    "word": "열리다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "be opened",
-      "zh": "be opened",
-      "ja": "be opened"
     }
   },
   {
@@ -45740,16 +44070,6 @@
     }
   },
   {
-    "word": "영",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "zero",
-      "zh": "spirit, zero",
-      "ja": "spirit, zero"
-    }
-  },
-  {
     "word": "영리하다",
     "level": 2,
     "pos": "verb",
@@ -45757,16 +44077,6 @@
       "en": "clever",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "영상",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "video",
-      "zh": "video",
-      "ja": "video"
     }
   },
   {
@@ -45960,16 +44270,6 @@
     }
   },
   {
-    "word": "예",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "yes",
-      "zh": "yes",
-      "ja": "yes"
-    }
-  },
-  {
     "word": "예감",
     "level": 2,
     "pos": "noun",
@@ -46044,7 +44344,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be pretty",
+      "en": "pretty",
       "zh": "漂亮",
       "ja": "きれい"
     }
@@ -46230,16 +44530,6 @@
     }
   },
   {
-    "word": "오",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "5",
-      "zh": "5",
-      "ja": "5"
-    }
-  },
-  {
     "word": "오가다",
     "level": 2,
     "pos": "verb",
@@ -46294,7 +44584,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be old",
+      "en": "old",
       "zh": "to be old",
       "ja": "to be old"
     }
@@ -46370,16 +44660,6 @@
     }
   },
   {
-    "word": "오리",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "duck",
-      "zh": "duck",
-      "ja": "duck"
-    }
-  },
-  {
     "word": "오리엔테이션",
     "level": 2,
     "pos": "noun",
@@ -46407,16 +44687,6 @@
       "en": "only",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "오징어",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "squid",
-      "zh": "squid",
-      "ja": "squid"
     }
   },
   {
@@ -46620,16 +44890,6 @@
     }
   },
   {
-    "word": "올려놓다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "put on",
-      "zh": "put on, place",
-      "ja": "put on, place"
-    }
-  },
-  {
     "word": "올려다보다",
     "level": 2,
     "pos": "verb",
@@ -46644,7 +44904,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to raise, to post",
+      "en": "raise, to post",
       "zh": "to raise, to post",
       "ja": "to raise, to post"
     }
@@ -46670,21 +44930,11 @@
     }
   },
   {
-    "word": "옮기다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "move",
-      "zh": "move, transfer, translate",
-      "ja": "move, transfer, translate"
-    }
-  },
-  {
     "word": "옳다",
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be correct",
+      "en": "correct",
       "zh": "to be correct",
       "ja": "to be correct"
     }
@@ -46940,26 +45190,6 @@
     }
   },
   {
-    "word": "외삼촌",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "maternal uncle",
-      "zh": "maternal uncle",
-      "ja": "maternal uncle"
-    }
-  },
-  {
-    "word": "외숙모",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "maternal aunt",
-      "zh": "maternal aunt",
-      "ja": "maternal aunt"
-    }
-  },
-  {
     "word": "외식",
     "level": 2,
     "pos": "noun",
@@ -46984,7 +45214,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to memorize",
+      "en": "memorize",
       "zh": "to memorize",
       "ja": "to memorize"
     }
@@ -47017,26 +45247,6 @@
       "en": "overcoat",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "외할머니",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "maternal grandmother",
-      "zh": "maternal grandmother",
-      "ja": "maternal grandmother"
-    }
-  },
-  {
-    "word": "외할아버지",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "maternal grandfather",
-      "zh": "maternal grandfather",
-      "ja": "maternal grandfather"
     }
   },
   {
@@ -47380,16 +45590,6 @@
     }
   },
   {
-    "word": "우선",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "first",
-      "zh": "first",
-      "ja": "first"
-    }
-  },
-  {
     "word": "우수",
     "level": 2,
     "pos": "noun",
@@ -47484,7 +45684,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be depressed",
+      "en": "depressed",
       "zh": "to be depressed",
       "ja": "to be depressed"
     }
@@ -47620,16 +45820,6 @@
     }
   },
   {
-    "word": "운동선수",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "athlete",
-      "zh": "athlete",
-      "ja": "athlete"
-    }
-  },
-  {
     "word": "운명",
     "level": 2,
     "pos": "noun",
@@ -47700,16 +45890,6 @@
     }
   },
   {
-    "word": "울리다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "ring",
-      "zh": "make cry, chime",
-      "ja": "make cry, chime"
-    }
-  },
-  {
     "word": "울보",
     "level": 2,
     "pos": "noun",
@@ -47750,16 +45930,6 @@
     }
   },
   {
-    "word": "웃기다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "make laugh",
-      "zh": "funny, make someone laugh",
-      "ja": "funny, make someone laugh"
-    }
-  },
-  {
     "word": "웃어른",
     "level": 2,
     "pos": "noun",
@@ -47797,16 +45967,6 @@
       "en": "so much",
       "zh": "very, basically",
       "ja": "very, basically"
-    }
-  },
-  {
-    "word": "원",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "circle",
-      "zh": "won (currency units of Korea)",
-      "ja": "won (currency units of Korea)"
     }
   },
   {
@@ -47900,26 +46060,6 @@
     }
   },
   {
-    "word": "월",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "month",
-      "zh": "月",
-      "ja": "月"
-    }
-  },
-  {
-    "word": "월드컵",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "world cup",
-      "zh": "world cup",
-      "ja": "world cup"
-    }
-  },
-  {
     "word": "월말",
     "level": 2,
     "pos": "noun",
@@ -47927,16 +46067,6 @@
       "en": "end of month",
       "zh": "end of month",
       "ja": "end of month"
-    }
-  },
-  {
-    "word": "월세",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "rent",
-      "zh": "monthly rent",
-      "ja": "monthly rent"
     }
   },
   {
@@ -47967,26 +46097,6 @@
       "en": "tolerable, reasonable",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "웬일",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "for some reason",
-      "zh": "for some reason, What was it?",
-      "ja": "for some reason, What was it?"
-    }
-  },
-  {
-    "word": "위",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "top, up",
-      "zh": "top, up",
-      "ja": "top, up"
     }
   },
   {
@@ -48057,16 +46167,6 @@
       "en": "upstairs",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "위하다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "for",
-      "zh": "for, in favor of, for the sake of",
-      "ja": "for, in favor of, for the sake of"
     }
   },
   {
@@ -48170,16 +46270,6 @@
     }
   },
   {
-    "word": "유럽",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Europe",
-      "zh": "Europe",
-      "ja": "Europe"
-    }
-  },
-  {
     "word": "유료",
     "level": 2,
     "pos": "noun",
@@ -48187,16 +46277,6 @@
       "en": "pay",
       "zh": "being paid, being charged",
       "ja": "being paid, being charged"
-    }
-  },
-  {
-    "word": "유리",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "glass",
-      "zh": "glass",
-      "ja": "glass"
     }
   },
   {
@@ -48224,7 +46304,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being famous",
+      "en": "famous",
       "zh": "being famous",
       "ja": "being famous"
     }
@@ -48334,7 +46414,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be fun, to be cheerful",
+      "en": "fun, to be cheerful",
       "zh": "to be fun, to be cheerful",
       "ja": "to be fun, to be cheerful"
     }
@@ -48394,7 +46474,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being carnivorous",
+      "en": "carnivorous",
       "zh": "being carnivorous",
       "ja": "being carnivorous"
     }
@@ -48507,16 +46587,6 @@
       "en": "beverages, drink",
       "zh": "beverages, drink",
       "ja": "beverages, drink"
-    }
-  },
-  {
-    "word": "음반",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "record",
-      "zh": "record",
-      "ja": "record"
     }
   },
   {
@@ -48834,7 +46904,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be based on",
+      "en": "based on",
       "zh": "to be based on",
       "ja": "to be based on"
     }
@@ -48854,19 +46924,9 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being medical",
+      "en": "medical",
       "zh": "being medical",
       "ja": "being medical"
-    }
-  },
-  {
-    "word": "이",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "adverb",
-      "zh": "this, tooth",
-      "ja": "this, tooth"
     }
   },
   {
@@ -48904,7 +46964,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to win",
+      "en": "win",
       "zh": "to win",
       "ja": "to win"
     }
@@ -49134,7 +47194,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to become famous",
+      "en": "become famous",
       "zh": "to become famous",
       "ja": "to become famous"
     }
@@ -49197,16 +47257,6 @@
       "en": "this much",
       "zh": "this much",
       "ja": "this much"
-    }
-  },
-  {
-    "word": "이메일",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "e-mail",
-      "zh": "e-mail",
-      "ja": "e-mail"
     }
   },
   {
@@ -49630,26 +47680,6 @@
     }
   },
   {
-    "word": "인구",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "population",
-      "zh": "population",
-      "ja": "population"
-    }
-  },
-  {
-    "word": "인도",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "India",
-      "zh": "India",
-      "ja": "India"
-    }
-  },
-  {
     "word": "인력",
     "level": 2,
     "pos": "noun",
@@ -49697,16 +47727,6 @@
       "en": "ginseng tea",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "인상",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "impression",
-      "zh": "impression",
-      "ja": "impression"
     }
   },
   {
@@ -49834,7 +47854,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be recognized, to be accepted",
+      "en": "recognized, to be accepted",
       "zh": "to be recognized, to be accepted",
       "ja": "to be recognized, to be accepted"
     }
@@ -49897,16 +47917,6 @@
       "en": "be caused by",
       "zh": "to result from, to be caused by, to be due to",
       "ja": "to result from, to be caused by, to be due to"
-    }
-  },
-  {
-    "word": "일",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "day",
-      "zh": "日",
-      "ja": "日"
     }
   },
   {
@@ -50000,16 +48010,6 @@
     }
   },
   {
-    "word": "일본어",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Japanese language",
-      "zh": "日语",
-      "ja": "日本語"
-    }
-  },
-  {
     "word": "일본인",
     "level": 2,
     "pos": "noun",
@@ -50057,16 +48057,6 @@
       "en": "daily life",
       "zh": "daily life",
       "ja": "daily life"
-    }
-  },
-  {
-    "word": "일상생활",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "everyday life",
-      "zh": "everyday life",
-      "ja": "everyday life"
     }
   },
   {
@@ -50214,7 +48204,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be uniform, to be constant",
+      "en": "uniform, to be constant",
       "zh": "to be uniform, to be constant",
       "ja": "to be uniform, to be constant"
     }
@@ -50297,16 +48287,6 @@
       "en": "disposable product",
       "zh": "disposable product",
       "ja": "disposable product"
-    }
-  },
-  {
-    "word": "읽기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "reading",
-      "zh": "reading",
-      "ja": "reading"
     }
   },
   {
@@ -50560,16 +48540,6 @@
     }
   },
   {
-    "word": "자",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "ruler",
-      "zh": "character, Here we go.",
-      "ja": "character, Here we go."
-    }
-  },
-  {
     "word": "자가용",
     "level": 2,
     "pos": "noun",
@@ -50614,19 +48584,9 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being provocative, being stimulating",
+      "en": "provocative, being stimulating",
       "zh": "being provocative, being stimulating",
       "ja": "being provocative, being stimulating"
-    }
-  },
-  {
-    "word": "자기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "self",
-      "zh": "myself, own",
-      "ja": "myself, own"
     }
   },
   {
@@ -50694,7 +48654,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to grow up",
+      "en": "grow up",
       "zh": "to grow up",
       "ja": "to grow up"
     }
@@ -50720,16 +48680,6 @@
     }
   },
   {
-    "word": "자료",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "data",
-      "zh": "material, document",
-      "ja": "material, document"
-    }
-  },
-  {
     "word": "자료실",
     "level": 2,
     "pos": "noun",
@@ -50737,16 +48687,6 @@
       "en": "archive, reference room",
       "zh": "archive, reference room",
       "ja": "archive, reference room"
-    }
-  },
-  {
-    "word": "자리",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "seat",
-      "zh": "seat, location",
-      "ja": "seat, location"
     }
   },
   {
@@ -50837,16 +48777,6 @@
       "en": "child, kid",
       "zh": "child, kid",
       "ja": "child, kid"
-    }
-  },
-  {
-    "word": "자신",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "myself, own",
-      "zh": "myself, own",
-      "ja": "myself, own"
     }
   },
   {
@@ -51064,7 +48994,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to get smaller",
+      "en": "get smaller",
       "zh": "to get smaller",
       "ja": "to get smaller"
     }
@@ -51087,26 +49017,6 @@
       "en": "effect",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "작은아버지",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "uncle",
-      "zh": "uncle",
-      "ja": "uncle"
-    }
-  },
-  {
-    "word": "작은어머니",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "aunt",
-      "zh": "aunt",
-      "ja": "aunt"
     }
   },
   {
@@ -51244,7 +49154,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be locked",
+      "en": "locked",
       "zh": "to get locked, to submerged",
       "ja": "to get locked, to submerged"
     }
@@ -51284,7 +49194,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to eat (honorific)",
+      "en": "eat (honorific)",
       "zh": "to eat (honorific)",
       "ja": "to eat (honorific)"
     }
@@ -51330,16 +49240,6 @@
     }
   },
   {
-    "word": "장",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "place",
-      "zh": "~ chapter(s), ~ sheet(s)",
-      "ja": "~ chapter(s), ~ sheet(s)"
-    }
-  },
-  {
     "word": "장가",
     "level": 2,
     "pos": "noun",
@@ -51354,7 +49254,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to get married (of men)",
+      "en": "get married (of men)",
       "zh": "to get married (of men)",
       "ja": "to get married (of men)"
     }
@@ -51490,16 +49390,6 @@
     }
   },
   {
-    "word": "장마철",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "rainy season",
-      "zh": "rainy season",
-      "ja": "rainy season"
-    }
-  },
-  {
     "word": "장면",
     "level": 2,
     "pos": "noun",
@@ -51600,16 +49490,6 @@
     }
   },
   {
-    "word": "장점",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "advantage",
-      "zh": "advantage",
-      "ja": "advantage"
-    }
-  },
-  {
     "word": "장하다",
     "level": 2,
     "pos": "verb",
@@ -51684,7 +49564,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be boring",
+      "en": "boring",
       "zh": "无聊",
       "ja": "つまらない"
     }
@@ -51694,7 +49574,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be fun/interesting",
+      "en": "fun/interesting",
       "zh": "有趣",
       "ja": "面白い"
     }
@@ -51787,16 +49667,6 @@
       "en": "jazz",
       "zh": "jazz",
       "ja": "jazz"
-    }
-  },
-  {
-    "word": "재킷",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "jacket",
-      "zh": "jacket",
-      "ja": "jacket"
     }
   },
   {
@@ -51900,16 +49770,6 @@
     }
   },
   {
-    "word": "저",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "that",
-      "zh": "that",
-      "ja": "that"
-    }
-  },
-  {
     "word": "저금",
     "level": 2,
     "pos": "noun",
@@ -51937,16 +49797,6 @@
       "en": "low level",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "저기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "there",
-      "zh": "there, over there",
-      "ja": "there, over there"
     }
   },
   {
@@ -52070,16 +49920,6 @@
     }
   },
   {
-    "word": "적",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "enemy",
-      "zh": "enemy",
-      "ja": "enemy"
-    }
-  },
-  {
     "word": "적극",
     "level": 2,
     "pos": "noun",
@@ -52114,7 +49954,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be appropriate",
+      "en": "appropriate",
       "zh": "to be appropriate",
       "ja": "to be appropriate"
     }
@@ -52490,16 +50330,6 @@
     }
   },
   {
-    "word": "전자사전",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "electronic dictionary",
-      "zh": "electronic dictionary",
-      "ja": "electronic dictionary"
-    }
-  },
-  {
     "word": "전쟁",
     "level": 2,
     "pos": "noun",
@@ -52600,26 +50430,6 @@
     }
   },
   {
-    "word": "절",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Buddhist temple",
-      "zh": "~ section(s), temple",
-      "ja": "~ section(s), temple"
-    }
-  },
-  {
-    "word": "절대",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "absolute",
-      "zh": "never, absolutely",
-      "ja": "never, absolutely"
-    }
-  },
-  {
     "word": "절대로",
     "level": 2,
     "pos": "noun",
@@ -52700,16 +50510,6 @@
     }
   },
   {
-    "word": "점",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "point",
-      "zh": "point",
-      "ja": "point"
-    }
-  },
-  {
     "word": "점검",
     "level": 2,
     "pos": "noun",
@@ -52717,16 +50517,6 @@
       "en": "inspection",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "점원",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "clerk",
-      "zh": "clerk",
-      "ja": "clerk"
     }
   },
   {
@@ -52760,16 +50550,6 @@
     }
   },
   {
-    "word": "점퍼",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "jacket",
-      "zh": "jacket",
-      "ja": "jacket"
-    }
-  },
-  {
     "word": "접근",
     "level": 2,
     "pos": "noun",
@@ -52784,7 +50564,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to fold, to quit",
+      "en": "fold, to quit",
       "zh": "to fold, to quit",
       "ja": "to fold, to quit"
     }
@@ -52927,16 +50707,6 @@
       "en": "the opposite, the reverse",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "정보",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "information",
-      "zh": "information",
-      "ja": "information"
     }
   },
   {
@@ -53154,7 +50924,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be honest",
+      "en": "honest",
       "zh": "to be honest",
       "ja": "to be honest"
     }
@@ -53254,7 +51024,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be accurate",
+      "en": "accurate",
       "zh": "to be accurate",
       "ja": "to be accurate"
     }
@@ -53284,7 +51054,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to get wet, to get soaked",
+      "en": "get wet, to get soaked",
       "zh": "to get wet, to get soaked",
       "ja": "to get wet, to get soaked"
     }
@@ -53804,7 +51574,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to doze",
+      "en": "doze",
       "zh": "to doze",
       "ja": "to doze"
     }
@@ -53907,16 +51677,6 @@
       "en": "paper cup",
       "zh": "paper cup",
       "ja": "paper cup"
-    }
-  },
-  {
-    "word": "종일",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "all day",
-      "zh": "all day",
-      "ja": "all day"
     }
   },
   {
@@ -54260,16 +52020,6 @@
     }
   },
   {
-    "word": "죽",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "porridge",
-      "zh": "bamboo, porridge",
-      "ja": "bamboo, porridge"
-    }
-  },
-  {
     "word": "죽음",
     "level": 2,
     "pos": "noun",
@@ -54304,7 +52054,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to prepare",
+      "en": "prepare",
       "zh": "准备",
       "ja": "準備する"
     }
@@ -54374,7 +52124,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to reduce, to shrink",
+      "en": "reduce, to shrink",
       "zh": "to reduce, to shrink",
       "ja": "to reduce, to shrink"
     }
@@ -54384,19 +52134,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to pick up",
+      "en": "pick up",
       "zh": "to pick up",
       "ja": "to pick up"
-    }
-  },
-  {
-    "word": "중",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "monk",
-      "zh": "medium, during",
-      "ja": "medium, during"
     }
   },
   {
@@ -54447,16 +52187,6 @@
       "en": "used goods",
       "zh": "second-hand goods",
       "ja": "second-hand goods"
-    }
-  },
-  {
-    "word": "중국어",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Chinese language",
-      "zh": "中文",
-      "ja": "中国語"
     }
   },
   {
@@ -54537,16 +52267,6 @@
       "en": "middle ten days of a month",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "중식",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Chinese food",
-      "zh": "Chinese cuisine",
-      "ja": "Chinese cuisine"
     }
   },
   {
@@ -54710,26 +52430,6 @@
     }
   },
   {
-    "word": "증세",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "symptom",
-      "zh": "symptom, medical condition",
-      "ja": "symptom, medical condition"
-    }
-  },
-  {
-    "word": "지각",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "lateness",
-      "zh": "tardy, being late",
-      "ja": "tardy, being late"
-    }
-  },
-  {
     "word": "지겹다",
     "level": 2,
     "pos": "verb",
@@ -54784,7 +52484,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to pass by",
+      "en": "pass by",
       "zh": "to pass by",
       "ja": "to pass by"
     }
@@ -54840,26 +52540,6 @@
     }
   },
   {
-    "word": "지다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "lose",
-      "zh": "lose",
-      "ja": "lose"
-    }
-  },
-  {
-    "word": "지도",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "map",
-      "zh": "map",
-      "ja": "map"
-    }
-  },
-  {
     "word": "지도자",
     "level": 2,
     "pos": "noun",
@@ -54874,7 +52554,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be boring",
+      "en": "boring",
       "zh": "to be boring",
       "ja": "to be boring"
     }
@@ -54887,16 +52567,6 @@
       "en": "shortcut",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "지방",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "fat",
-      "zh": "fat, region",
-      "ja": "fat, region"
     }
   },
   {
@@ -54974,7 +52644,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to erase",
+      "en": "erase",
       "zh": "to erase",
       "ja": "to erase"
     }
@@ -55354,7 +53024,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be thick, to be dark",
+      "en": "thick, to be dark",
       "zh": "to be thick, to be dark",
       "ja": "to be thick, to be dark"
     }
@@ -55387,16 +53057,6 @@
       "en": "MC, host",
       "zh": "chairperson",
       "ja": "chairperson"
-    }
-  },
-  {
-    "word": "질",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "quality",
-      "zh": "quality",
-      "ja": "quality"
     }
   },
   {
@@ -55620,26 +53280,6 @@
     }
   },
   {
-    "word": "짜다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "knit, crochet",
-      "zh": "salty, make (the plan)",
-      "ja": "salty, make (the plan)"
-    }
-  },
-  {
-    "word": "짜리",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "of a value",
-      "zh": "a value (won coin)",
-      "ja": "a value (won coin)"
-    }
-  },
-  {
     "word": "짜증",
     "level": 2,
     "pos": "noun",
@@ -55707,16 +53347,6 @@
       "en": "order",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "쪽",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "page",
-      "zh": "side, page",
-      "ja": "side, page"
     }
   },
   {
@@ -55800,21 +53430,11 @@
     }
   },
   {
-    "word": "쯤",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "around",
-      "zh": "about, around",
-      "ja": "about, around"
-    }
-  },
-  {
     "word": "찌다",
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to get fat",
+      "en": "get fat",
       "zh": "to get fat",
       "ja": "to get fat"
     }
@@ -55837,16 +53457,6 @@
       "en": "frown",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "찍다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "chop",
-      "zh": "pierce, take (a photo), press",
-      "ja": "pierce, take (a photo), press"
     }
   },
   {
@@ -55960,16 +53570,6 @@
     }
   },
   {
-    "word": "차리다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "set up",
-      "zh": "prepare, arrange",
-      "ja": "prepare, arrange"
-    }
-  },
-  {
     "word": "차림표",
     "level": 2,
     "pos": "noun",
@@ -56004,7 +53604,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be calm, to be quiet",
+      "en": "calm, to be quiet",
       "zh": "to be calm, to be quiet",
       "ja": "to be calm, to be quiet"
     }
@@ -56154,7 +53754,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to endure",
+      "en": "endure",
       "zh": "to endure",
       "ja": "to endure"
     }
@@ -56314,7 +53914,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to find/look for",
+      "en": "find/look for",
       "zh": "找",
       "ja": "探す"
     }
@@ -56344,7 +53944,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to look for",
+      "en": "look for",
       "zh": "to look for",
       "ja": "to look for"
     }
@@ -56437,16 +54037,6 @@
       "en": "school bag",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "책임",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "responsibility",
-      "zh": "responsibility",
-      "ja": "responsibility"
     }
   },
   {
@@ -56620,16 +54210,6 @@
     }
   },
   {
-    "word": "철",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "season",
-      "zh": "iron, season",
-      "ja": "iron, season"
-    }
-  },
-  {
     "word": "철도",
     "level": 2,
     "pos": "noun",
@@ -56727,16 +54307,6 @@
       "en": "youth",
       "zh": "youth",
       "ja": "youth"
-    }
-  },
-  {
-    "word": "청소기",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "vacuum cleaner",
-      "zh": "vacuum cleaner",
-      "ja": "vacuum cleaner"
     }
   },
   {
@@ -56894,19 +54464,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to stare, to look up",
+      "en": "stare, to look up",
       "zh": "to stare, to look up",
       "ja": "to stare, to look up"
-    }
-  },
-  {
-    "word": "초",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "~second(s)",
-      "zh": "~second(s)",
-      "ja": "~second(s)"
     }
   },
   {
@@ -57280,16 +54840,6 @@
     }
   },
   {
-    "word": "추억",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "memory",
-      "zh": "memory",
-      "ja": "memory"
-    }
-  },
-  {
     "word": "추위",
     "level": 2,
     "pos": "noun",
@@ -57370,16 +54920,6 @@
     }
   },
   {
-    "word": "축제",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "festival",
-      "zh": "festival",
-      "ja": "festival"
-    }
-  },
-  {
     "word": "출국",
     "level": 2,
     "pos": "noun",
@@ -57414,7 +54954,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to depart",
+      "en": "depart",
       "zh": "出发",
       "ja": "出発する"
     }
@@ -57554,7 +55094,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be cold (weather)",
+      "en": "cold (weather)",
       "zh": "冷(天气)",
       "ja": "寒い"
     }
@@ -57864,7 +55404,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being eco-friendly",
+      "en": "eco-friendly",
       "zh": "being eco-friendly",
       "ja": "being eco-friendly"
     }
@@ -58084,7 +55624,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to light up",
+      "en": "light up",
       "zh": "to light up",
       "ja": "to light up"
     }
@@ -58150,26 +55690,6 @@
     }
   },
   {
-    "word": "코트",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "coat",
-      "zh": "coat",
-      "ja": "coat"
-    }
-  },
-  {
-    "word": "코피",
-    "level": 2,
-    "pos": "expression",
-    "translations": {
-      "en": "nosebleed",
-      "zh": "nosebleed",
-      "ja": "nosebleed"
-    }
-  },
-  {
     "word": "콘도",
     "level": 2,
     "pos": "noun",
@@ -58207,16 +55727,6 @@
       "en": "\"cough, cough\"",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "콧노래",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "humming",
-      "zh": "humming",
-      "ja": "humming"
     }
   },
   {
@@ -58340,26 +55850,6 @@
     }
   },
   {
-    "word": "큰아버지",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "uncle",
-      "zh": "uncle",
-      "ja": "uncle"
-    }
-  },
-  {
-    "word": "큰어머니",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "aunt",
-      "zh": "aunt",
-      "ja": "aunt"
-    }
-  },
-  {
     "word": "큰일",
     "level": 2,
     "pos": "noun",
@@ -58410,16 +55900,6 @@
     }
   },
   {
-    "word": "키",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "key",
-      "zh": "key, height",
-      "ja": "key, height"
-    }
-  },
-  {
     "word": "키스",
     "level": 2,
     "pos": "noun",
@@ -58434,7 +55914,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to nurture, to make it bigger",
+      "en": "nurture, to make it bigger",
       "zh": "to nurture, to make it bigger",
       "ja": "to nurture, to make it bigger"
     }
@@ -58447,16 +55927,6 @@
       "en": "be born with",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "타다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "receive",
-      "zh": "ride, get on",
-      "ja": "ride, get on"
     }
   },
   {
@@ -58680,16 +56150,6 @@
     }
   },
   {
-    "word": "탤런트",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "TV actor",
-      "zh": "entertainers",
-      "ja": "entertainers"
-    }
-  },
-  {
     "word": "터널",
     "level": 2,
     "pos": "noun",
@@ -58840,16 +56300,6 @@
     }
   },
   {
-    "word": "통",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "totally",
-      "zh": "barrel, ~ package(s)",
-      "ja": "barrel, ~ package(s)"
-    }
-  },
-  {
     "word": "통계",
     "level": 2,
     "pos": "noun",
@@ -58930,16 +56380,6 @@
     }
   },
   {
-    "word": "통하다",
-    "level": 2,
-    "pos": "verb",
-    "translations": {
-      "en": "pass, lead",
-      "zh": "pass, lead",
-      "ja": "pass, lead"
-    }
-  },
-  {
     "word": "통행",
     "level": 2,
     "pos": "noun",
@@ -58974,7 +56414,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being discharged from hospital",
+      "en": "discharged from hospital",
       "zh": "being discharged from hospital",
       "ja": "being discharged from hospital"
     }
@@ -59014,7 +56454,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to fry, to bounce",
+      "en": "fry, to bounce",
       "zh": "to fry, to bounce",
       "ja": "to fry, to bounce"
     }
@@ -59044,7 +56484,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "being special",
+      "en": "special",
       "zh": "being special",
       "ja": "being special"
     }
@@ -59090,21 +56530,11 @@
     }
   },
   {
-    "word": "특징",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "character",
-      "zh": "characteristic, feature",
-      "ja": "characteristic, feature"
-    }
-  },
-  {
     "word": "튼튼하다",
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be durable, to be strong",
+      "en": "durable, to be strong",
       "zh": "to be durable, to be strong",
       "ja": "to be durable, to be strong"
     }
@@ -59167,16 +56597,6 @@
       "en": "team leader",
       "zh": "team leader",
       "ja": "team leader"
-    }
-  },
-  {
-    "word": "파",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "green onion",
-      "zh": "wave, green onion",
-      "ja": "wave, green onion"
     }
   },
   {
@@ -59330,16 +56750,6 @@
     }
   },
   {
-    "word": "패션",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "fashion",
-      "zh": "fashion",
-      "ja": "fashion"
-    }
-  },
-  {
     "word": "패션쇼",
     "level": 2,
     "pos": "noun",
@@ -59390,16 +56800,6 @@
     }
   },
   {
-    "word": "퍼센트",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "percent",
-      "zh": "percent",
-      "ja": "percent"
-    }
-  },
-  {
     "word": "퍼지다",
     "level": 2,
     "pos": "verb",
@@ -59420,16 +56820,6 @@
     }
   },
   {
-    "word": "페이지",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "page",
-      "zh": "page",
-      "ja": "page"
-    }
-  },
-  {
     "word": "펴내다",
     "level": 2,
     "pos": "verb",
@@ -59437,16 +56827,6 @@
       "en": "publish",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "편",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "side",
-      "zh": "side, episode",
-      "ja": "side, episode"
     }
   },
   {
@@ -59484,7 +56864,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be comfortable",
+      "en": "comfortable",
       "zh": "to be comfortable",
       "ja": "to be comfortable"
     }
@@ -59800,16 +57180,6 @@
     }
   },
   {
-    "word": "표",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "graph",
-      "zh": "table, ticket",
-      "ja": "table, ticket"
-    }
-  },
-  {
     "word": "표면",
     "level": 2,
     "pos": "noun",
@@ -59904,19 +57274,9 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be blue",
+      "en": "blue",
       "zh": "to be blue",
       "ja": "to be blue"
-    }
-  },
-  {
-    "word": "풀",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "glue",
-      "zh": "pool, grass",
-      "ja": "pool, grass"
     }
   },
   {
@@ -60104,7 +57464,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be tired",
+      "en": "tired",
       "zh": "累",
       "ja": "疲れている"
     }
@@ -60350,16 +57710,6 @@
     }
   },
   {
-    "word": "하숙",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "boarding house",
-      "zh": "boarding house, lodging house",
-      "ja": "boarding house, lodging house"
-    }
-  },
-  {
     "word": "하양",
     "level": 2,
     "pos": "noun",
@@ -60407,16 +57757,6 @@
       "en": "haha",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "학",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "crane",
-      "zh": "crane",
-      "ja": "crane"
     }
   },
   {
@@ -60510,16 +57850,6 @@
     }
   },
   {
-    "word": "한",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "resentment",
-      "zh": "one, one of the ~",
-      "ja": "one, one of the ~"
-    }
-  },
-  {
     "word": "한가운데",
     "level": 2,
     "pos": "noun",
@@ -60534,7 +57864,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be leisurely, to be relaxed",
+      "en": "leisurely, to be relaxed",
       "zh": "to be leisurely, to be relaxed",
       "ja": "to be leisurely, to be relaxed"
     }
@@ -60567,26 +57897,6 @@
       "en": "limits",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "한국말",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Korean language",
-      "zh": "Korean language",
-      "ja": "Korean language"
-    }
-  },
-  {
-    "word": "한국어",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Korean language",
-      "zh": "韩语",
-      "ja": "韓国語"
     }
   },
   {
@@ -60800,16 +58110,6 @@
     }
   },
   {
-    "word": "한자",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Chinese character",
-      "zh": "Chinese character",
-      "ja": "Chinese character"
-    }
-  },
-  {
     "word": "한정식",
     "level": 2,
     "pos": "noun",
@@ -60907,16 +58207,6 @@
       "en": "thoughtlessly",
       "zh": "thoughtlessly, mindlessly",
       "ja": "thoughtlessly, mindlessly"
-    }
-  },
-  {
-    "word": "합격",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "pass",
-      "zh": "pass",
-      "ja": "pass"
     }
   },
   {
@@ -61050,16 +58340,6 @@
     }
   },
   {
-    "word": "해",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "year, sun",
-      "zh": "year, sun",
-      "ja": "year, sun"
-    }
-  },
-  {
     "word": "해결",
     "level": 2,
     "pos": "noun",
@@ -61174,7 +58454,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to try, to attempt",
+      "en": "try, to attempt",
       "zh": "to try, to attempt",
       "ja": "to try, to attempt"
     }
@@ -61357,16 +58637,6 @@
       "en": "happiness",
       "zh": "幸福",
       "ja": "幸せ"
-    }
-  },
-  {
-    "word": "행사",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "event",
-      "zh": "event",
-      "ja": "event"
     }
   },
   {
@@ -61584,7 +58854,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to break up, to leave",
+      "en": "break up, to leave",
       "zh": "to break up, to leave",
       "ja": "to break up, to leave"
     }
@@ -61747,26 +59017,6 @@
       "en": "cooperation",
       "zh": "",
       "ja": ""
-    }
-  },
-  {
-    "word": "형",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "type",
-      "zh": "哥哥(男性用)",
-      "ja": "兄(男性用)"
-    }
-  },
-  {
-    "word": "형님",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "older brother",
-      "zh": "big brother (honorific form)",
-      "ja": "big brother (honorific form)"
     }
   },
   {
@@ -61990,16 +59240,6 @@
     }
   },
   {
-    "word": "홈페이지",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "home page",
-      "zh": "home page",
-      "ja": "home page"
-    }
-  },
-  {
     "word": "홍보",
     "level": 2,
     "pos": "noun",
@@ -62030,21 +59270,11 @@
     }
   },
   {
-    "word": "화",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "anger",
-      "zh": "anger",
-      "ja": "anger"
-    }
-  },
-  {
     "word": "화나다",
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be angry",
+      "en": "angry",
       "zh": "生气",
       "ja": "怒る"
     }
@@ -62054,7 +59284,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be fancy",
+      "en": "fancy",
       "zh": "to be fancy",
       "ja": "to be fancy"
     }
@@ -62464,7 +59694,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be absurd, to be nonsensical, to be ridiculous",
+      "en": "absurd, to be nonsensical, to be ridiculous",
       "zh": "to be absurd, to be nonsensical, to be ridiculous",
       "ja": "to be absurd, to be nonsensical, to be ridiculous"
     }
@@ -62754,7 +59984,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to be great, to be excellent",
+      "en": "great, to be excellent",
       "zh": "to be great, to be excellent",
       "ja": "to be great, to be excellent"
     }
@@ -62874,7 +60104,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to flow, to run",
+      "en": "flow, to run",
       "zh": "to flow, to run",
       "ja": "to flow, to run"
     }
@@ -62904,7 +60134,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to shake",
+      "en": "shake",
       "zh": "to shake",
       "ja": "to shake"
     }
@@ -62984,7 +60214,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to spill, to shed",
+      "en": "spill, to shed",
       "zh": "to spill, to shed",
       "ja": "to spill, to shed"
     }
@@ -63154,7 +60384,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to decrease",
+      "en": "decrease",
       "zh": "减少",
       "ja": "減少する"
     }
@@ -63174,7 +60404,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to make an effort",
+      "en": "make an effort",
       "zh": "努力",
       "ja": "努力する"
     }
@@ -63214,7 +60444,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to develop",
+      "en": "develop",
       "zh": "发展",
       "ja": "発展する"
     }
@@ -63234,7 +60464,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to change",
+      "en": "change",
       "zh": "变化",
       "ja": "変化する"
     }
@@ -63324,7 +60554,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to influence",
+      "en": "influence",
       "zh": "影响",
       "ja": "影響する"
     }
@@ -63344,7 +60574,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be important",
+      "en": "important",
       "zh": "重要",
       "ja": "重要だ"
     }
@@ -63354,7 +60584,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to increase",
+      "en": "increase",
       "zh": "增加",
       "ja": "増加する"
     }
@@ -63384,7 +60614,7 @@
     "level": 2,
     "pos": "verb",
     "translations": {
-      "en": "to participate",
+      "en": "participate",
       "zh": "参与",
       "ja": "参加する"
     }
@@ -63394,7 +60624,7 @@
     "level": 2,
     "pos": "adjective",
     "translations": {
-      "en": "to be special",
+      "en": "special",
       "zh": "特别",
       "ja": "特別だ"
     }
