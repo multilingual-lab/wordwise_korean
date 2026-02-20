@@ -5,6 +5,7 @@ All notable changes to WordWise Korean will be documented in this file.
 ## [0.1.2] - 2026-02-20
 
 ### Added
+- **New Extension Icon**: Redesigned icon — clean bold W on a purple gradient, replacing the original book/한 design
 - **Expanded Vocabulary**: 4,341 → **6,065 words**
   - TOPIK I: 1,578 words (unchanged)
   - TOPIK II: 2,729 → **4,487 words** (+1,725 new words, duplicates removed)

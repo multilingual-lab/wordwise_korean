@@ -23,6 +23,9 @@ Translations are now post-processed for concise display:
 - **Tilde meta-descriptions removed**: `"one, one of the ~"` → `"one"`, `"~ person(s), ~ minute(s)"` → `"person, minute"`
 - **Near-synonyms deduplicated**: `"autumn, fall"` → `"autumn"`, `"want, wish, desire"` → `"want"`, `"strange, funny, weird"` → `"strange"`
 
+### New Extension Icon
+Redesigned icon — clean bold W on a purple gradient, replacing the original book/한 design.
+
 ### Expanded Vocabulary
 - **6,065 words** total (up from 4,341)
 - TOPIK I: 1,578 words | TOPIK II: 4,487 words

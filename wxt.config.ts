@@ -8,7 +8,7 @@ export default defineConfig({
   manifest: {
     name: 'WordWise Korean',
     description: 'Add Word Wise style annotations to Korean text for language learning',
-    version: '0.1.0',
+    version: '0.1.2',
     permissions: ['storage', 'activeTab'],
     host_permissions: ['<all_urls>'],
     content_scripts: [
