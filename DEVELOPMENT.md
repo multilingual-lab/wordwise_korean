@@ -128,13 +128,15 @@ interface VocabEntry {
 }
 ```
 
-**Current Stats:**
-- Total: 4,341 words
-- TOPIK I (Level 1): 1,578 words
-- TOPIK Ⅱ (Level 2): 2,729 words
+**Current Stats (as of 2026-02-20):**
+- Total: **6,065 words** (after dedup)
+- TOPIK I (Level 1): **1,578 words**
+- TOPIK Ⅱ (Level 2): **4,487 words**
 - Grammar particles excluded: 20 common particles (은/는/이/가/을/를/의/도/와/과/etc.)
+- Translations: English only (Chinese & Japanese are placeholders)
+- All translations free of verbose `to /being /to be ` prefixes (stripped 2026-02-20)
 
-**File Size:** ~180 KB (uncompressed), ~1 MB after bundling with content script
+**File Size:** ~1 MB (uncompressed JSON), ~630 KB after Vite bundling into content script
 
 ## CSS Tips
 
@@ -148,7 +150,39 @@ interface VocabEntry {
 - Firefox: Mostly supports, minor rendering differences
 - Safari: Good support
 
-## Testing Checklist
+## Automated Tests
+
+The project uses **Vitest** for unit testing. Run with:
+
+```bash
+pnpm test          # Run all tests once
+pnpm test:watch    # Watch mode during development
+```
+
+### Test Files
+
+| File | Coverage |
+|------|----------|
+| `src/tests/vocab-translations.test.ts` | Data integrity, polysemous word protection, verbose prefix removal, concise translation selection, new TOPIK II word coverage |
+| `src/tests/stem-matching.test.ts` | `extractStems()` output, past/present/connector conjugation resolution, `couldBeConjugationOf()`, known limitations |
+
+**Current results: 78/78 tests passing**
+
+### Known Stem-Matching Bugs (Documented in Tests as `Known Limitations`)
+
+These bugs are identified by tests and tracked for the next fix iteration:
+
+| Input | Expected | Actual | Root Cause |
+|-------|----------|--------|------------|
+| `살았어요` | `살다` (live) | `살` (flesh) | Bare stem `살` hits vocab before `살다` |
+| `배우니까` | `배우다` (learn) | `배우` (actor) | Noun `배우` shadows verb stem |
+| `가고` | `가다` (go) | `가` (professional) | Single-char `가` entry intercepts |
+| `가서` | `가다` (go) | `undefined` | ㅏ-ending contraction not in `VERB_ENDINGS` |
+| `해요` | `하다` (do) | `undefined` | 하다 irregular `하+여→해` not handled |
+
+**Fix strategy**: In `annotator.ts`, prefer the longest-matching stem when resolving via `extractStems()`. Also add `아서/어서` contraction patterns directly (e.g. `가서→가다`).
+
+## Manual Testing Checklist
 
 ### Static Pages
 - [ ] Wikipedia
@@ -175,17 +209,18 @@ interface VocabEntry {
 ## Future Enhancements
 
 ### Short Term
+- [ ] Fix stem-matching collisions (살/살다, 배우/배우다, 가/가다) — prefer longer match in resolveToVocab
+- [ ] Add ㅏ/ㅓ-contraction patterns (가서→가다, 와서→오다)
+- [ ] Add 하다 irregular handling (해요→하다, 했어요→하다)
 - [ ] Improve Chinese/Japanese translations (use batch-translate.js)
 - [ ] Add statistics tracking
 - [ ] Performance monitoring dashboard
-- [ ] User testing and feedback
 
 ### Medium Term (Month 2)
 - [ ] User custom vocabulary
 - [ ] Import/export vocab lists
 - [ ] Pronunciation audio
 - [ ] Dark mode styling
-- [ ] Better conjugation matching (improve stem extraction)
 
 ### Long Term (Month 3+)
 - [ ] Dictionary API integration
@@ -196,7 +231,17 @@ interface VocabEntry {
 
 ## Recent Bug Fixes & Improvements
 
-### v2.2.5 - Grammar Particle Filtering
+### v0.1.2 - Vocabulary expansion + translation quality (2026-02-20)
+**Added**: Merged extended TOPIK II word list → 6,065 total words (was 4,341)
+**Fixed**: 277 duplicate entries removed (same word at TOPIK I and II levels; kept lower level)
+**Fixed**: 260 verbose `to /being /to be ` prefixes stripped from translations
+**Fixed**: 1,283 translation conflicts resolved via smart merge (shorter/more concise wins; polysemous words protected)
+**Added**: Vitest test suite — 78 tests covering data integrity, translation precision, and stem matching
+
+### v0.1.1 - Font size control (2026-02-16)
+See CHANGELOG.md for full details.
+
+### v2.2.5 - Grammar Particle Filtering (legacy)
 **Fixed**: Common particles (은/는/이/가/을/를) were being annotated as vocabulary words
 **Solution**: Added `COMMON_PARTICLES` Set to filter out 20 common functional words
 
@@ -276,8 +321,10 @@ console.timeEnd('processNode');
 
 ### Useful Commands
 ```bash
-pnpm dev           # Development
+pnpm dev           # Development with hot reload
 pnpm build         # Production build
 pnpm compile       # Type check only
-pnpm zip           # Create distributable
+pnpm test          # Run automated test suite (78 tests)
+pnpm test:watch    # Tests in watch mode
+pnpm zip           # Create distributable ZIP
 ```

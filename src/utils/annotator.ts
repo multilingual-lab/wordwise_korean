@@ -1,6 +1,6 @@
 import type { VocabEntry, UserConfig, TextReplacement } from '@/types';
 import { getTranslation } from './vocabulary-loader';
-import { extractStems, couldBeConjugationOf } from './korean-stem';
+import { extractStems } from './korean-stem';
 
 // Tags to skip during annotation
 const SKIP_TAGS = new Set([
@@ -138,15 +138,12 @@ export class WordWiseAnnotator {
       
       // First try exact match
       let entry = this.vocabulary.get(word);
-      let matchedWord = word;
-      
       // If no exact match, try stem matching for verbs/adjectives
       if (!entry) {
         const stems = extractStems(word);
         for (const stem of stems) {
           if (this.vocabulary.has(stem)) {
             entry = this.vocabulary.get(stem)!;
-            matchedWord = stem;
             break;
           }
         }

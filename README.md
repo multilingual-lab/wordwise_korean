@@ -5,7 +5,7 @@ A browser extension that adds Kindle Word Wise style annotations for Korean lang
 ## ✨ Features
 
 - **Instant Translations**: Korean vocabulary words are automatically annotated with translations above them
-- **TOPIK Levels**: Filter vocabulary by TOPIK I, TOPIK Ⅱ, or all levels (4,341 words)
+- **TOPIK Levels**: Filter vocabulary by TOPIK I, TOPIK Ⅱ, or all levels (**6,065 words**)
 - **English Translations**: High-quality English translations (Chinese & Japanese coming soon!)
 - **Smart Matching**: Handles verb/adjective conjugations with stem extraction
 - **Grammar Particle Filtering**: Excludes common particles (은/는/이/가/을/를/etc.) to avoid cluttering text
@@ -87,8 +87,8 @@ Output will be in `.output/` directory.
 2. Enable the extension using the toggle
 3. Select your vocabulary level:
    - **TOPIK I**: Basic vocabulary (1,578 words)
-   - **TOPIK Ⅱ**: Intermediate/Advanced (2,729 words)
-   - **All**: Complete vocabulary (4,341 words)
+   - **TOPIK Ⅱ**: Intermediate/Advanced (4,487 words)
+   - **All**: Complete vocabulary (6,065 words)
 4. Adjust settings like translation size and highlighting
 5. Visit any Korean website and see translations appear!
 
@@ -107,7 +107,10 @@ wordwise_korean/
 │   │   ├── korean-stem.ts      # Conjugation matching
 │   │   └── dom-observer.ts     # Dynamic content watcher
 │   ├── assets/
-│   │   └── topik-vocab.json    # 4,341 words from TOPIK I + II
+│   │   └── topik-vocab.json    # 6,065 words from TOPIK I + II (deduplicated)
+│   ├── tests/
+│   │   ├── vocab-translations.test.ts  # Translation precision tests
+│   │   └── stem-matching.test.ts        # Conjugation matching tests
 │   └── types/
 │       └── index.ts            # TypeScript interfaces
 ├── scripts/
@@ -120,6 +123,7 @@ wordwise_korean/
 │   ├── topik-1671-words.txt    # TOPIK I source text
 │   └── topik-2662-words.txt    # TOPIK II source text
 ├── public/                     # Static assets
+├── vitest.config.ts           # Test configuration
 ├── wxt.config.ts              # WXT configuration
 └── package.json
 ```
@@ -157,7 +161,15 @@ wordwise_korean/
 ### Hot Reload
 WXT provides instant hot reload - just save your changes and see them immediately!
 
-### Testing
+### Running Tests
+```bash
+pnpm test          # Run all 78 tests
+pnpm test:watch    # Watch mode during development
+```
+
+Tests cover translation precision, vocabulary data integrity, and Korean stem matching.
+
+### Testing on Live Sites
 Test on these Korean websites:
 - https://ko.wikipedia.org/wiki/한국어
 - https://news.naver.com
@@ -202,9 +214,12 @@ MIT License - feel free to use this project for learning and development!
 
 ## 🎯 Roadmap
 
-- [x] Expand vocabulary to TOPIK I + II (4,341 words)
+- [x] Expand vocabulary to TOPIK I + II (now 6,065 words)
 - [x] Handle Korean verb/adjective conjugations
 - [x] Filter common grammar particles
+- [x] Translation quality pass (concise, no verbose prefixes)
+- [x] Automated test suite (78 tests)
+- [ ] Fix stem-matching collisions (살/살다, 배우/배우다, 해요/하다) — *next up*
 - [ ] Add Chinese and Japanese translation support
 - [ ] Add user custom vocabulary
 - [ ] Statistics dashboard (words learned, pages visited)

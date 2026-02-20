@@ -120,16 +120,33 @@ node scripts/pdf-to-vocab.js data/topik-2662-words.txt --level 2 --merge
 
 ---
 
-### 4. `generate-topik-vocab.js` - Generate Sample Vocabulary
+### 4. `scrape-topik2-3900.py` - Scrape Extended TOPIK II Vocabulary
 
-Generates a curated TOPIK vocabulary list (already used to create initial sample list).
+Fetches the TOPIK II 3,900-word vocabulary from koreantopik.com and generates a JSON file.
 
 **Usage:**
 ```bash
-node scripts/generate-topik-vocab.js
+python scripts/scrape-topik2-3900.py
 ```
 
-Creates `topik-vocab-full.json` in `src/assets/`.
+**Output:** `src/assets/topik2-3900-vocab.json`
+
+**Note:** Requires network access to koreantopik.com. This script was already run — output is integrated into `topik-vocab.json`. Re-run only if you want to refresh the source data.
+
+---
+
+### 5. `merge-topik2-vocab.py` - Merge Scraped TOPIK II Vocabulary
+
+Merges `src/assets/topik2-3900-vocab.json` (scraped TOPIK II words) into `src/assets/topik-vocab.json`, deduplicating by Korean word.
+
+**Usage:**
+```bash
+python scripts/merge-topik2-vocab.py
+```
+
+**Result:** Updates `src/assets/topik-vocab.json` in-place. After running both scripts the vocabulary grows to ~6,065 words (1,578 TOPIK I + 4,487 TOPIK II, after deduplication and quality pass).
+
+**Note:** Already applied — current `topik-vocab.json` reflects the merged and quality-audited result.
 
 ---
 
@@ -138,24 +155,25 @@ Creates `topik-vocab-full.json` in `src/assets/`.
 ### Starting from a CSV file:
 
 ```bash
-# 1. Convert CSV to JSON
+# 1. Convert CSV to JSON (outputs src/assets/topik-vocab-imported.json)
 node scripts/csv-to-vocab.js my-topik-words.csv --merge
 
-# 2. Translate missing languages
+# 2. Translate missing languages (Chinese/Japanese)
 $env:OPENAI_API_KEY="sk-..."
 node scripts/batch-translate.js src/assets/topik-vocab-imported.json
 
 # 3. Review and apply
 # Check the output file first
-cat src/assets/topik-vocab-imported-translated.json
+Get-Content src/assets/topik-vocab-imported.json | Select-Object -First 20
 
-# If good, replace current vocab:
-Move-Item src/assets/topik-vocab-imported-translated.json src/assets/topik-vocab.json -Force
+# If good, merge into main vocab:
+node scripts/csv-to-vocab.js my-topik-words.csv --merge --output topik-vocab.json
 
-# 4. Rebuild extension
+# 4. Run tests to verify data integrity
+pnpm test
+
+# 5. Rebuild extension
 pnpm dev
-
-# 5. Test in browser!
 ```
 
 ### Real-world example:
@@ -173,7 +191,7 @@ node scripts/pdf-to-vocab.js topik-2662-words.txt --level 2 --merge
 # Apply the merged vocabulary
 Move-Item src/assets/topik-vocab-from-pdf.json src/assets/topik-vocab.json -Force
 
-# Result: 4,300+ words!
+# Result: merged into topik-vocab.json (~6,065 words)
 ```
 
 ---
@@ -240,6 +258,4 @@ node -e "const v=require('./src/assets/topik-vocab.json'); console.log('Total:',
 
 ## Need Help?
 
-See [docs/PHASE1-QUICKSTART.md](../docs/PHASE1-QUICKSTART.md) for detailed step-by-step guide.
-
-See [docs/VOCABULARY-EXPANSION.md](../docs/VOCABULARY-EXPANSION.md) for long-term expansion strategy.
+See [data/README.md](../data/README.md) for vocabulary data sources and the complete regeneration workflow.

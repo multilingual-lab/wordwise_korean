@@ -127,9 +127,9 @@ const levelHint = computed(() => {
     case 1:
       return 'TOPIK I - Basic vocabulary (~1,600 words)';
     case 2:
-      return 'TOPIK II - Intermediate/Advanced (~2,700 words)';
-    case 3:
-      return 'All levels (~4,300 words)';
+      return 'TOPIK II - Intermediate/Advanced (~4,500 words)';
+     case 3:
+      return 'All levels (~6,000 words)';
     default:
       return '';
   }

@@ -24,20 +24,21 @@ This directory contains the raw source text files for TOPIK vocabulary and instr
 
 ## 📊 Current Status
 
-**✅ Completed: 4,341 words imported!**
-- TOPIK I: 1,578 words
-- TOPIK Ⅱ: 2,729 words (including 34 advanced level words)
+**✅ Completed: 6,065 words (after deduplication and quality pass)**
+- TOPIK I (Level 1): 1,578 words
+- TOPIK Ⅱ (Level 2): 4,487 words
 
 | Level | Words | Verbs/Adj (ending in 다) | Expressions |
 |-------|-------|------------------------|-------------|
 | TOPIK I | 1,578 | ~400 | ~50 |
-| TOPIK Ⅱ | 2,729 | ~800 | ~100 |
-| **Total** | **4,341** | **~1,200** | **~150** |
+| TOPIK Ⅱ | 4,487 | ~1,350 | ~190 |
+| **Total** | **6,065** | **~1,750** | **~240** |
 
 **Next Steps (Optional):**
-- Add accurate Chinese/Japanese translations using batch-translate.js
+- Add accurate Chinese/Japanese translations using `batch-translate.js`
 - Fine-tune verb/adjective conjugation matching
 - Add user custom vocabulary feature
+- Expand further using KRDICT API or additional word lists
 
 ---
 
@@ -175,14 +176,18 @@ async function fetchKRDICT(word) {
 To rebuild the vocabulary from scratch:
 
 ```bash
-# Start fresh
+# Step 1: Parse TOPIK I (1,578 words)
 node scripts/pdf-to-vocab.js data/topik-1671-words.txt --level 1
 
-# Merge TOPIK II
+# Step 2: Merge TOPIK II PDF vocabulary
 node scripts/pdf-to-vocab.js data/topik-2662-words.txt --level 2 --merge
 
-# Apply to extension
+# Apply the PDF-based vocabulary (4,341 words)
 Move-Item src/assets/topik-vocab-from-pdf.json src/assets/topik-vocab.json -Force
+
+# Step 3: Scrape and merge TOPIK II extended list from koreantopik.com (~2,000 more words)
+python scripts/scrape-topik2-3900.py          # generates src/assets/topik2-3900-vocab.json
+python scripts/merge-topik2-vocab.py          # merges into topik-vocab.json → 6,349 words
 
 # Rebuild extension
 pnpm dev
@@ -304,10 +309,16 @@ These source files are **not** loaded by the extension. They are:
 2. ✅ Parsed and imported 1,668 unique words
 3. ✅ Added to `topik-vocab.json`
 
-### Phase 2: Expand to Full TOPIK II ✅ COMPLETED
+### Phase 2: Expand to Full TOPIK II (PDF) ✅ COMPLETED
 1. ✅ Downloaded TOPIK II additions (2,662 words)
 2. ✅ Parsed and imported 2,660 unique words
 3. ✅ Merged with existing file → **4,341 total words**
+
+### Phase 2.5: Extend via Web Scraping (koreantopik.com) ✅ COMPLETED
+1. ✅ Scraped TOPIK II vocabulary from koreantopik.com using `scrape-topik2-3900.py`
+2. ✅ Generated `src/assets/topik2-3900-vocab.json` (~3,900 entries)
+3. ✅ Merged into `topik-vocab.json` using `merge-topik2-vocab.py`
+4. ✅ Deduplicated (277 entries) and translation quality pass (260 verbose prefixes stripped) → **6,065 total words**
 
 ### Phase 3: Conjugation Handling ✅ IMPLEMENTED
 1. ✅ Stem extraction algorithm handles most cases

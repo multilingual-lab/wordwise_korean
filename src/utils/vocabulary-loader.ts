@@ -32,9 +32,9 @@ const COMMON_PARTICLES = new Set([
 
 /**
  * Load vocabulary filtered by user's selected level
- * Level 1 = TOPIK I only (~1,600 words)
- * Level 2 = TOPIK II only (~2,700 words)
- * Level 3 = All levels (~4,300 words)
+ * Level 1 = TOPIK I only (~1,578 words)
+ * Level 2 = TOPIK II only (~4,487 words)
+ * Level 3 = All levels (~6,065 words)
  */
 export function loadVocabulary(config: UserConfig): Map<string, VocabEntry> {
   const entries = vocabularyData as VocabEntry[];

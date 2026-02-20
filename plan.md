@@ -6,9 +6,11 @@
 
 **What we're building**: Like Kindle Word Wise + Furigana Maker, but for Korean language learning.
 
-**Status**: ✅ **COMPLETED - Fully functional with 4,341 TOPIK I/II vocabulary words!**
+**Status**: ✅ **ACTIVE — v0.1.2 released 2026-02-20**
 
-**Latest Version**: v2.2.5 (Grammar particle filtering, level switching fix, enhanced logging)
+**Latest Version**: v0.1.2 (Vocabulary expansion to 6,065 words, translation quality pass, 78-test Vitest suite)
+
+**Previous Version**: v0.1.1 (Font size control, simplified language options)
 
 **Core UX**: 
 ```
@@ -17,6 +19,27 @@ Hello         friend     library
 ```
 
 Translations appear **directly above** Korean words - always visible, no interaction needed.
+
+---
+
+## 📊 Current State (2026-02-20)
+
+| Area | Status | Notes |
+|------|--------|-------|
+| Vocabulary | ✅ 6,065 words | TOPIK I: 1,578 · TOPIK II: 4,487 · deduplicated |
+| Translation quality | ✅ Audited | No verbose prefixes, polysemous words protected |
+| Conjugation matching | ⚠️ Partial | Works for most forms; 5 known failures (see DEVELOPMENT.md) |
+| Test suite | ✅ 78/78 passing | Vitest — `pnpm test` |
+| Build | ✅ Clean | ~718 KB total output |
+| Chinese/Japanese | ❌ Placeholder | Future work |
+| Stats dashboard | ❌ Not started | Future work |
+
+### Known Bugs Pending Fix
+- `가서` → no annotation (ㅏ-contraction)
+- `해요`/`했어요` → no annotation (하다 irregular)
+- `살았어요` → shows `살` "flesh" instead of `살다` "live"
+- `배우니까` → shows `배우` "actor" instead of `배우다` "learn"
+- `가고` → shows `가` "professional" instead of `가다` "go"
 
 ---
 
@@ -426,9 +449,10 @@ pnpm dev
 
 ### First File to Create: `topik-vocab.json`
 
-✅ **COMPLETED** - Now contains 4,341 words:
+✅ **COMPLETED** - Now contains **6,065 words** (as of 2026-02-20):
 - TOPIK I: 1,578 words
-- TOPIK Ⅱ: 2,729 words
+- TOPIK Ⅱ: 4,487 words (expanded from 2,729 by merging `topik2-3900-vocab.json`)
+- All translations audited: verbose prefixes stripped, polysemous words protected, duplicates removed
 
 Started with 10 words, grew to comprehensive coverage!
 
@@ -472,10 +496,17 @@ export default defineContentScript({
 ✅ Code is clean and has TypeScript types
 
 **BONUS ACHIEVEMENTS:**
-✅ 4,341 words from TOPIK I + II
+✅ 6,065 words from TOPIK I + II (expanded + deduplicated)
 ✅ Verb/adjective conjugation matching (stem extraction)
+✅ Translation quality audit (verbose prefixes stripped, polysemous words protected)
+✅ 78-test Vitest suite (`pnpm test`) covering data integrity & stem matching
 ✅ Vocabulary management scripts (CSV, PDF parsing, batch translation)
 ✅ Comprehensive documentation
+
+**NEXT (Known Bugs from Tests):**
+⚠️ Stem-matching collisions when bare stem/noun shadows verb form (살/살다, 배우/배우다, 가/가다)
+⚠️ ㅏ/ㅓ-ending contractions not handled (가서, 와서)
+⚠️ 하다 irregular conjugation not handled (해요, 했어요)
 
 ---
 
