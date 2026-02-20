@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WordWise Korean – Inline Translations for Korean Learners</title>
+  <meta name="description" content="A free browser extension that adds inline English translations above Korean vocabulary words on any webpage. No hover needed." />
+  <meta property="og:title" content="WordWise Korean" />
+  <meta property="og:description" content="Read any Korean website with inline translations above vocabulary words." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg:        #13131f;
+      --surface:   #1d1d2e;
+      --surface2:  #25253a;
+      --border:    #34344e;
+      --text:      #eeeef5;
+      --muted:     #8f8fb8;
+      --purple:    #8b5cf6;
+      --purple-hi: #a78bfa;
+      --purple-lo: #251550;
+      --radius:    12px;
+      --glow:      0 0 40px rgba(139,92,246,0.18);
+      --max-w:     1600px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(13,13,20,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 6%;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 1rem; color: var(--text);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .logo-mark {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 900; font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-right a {
+      color: var(--muted); text-decoration: none; font-size: 0.875rem;
+      transition: color .2s;
+    }
+    .nav-right a:hover { color: var(--text); }
+    .btn-nav {
+      background: var(--purple); color: white !important;
+      padding: 8px 18px; border-radius: 8px;
+      font-weight: 600; font-size: 0.875rem;
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-nav:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 72px 6%;
+    }
+
+    .hero-left {
+      display: flex; flex-direction: column; gap: 24px;
+      padding-right: 48px;
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--purple-lo); border: 1px solid rgba(139,92,246,0.35);
+      color: var(--purple-hi); border-radius: 999px;
+      padding: 5px 14px; font-size: 0.78rem; font-weight: 600;
+      width: fit-content; letter-spacing: 0.02em;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--purple-hi); flex-shrink: 0;
+      box-shadow: 0 0 6px var(--purple-hi);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-weight: 900; line-height: 1.12;
+      color: var(--text); letter-spacing: -0.02em;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1rem; color: var(--muted); line-height: 1.75;
+      max-width: 440px;
+    }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 999px; padding: 5px 13px;
+      font-size: 0.78rem; color: var(--text);
+    }
+
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--purple); color: white;
+      padding: 13px 24px; border-radius: 10px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(139,92,246,0.4);
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text);
+      padding: 12px 22px; border-radius: 10px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      border: 1px solid var(--border);
+      transition: background .2s, border-color .2s, transform .15s;
+    }
+    .btn-outline:hover { background: var(--surface2); border-color: var(--purple); transform: translateY(-1px); }
+
+    .install-hint {
+      font-size: 0.8rem; color: var(--muted); line-height: 1.7;
+    }
+    .install-hint strong { color: rgba(238,238,245,0.7); font-weight: 600; }
+    .install-hint ol { padding-left: 1.1em; margin-top: 6px; }
+    .install-hint li { margin-bottom: 4px; }
+    .install-hint code {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 1px 6px;
+      font-size: 0.82em; color: var(--purple-hi);
+      font-family: 'SF Mono', Consolas, monospace;
+    }
+
+    /* ── DEMO PANE ── */
+    .hero-right {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .demo-wrap {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--glow), 0 24px 60px rgba(0,0,0,0.5);
+      position: relative;
+      background: #000;
+    }
+    .demo-browser-bar {
+      height: 36px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; padding: 0 14px; gap: 8px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f56; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #27c93f; }
+    .url-bar {
+      flex: 1; background: var(--surface); border-radius: 5px;
+      height: 20px; margin-left: 8px;
+      display: flex; align-items: center; padding: 0 10px;
+      font-size: 0.7rem; color: var(--muted);
+    }
+    .demo-wrap iframe {
+      width: 100%; height: 460px;
+      border: none; display: block;
+      pointer-events: none;
+    }
+    .demo-wrap .overlay { position: absolute; inset: 0; top: 36px; }
+    .demo-caption {
+      font-size: 0.74rem; color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: var(--max-w); margin: 0 auto;
+      border: none; border-top: 1px solid var(--border);
+    }
+
+    /* ── BOTTOM STRIPS ── */
+    .bottom {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 48px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Vocab levels */
+    .levels-block h2 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--purple-hi); margin-bottom: 16px;
+    }
+    .levels-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
+    }
+    .level-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 14px; text-align: center;
+      transition: border-color .2s;
+    }
+    .level-card:hover { border-color: var(--purple); }
+    .level-name {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--purple-hi); margin-bottom: 8px;
+    }
+    .level-count { font-size: 1.7rem; font-weight: 900; color: var(--text); line-height: 1; }
+    .level-desc { font-size: 0.72rem; color: var(--muted); margin-top: 5px; }
+
+    /* Privacy */
+    .privacy-block h2 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--purple-hi); margin-bottom: 16px;
+    }
+    .priv-list { display: flex; flex-direction: column; gap: 10px; }
+    .priv-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 16px;
+      transition: border-color .2s;
+    }
+    .priv-item:hover { border-color: var(--purple); }
+    .priv-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .priv-item strong { font-size: 0.84rem; display: block; margin-bottom: 1px; }
+    .priv-item span { font-size: 0.76rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem; color: var(--muted);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 20px 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 20px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 48px 6%; }
+      .hero-left { padding-right: 0; max-width: 600px; }
+      .hero-right { align-items: flex-start; }
+      .demo-wrap { max-width: 100%; }
+      .bottom { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      .nav-inner { padding: 0 4%; }
+      .nav-right a:not(.btn-nav) { display: none; }
+      .hero { padding: 32px 4%; gap: 36px; }
+      .demo-wrap iframe { height: 360px; }
+      .levels-grid { grid-template-columns: 1fr; }
+      .cta-btns { flex-direction: column; align-items: stretch; }
+      .cta-btns a { text-align: center; justify-content: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; flex-wrap: wrap; }
+      .bottom { padding: 36px 4%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">
+        <div class="logo-mark">W</div>
+        WordWise Korean
+      </a>
+      <div class="nav-right">
+        <a href="https://github.com/leahyums/wordwise_korean" target="_blank">GitHub</a>
+        <a class="btn-nav" href="https://github.com/leahyums/wordwise_korean/releases/latest" target="_blank">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="badge"><span class="badge-dot"></span> Free &amp; Open Source</div>
+
+      <h1>Read Korean websites<br>with <em>inline translations</em></h1>
+
+      <p class="hero-sub">
+        Like Kindle Word Wise — but for Korean. Translations appear directly
+        above vocabulary words on any webpage, always visible, no hover needed.
+      </p>
+
+      <div class="pill-row">
+        <span class="pill">🔒 100% local, no tracking</span>
+        <span class="pill">⚡ Any Korean site</span>
+        <span class="pill">🎯 TOPIK I &amp; II</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn-primary" href="https://github.com/leahyums/wordwise_korean/releases/latest" target="_blank">
+          ⬇&nbsp; Download Extension
+        </a>
+        <a class="btn-outline" href="https://github.com/leahyums/wordwise_korean" target="_blank">
+          ⭐&nbsp; View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="demo-wrap">
+        <div class="demo-browser-bar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <div class="url-bar">x.com — WordWise Korean active</div>
+        </div>
+        <iframe
+          src="../demo-x.html"
+          title="WordWise Korean live demo"
+          scrolling="no"
+        ></iframe>
+        <div class="overlay" aria-hidden="true"></div>
+      </div>
+      <p class="demo-caption">Live demo — translations injected above every TOPIK vocabulary word</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- VOCAB + PRIVACY -->
+  <div class="bottom">
+    <div class="levels-block">
+      <h2>Vocabulary Coverage</h2>
+      <div class="levels-grid">
+        <div class="level-card">
+          <div class="level-name">TOPIK I</div>
+          <div class="level-count">1,578</div>
+          <div class="level-desc">Beginner</div>
+        </div>
+        <div class="level-card">
+          <div class="level-name">TOPIK II</div>
+          <div class="level-count">4,487</div>
+          <div class="level-desc">Intermediate</div>
+        </div>
+        <div class="level-card">
+          <div class="level-name">All</div>
+          <div class="level-count">6,065</div>
+          <div class="level-desc">Full list</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="privacy-block">
+      <h2>Privacy &amp; Transparency</h2>
+      <div class="priv-list">
+        <div class="priv-item">
+          <div class="priv-icon">🔒</div>
+          <div>
+            <strong>No data collection</strong>
+            <span>The extension never reads or stores what you browse.</span>
+          </div>
+        </div>
+        <div class="priv-item">
+          <div class="priv-icon">🌐</div>
+          <div>
+            <strong>No external API calls</strong>
+            <span>All 6,065 translations are bundled locally in the extension.</span>
+          </div>
+        </div>
+        <div class="priv-item">
+          <div class="priv-icon">🔓</div>
+          <div>
+            <strong>MIT licensed</strong>
+            <span>Audit every line of code on GitHub.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>Made with ❤️ for Korean language learners &mdash; MIT License</div>
+      <div class="footer-links">
+        <a href="https://github.com/leahyums/wordwise_korean" target="_blank">GitHub</a>
+        <a href="https://github.com/leahyums/wordwise_korean/releases" target="_blank">Releases</a>
+        <a href="https://github.com/leahyums/wordwise_korean/blob/main/CHANGELOG.md" target="_blank">Changelog</a>
+        <a href="https://github.com/leahyums/wordwise_korean/issues" target="_blank">Bug report</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
