@@ -1,664 +1,479 @@
-﻿# Development Notes
-
-## Table of Contents
-
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Setup](#setup)
-  - [Test the Extension](#test-the-extension)
-  - [Configure Settings](#configure-settings)
-  - [Development Workflow](#development-workflow)
-- [Architecture Overview](#architecture-overview)
-  - [Content Script Flow](#content-script-flow)
-  - [Annotation Algorithm](#annotation-algorithm)
-  - [Ruby Tag Structure](#ruby-tag-structure)
-- [Performance Considerations](#performance-considerations)
-  - [Optimization Techniques](#optimization-techniques)
-- [Edge Cases Handled](#edge-cases-handled)
-- [Browser Compatibility](#browser-compatibility)
-  - [Chrome/Edge (Manifest V3)](#chromeedge-manifest-v3)
-  - [Firefox](#firefox)
-- [Chrome Storage Schema](#chrome-storage-schema)
-- [CSS Tips](#css-tips)
-  - [Ruby Tag Gotchas](#ruby-tag-gotchas)
-  - [Browser Differences](#browser-differences)
-- [Automated Tests](#automated-tests)
-  - [Test Files](#test-files)
-  - [Stem-Matching Architecture (v0.1.2)](#stem-matching-architecture-v012)
-  - [Digit-Compound Guard](#digit-compound-guard)
-  - [Known Stem-Matching Limitations](#known-stem-matching-limitations)
-- [Manual Testing Checklist](#manual-testing-checklist)
-  - [Static Pages](#static-pages)
-  - [Dynamic Pages](#dynamic-pages)
-  - [Edge Cases](#edge-cases)
-  - [Settings](#settings)
-- [Common Issues & Solutions](#common-issues--solutions)
-  - [Extension not loading](#issue-extension-not-loading)
-  - [No annotations](#issue-no-annotations)
-  - [Build errors / stale cache](#issue-build-errors--stale-cache)
-  - [Port already in use](#issue-port-already-in-use-port-3000)
-  - [Performance slow](#issue-performance-slow)
-  - [Wrong annotations](#issue-wrong-annotations)
-- [Debugging Tips](#debugging-tips)
-  - [Console Logging](#console-logging)
-  - [Chrome DevTools](#chrome-devtools)
-  - [Performance Profiling](#performance-profiling)
-- [Contracts & Dependencies](#contracts--dependencies)
-  - [1. Annotation HTML contract](#1-annotation-html-contract--rubyword-wise-korean)
-  - [2. Landing page vocab counts](#2-landing-page-vocab-counts--data-vocab-count-attributes)
-  - [3. Demo iframe language switcher](#3-demo-iframe-language-switcher--postmessage-protocol)
-  - [4. Popup word counts](#4-popup-word-counts--dynamic-derivation-from-json)
-  - [5. Vocab JSON schema](#5-vocab-json-schema)
-- [Automation](#automation)
-- [Release Process](#release-process)
-- [Quick Reference](#quick-reference)
-  - [Project Structure](#project-structure)
-  - [Important Files](#important-files)
-  - [Important Files](#important-files)
-  - [Key Constants](#key-constants)
-  - [Useful Commands](#useful-commands)
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm, npm, or yarn
-- Chrome or Edge browser
-
-### Setup
-
-```bash
-pnpm install   # ~1-2 minutes
-pnpm dev       # builds, opens Chrome, loads extension, watches for changes
-```
-
-### Test the Extension
-
-**On a real Korean website**
-- https://ko.wikipedia.org/wiki/한국어
-- https://news.naver.com
-- https://twitter.com (search for 한국어)
-
-### Configure Settings
-
-1. Click the extension icon (puzzle piece) in the browser toolbar
-2. Popup controls:
-   - **Toggle** – enable / disable
-   - **Level** – TOPIK I, TOPIK II, or All (see [data/README.md](data/README.md) for current counts)
-   - **Language** – English, 中文 (Simplified Chinese), or 日本語 (Japanese)
-   - **Font size** – 80%–150% slider
-   - **Highlight** – show background highlight under annotated words
-3. Changes apply immediately
-
-### Development Workflow
-
-All TypeScript files live in `src/`. WXT auto-reloads the extension on save.
-
-Key files to edit:
-
-| File | Purpose |
-|------|---------|
-| `src/entrypoints/content.ts` | Main annotation logic |
-| `src/utils/annotator.ts` | Core matching engine |
-| `src/utils/korean-stem.ts` | Conjugation handling |
-| `src/entrypoints/popup/App.vue` | Popup UI |
-| `src/assets/topik-vocab.json` | TOPIK vocabulary database |
-
-See [scripts/README.md](scripts/README.md) for tools to parse PDFs, convert CSVs, and batch-translate. Source vocab files are in `data/`.
-
----
-
-## Architecture Overview
-
-### Content Script Flow
-
-The content script uses a **two-phase initialization** to avoid loading vocabulary on non-Korean pages.
-
-```
-Page Load
-    ↓
-── Phase 1: Korean presence check (cheap) ────────────────────
-KOREAN_RE.test(document.body.innerText)?
-    │ Yes                               │ No
-    ↓                                   ↓
-initializeFull()          sentinel MutationObserver
-    ↑                      (watches addedNodes + characterData)
-    │                      Korean text appears?
-    └──────────────────────────────────┘
-── Phase 2: Full init (runs only once, only on Korean pages) ─
-    ↓
-Load User Config (chrome.storage)
-    ↓
-Load Vocabulary (filter by level)
-    ↓
-Create Annotator Instance
-    ↓
-Process DOM (find Korean text nodes)
-    ↓
-Replace with <ruby> tags
-    ↓
-Start DOMObserver (watch for new content)
-    ↓
-Listen for config changes
-```
-
-**Why two phases?** Korean text appears on `.kr` domains but also on Reddit, Wikipedia, Twitter, etc. URL patterns can't gate the cost. The sentinel observer watches only `addedNodes` and `characterData` mutations rather than rescanning `document.body.innerText` on every mutation, so Phase 1 stays near-zero cost on non-Korean pages.
-
-### Annotation Algorithm
-
-1. **Text Collection**: TreeWalker finds all text nodes
-2. **Korean Detection**: Regex `/[가-힣]/` checks for Korean
-3. **Word Matching**: 
-   - Sort vocabulary by word length (longest first)
-   - Find all matches in text
-   - Track positions to avoid overlaps
-4. **Replacement**: Build HTML with ruby tags
-5. **DOM Update**: Replace text node with annotated span
-
-### Ruby Tag Structure
-
-```html
-<ruby class="word-wise-korean">한국어<rt>Korean language</rt></ruby>
-<!-- with highlight enabled: -->
-<ruby class="word-wise-korean word-wise-highlight">한국어<rt>Korean language</rt></ruby>
-```
-
-The Korean base text comes **first**, the `<rt>` annotation comes **after** it inside the ruby element. CSS positions `<rt>` above the base text automatically via `ruby-position: over`.
-
-## Performance Considerations
-
-### Optimization Techniques
-- ✅ **Two-phase init**: vocabulary (~1.5 MB uncompressed) is never loaded on non-Korean pages
-- ✅ **WeakSet** for processed nodes (prevents re-processing)
-- ✅ **Debouncing** (500ms) for dynamic content
-- ✅ **Skip tags** (script, style, svg, etc.)
-- ✅ **Sorted matching** (longest words first)
-- ✅ **Position tracking** (avoid overlap calculation)
-
-## Edge Cases Handled
-
-1. **Overlapping Words**: "한국어" vs "한국"
-   - Solution: Sort by length, track matched positions
-
-2. **Repeated Words**: "친구 친구 친구"
-   - Solution: Find all occurrences in text
-
-3. **Mixed Content**: "I am a 학생"
-   - Solution: Only annotate Korean matches
-
-4. **No Spaces**: "친구학교도서관"
-   - Solution: Regex finds all occurrences
-
-5. **Dynamic Content**: Infinite scroll, SPAs
-   - Solution: MutationObserver with debounce
-
-6. **Already Processed**: Avoid re-annotation
-   - Solution: WeakSet tracking
-
-## Browser Compatibility
-
-### Chrome/Edge (Manifest V3)
-- ✅ Full support
-- ✅ chrome.storage.sync
-- ✅ Content scripts
-- ✅ Popup
-
-### Firefox
-- ✅ Compatible with WXT build
-- ⚠️ Requires browser.* API instead of chrome.*
-- Use `pnpm build:firefox`
-
-## Chrome Storage Schema
-
-Storage key: `wordwise_config` (via `chrome.storage.sync`). Defined in `src/types/index.ts`.
-
-```typescript
-// Key: STORAGE_KEYS.CONFIG = 'wordwise_config'
-{
-  enabled: boolean,           // annotation on/off
-  level: 1 | 2 | 3,          // 1 = TOPIK I only, 2 = TOPIK II only, 3 = all levels
-  targetLanguage: "en" | "zh" | "ja",
-  showHighlight: boolean,     // background tint under annotated words
-  fontSize: number,           // annotation font size, 80–150 (percentage)
-}
-```
-
-> **Note:** `level` in `UserConfig` means *which levels to show*: `3` = show all. This is different from `VocabEntry.level` which is always `1` or `2` (the word's TOPIK tier). Never use `3` as a vocab entry level.
-
-## CSS Tips
-
-### Ruby Tag Gotchas
-- Must use `ruby-position: over` (not `above`)
-- Line height needs extra space (2.0+)
-- `display: inline-ruby` prevents layout breaks
-
-### Browser Differences
-- Chrome/Edge: Fully supports ruby
-- Firefox: Mostly supports, minor rendering differences
-- Safari: Not a tested target
-
-## Automated Tests
-
-The project uses **Vitest** for unit testing. Run with:
-
-```bash
-pnpm test          # Run all tests once
-pnpm test:watch    # Watch mode during development
-```
-
-### Test Files
-
-| File | Coverage |
-|------|----------|
-| `src/tests/vocab-translations.test.ts` | Data integrity, polysemous word protection, verbose prefix removal, concise translation selection, new TOPIK II word coverage |
-| `src/tests/stem-matching.test.ts` | `extractStems()` output, past/present/connector conjugation resolution, `couldBeConjugationOf()`, known limitations |
-
-**Current results: 166/166 tests passing**
-
-### Stem-Matching Architecture (v0.1.2)
-
-The annotator uses a **POS-aware two-pass lookup**:
-
-1. **`extractStemsForLookup(word)`** returns `StemCandidate[]` each with a `verbOnly` flag
-   - `verbOnly=true` when the suffix is grammatically impossible after a noun (`고`, `니까`, `었어요`, etc.)
-   - `는`/`은` are treated as ambiguous: single-char stem → `verbOnly=true`, longer stem → `verbOnly=false`
-   - `HA_IRREGULAR_ENDINGS` maps `해요/했어요` → `하` base
-
-2. **Pass 1** (POS-enforced): accept candidate only if `!verbOnly || VERB_POS.has(candidate.pos)`
-
-3. **Pass 2** (graceful fallback): same but allows entries with `pos == undefined` — still blocks known nouns when `verbOnly=true`
-
-### Digit-Compound Guard
-
-In `findReplacements()`, a Korean token is skipped if the preceding character is a digit:
-```typescript
-if (index > 0 && /[0-9]/.test(text[index - 1])) continue;
-```
-Prevents `1심`, `2층`, `3복`, etc. from being annotated.
-
-### Known Stem-Matching Limitations
-
-| Input | Expected | Status |
-|-------|----------|--------|
-| `가서` | `가다` (go) | ❌ unhandled — Unicode ㅐ-contraction |
-
-All other previously-known collisions (살/살다, 배우/배우다, 서/서다, 해요/하다) are **resolved** in v0.1.2.
-
-## Manual Testing Checklist
-
-### Static Pages
-- [ ] Wikipedia
-- [ ] News sites
-- [ ] Blogs
-
-### Dynamic Pages
-- [ ] Twitter/X
-- [ ] Reddit
-- [ ] Modern SPAs
-
-### Edge Cases
-- [ ] Very long pages (>10000 characters)
-- [ ] Pages with no Korean text
-- [ ] Mixed scripts (Korean + Chinese)
-- [ ] Special characters
-
-### Settings
-- [ ] Enable/disable toggle
-- [ ] Level switching (1, 2, 3)
-- [ ] Language switching (en, zh, ja)
-- [ ] Highlight toggle
-
-## Common Issues & Solutions
-
-### Issue: Extension not loading
-**Check**: 
-- WXT dev server running?
-- Extension enabled in chrome://extensions?
-- Any console errors?
-
-### Issue: No annotations
-**Check**:
-- Extension enabled in popup?
-- Page has Korean text?
-- Vocabulary level includes words?
-- Check processed nodes count
-- Check console for "Loaded X vocabulary words" message
-
-### Issue: Build errors / stale cache
-**Solution**: Clear caches and rebuild:
-```bash
-rm -rf .wxt .output node_modules
-pnpm install
-pnpm dev
-```
-
-### Issue: Port already in use (port 3000)
-**Windows:**
-```bash
-netstat -ano | findstr :3000
-taskkill /PID <PID> /F
-```
-**Mac/Linux:**
-```bash
-lsof -ti:3000 | xargs kill -9
-```
-
-### Issue: Performance slow
-**Solutions**:
-- Increase debounce delay (500ms → 1000ms)
-- Reduce vocabulary size
-- Add site exclusion list
-
-### Issue: Wrong annotations
-**Check**:
-- Word order (longest first?)
-- Position tracking working?
-- Translation language correct?
-
-## Debugging Tips
-
-### Console Logging
-```typescript
-console.log('Processed nodes:', processedCount);
-console.log('Matched words:', replacements.length);
-console.log('Current config:', config);
-```
-
-### Chrome DevTools
-1. **Content Script**: Page console (F12)
-2. **Popup**: Right-click popup → Inspect
-3. **Background**: Extensions page → Inspect views
-
-### Performance Profiling
-```typescript
-console.time('processNode');
-annotator.processNode(document.body);
-console.timeEnd('processNode');
-```
-
----
-
-## Contracts & Dependencies
-
-These are the **cross-file coupling points** where a rename or restructure in one place will silently break something else. Always update *all* sides of a contract together.
-
----
-
-### 1. Annotation HTML contract — `ruby.word-wise-korean`
-
-**Produced by:** `src/utils/annotator.ts` (`ANNOTATION_CLASS = 'word-wise-korean'`)
-
-**Consumed by:**
-
-| Consumer | What it uses |
-|----------|--------------|
-| `src/entrypoints/content.ts` | CSS rules `ruby.word-wise-korean` and `ruby.word-wise-korean rt` |
-| `docs/demo-x.html` | CSS rules `ruby.word-wise-korean` and `ruby.word-wise-korean rt`; `setLang()` uses `document.querySelectorAll('ruby.word-wise-korean rt')` |
-
-**Rules:**
-- The class name `word-wise-korean` must match across all three files.
-- The `<rt>` element is the **first child** of `<ruby>` and holds the translation text.
-- `setLang()` in `demo-x.html` caches the original English text in `rt.dataset.en` on first run. If the HTML in `demo-x.html` changes to a different structure (e.g. `rt` after the Korean text), the language switcher will break.
-
-**HTML shape:**
-```html
-<ruby class="word-wise-korean">한국어<rt>Korean language</rt></ruby>
-```
-
----
-
-### 2. Landing page vocab counts — `data-vocab-count` attributes
-
-**Written by:** `scripts/update-vocab-counts.mjs` (run via `pnpm update-counts`)
-
-**Read from / patched in:** `docs/index.html`
-
-The script targets these exact elements (matched by regex):
-
-```html
-<div class="level-count" data-vocab-count="1">1,578</div>
-<div class="level-count" data-vocab-count="2">4,486</div>
-<div class="level-count" data-vocab-count="all">6,064</div>
-```
-
-It also patches this sentence pattern:
-
-```html
-All 6,064 translations are bundled locally
-```
-
-**Rules:**
-- Do **not** remove `data-vocab-count` attributes or rename the values `"1"` / `"2"` / `"all"`.
-- Do **not** change the `class="level-count"` on those elements (the regex anchors on the full opening tag).
-- Do **not** change the wording `"translations are bundled locally"` — the script uses that as an anchor.
-- See [Automation](#automation) for when to re-run these scripts.
-
----
-
-### 3. Demo iframe language switcher — postMessage protocol
-
-**Sender:** `docs/index.html` (tab click handler at bottom of file)
-
-**Receiver:** `docs/demo-x.html` (`window.addEventListener('message', ...)`)
-
-**Message shape:**
-```js
-{ type: 'setLang', lang: 'en' | 'zh' | 'ja' }
-```
-
-**Coupling points in `index.html`:**
-
-| Element | Attribute | Value |
-|---------|-----------|-------|
-| `<button class="demo-lang-tab">` | `data-lang` | `"en"` \| `"zh"` \| `"ja"` |
-| `<iframe>` inside `.demo-wrap` | (selector) | must match `document.querySelector('.demo-wrap iframe')` |
-
-**Rules:**
-- Renaming `.demo-lang-tab` or `.demo-wrap` breaks the JS tab handler.
-- The `lang` values in `data-lang` must match the keys in the `TRANS` lookup object in `demo-x.html` (`'zh'` and `'ja'`; `'en'` is the fallback).
-- Adding a new language requires: a new `<button data-lang="...">` in `index.html`, and a corresponding key added to every entry in the `TRANS` object in `demo-x.html`.
-- The `setLang()` function stores the original EN text in `rt.dataset.en` on first call. New `<rt>` elements added to the demo HTML must contain **English** text initially.
-
----
-
-### 4. Popup word counts — dynamic derivation from JSON
-
-**Source:** `src/assets/topik-vocab.json` (each entry has a `level` field: `1` or `2`)
-
-**Consumed by:** `src/entrypoints/popup/App.vue`
-
-```ts
+﻿<template>
+  <div class="popup-container">
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo-mark">W</div>
+        <div>
+          <h1 class="title">WordWise Korean</h1>
+          <p class="subtitle">Inline translations while you browse</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- Enable/Disable Toggle -->
+      <div class="setting-group">
+        <div class="toggle-row">
+          <div>
+            <span class="setting-label">Annotations</span>
+            <p class="setting-hint">Show translations above Korean words</p>
+          </div>
+          <label class="toggle-container">
+            <input
+              type="checkbox"
+              v-model="config.enabled"
+              @change="saveConfig"
+              class="toggle-input"
+            />
+            <span class="toggle-track">
+              <span class="toggle-thumb"></span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Vocabulary Level -->
+      <div class="setting-group">
+        <label class="setting-label">Vocabulary Level</label>
+        <div class="level-pills">
+          <button
+            v-for="(label, val) in { 1: 'TOPIK I', 2: 'TOPIK II', 3: 'All' }"
+            :key="val"
+            class="pill-btn"
+            :class="{ active: config.level === Number(val) }"
+            @click="config.level = Number(val); saveConfig()"
+          >{{ label }}</button>
+        </div>
+        <p class="setting-hint">{{ levelHint }}</p>
+      </div>
+
+      <!-- Translation Language -->
+      <div class="setting-group">
+        <label class="setting-label">Translation Language</label>
+        <select
+          v-model="config.targetLanguage"
+          @change="saveConfig"
+          class="lang-select"
+        >
+          <option value="en">English (EN)</option>
+          <option value="zh">中文 — Chinese Simplified</option>
+          <option value="ja">日本語 — Japanese</option>
+        </select>
+        <p class="setting-hint">{{ langHint }}</p>
+      </div>
+
+      <!-- Font Size -->
+      <div class="setting-group">
+        <label class="setting-label">
+          Translation Size
+          <span class="size-badge">{{ config.fontSize }}%</span>
+        </label>
+        <input
+          type="range"
+          v-model.number="config.fontSize"
+          @input="saveConfig"
+          min="80"
+          max="150"
+          step="5"
+          class="slider-input"
+        />
+        <div class="size-labels">
+          <span>Small</span>
+          <span>Normal</span>
+          <span>Large</span>
+        </div>
+      </div>
+
+      <!-- Show Highlight -->
+      <div class="setting-group">
+        <div class="toggle-row">
+          <span class="setting-label">Highlight words</span>
+          <label class="toggle-container">
+            <input
+              type="checkbox"
+              v-model="config.showHighlight"
+              @change="saveConfig"
+              class="toggle-input"
+            />
+            <span class="toggle-track">
+              <span class="toggle-thumb"></span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Landing page link -->
+      <div class="info-section">
+        <a class="landing-link" href="https://multilingual-lab.github.io/wordwise_korean/" target="_blank">
+          Visit homepage ↗
+        </a>
+      </div>
+
+      <!-- Save Status -->
+      <transition name="fade">
+        <div v-if="saveStatus" class="save-status">
+          {{ saveStatus }}
+        </div>
+      </transition>
+    </main>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue';
+import type { UserConfig, VocabEntry } from '@/types';
+import { DEFAULT_CONFIG, STORAGE_KEYS } from '@/types';
+import vocabularyData from '@/assets/topik-vocab.json';
+
+const _vocab = vocabularyData as VocabEntry[];
 const vocabCounts = {
   1: _vocab.filter(e => e.level === 1).length,
   2: _vocab.filter(e => e.level === 2).length,
   all: _vocab.length,
 };
-```
 
-**Rules:**
-- The `level` field in JSON entries must be the integer `1` or `2` (not a string).
-- There are no hardcoded counts in the popup — counts are always derived at build time.
-- No action needed when vocab changes; counts update automatically on the next `pnpm build` / `pnpm dev`.
+const config = ref<UserConfig>({ ...DEFAULT_CONFIG });
+const saveStatus = ref('');
 
----
+const levelHint = computed(() => {
+  switch (config.value.level) {
+    case 1:
+      return `TOPIK I - Basic vocabulary (${vocabCounts[1].toLocaleString()} words)`;
+    case 2:
+      return `TOPIK II - Intermediate/Advanced (${vocabCounts[2].toLocaleString()} words)`;
+    case 3:
+      return `All levels (${vocabCounts.all.toLocaleString()} words)`;
+    default:
+      return '';
+  }
+});
 
-### 5. Vocab JSON schema
+const langHint = computed(() => {
+  switch (config.value.targetLanguage) {
+    case 'en': return 'English translations';
+    case 'zh': return 'Simplified Chinese translations';
+    case 'ja': return 'Japanese translations';
+    default:   return '';
+  }
+});
 
-**File:** `src/assets/topik-vocab.json`
+onMounted(async () => {
+  // Load saved configuration
+  const result = await chrome.storage.sync.get(STORAGE_KEYS.CONFIG);
+  if (result[STORAGE_KEYS.CONFIG]) {
+    config.value = result[STORAGE_KEYS.CONFIG];
+  }
+});
 
-Every entry must conform to:
-
-```ts
-{
-  word: string,        // Korean dictionary form
-  level: 1 | 2,       // TOPIK level (integer)
-  pos: string,        // part-of-speech tag (e.g. "noun", "verb", "adjective")
-  translations: {
-    en: string,        // English translation (short, no parentheticals)
-    zh: string,        // Simplified Chinese
-    ja: string,        // Japanese
+async function saveConfig() {
+  try {
+    await chrome.storage.sync.set({
+      [STORAGE_KEYS.CONFIG]: config.value,
+    });
+    
+    saveStatus.value = '✓ Saved';
+    setTimeout(() => {
+      saveStatus.value = '';
+    }, 2000);
+  } catch (error) {
+    console.error('Popup: Failed to save config:', error);
+    saveStatus.value = '✗ Save failed';
   }
 }
-```
+</script>
 
-**Rules:**
-- `level` must be integer `1` or `2`; the popup filter and `update-vocab-counts.mjs` both rely on this.
-- After editing vocab, run `pnpm update-counts` (landing page) and `pnpm test` (data integrity).
+<style scoped>
+/* ── Design tokens (mirrors landing page) ── */
+:root {
+  --bg:         #13131f;
+  --surface:    #1d1d2e;
+  --surface2:   #25253a;
+  --border:     #34344e;
+  --text:       #eeeef5;
+  --muted:      #8f8fb8;
+  --purple:     #8b5cf6;
+  --purple-hi:  #a78bfa;
+  --purple-lo:  #251550;
+  --radius:     12px;
+}
 
----
+.popup-container {
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #13131f;
+  color: #eeeef5;
+  line-height: 1.5;
+}
 
-## Automation
+/* ── Header ── */
+.header {
+  background: #1d1d2e;
+  border-bottom: 1px solid #34344e;
+  padding: 16px 18px;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(139,92,246,0.4);
+}
+.title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #eeeef5;
+  letter-spacing: -0.01em;
+}
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #8f8fb8;
+}
 
-Certain source files have downstream artifacts that must be kept in sync manually. Run the corresponding command whenever a trigger changes.
+/* ── Content ── */
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-| Trigger | Command | What it does |
-|---|---|---|
-| `src/assets/topik-vocab.json` changes | `pnpm update-counts` | Patches word counts in `docs/index.html` |
-| `docs/index.html` changes visually | `pnpm screenshot` | Regenerates `.github/images/` PNGs for README + Chrome Web Store |
-| `src/public/icon/icon.svg` changes | `pnpm generate-icons` | Rebuilds `16.png`, `48.png`, `128.png` in `src/public/icon/` |
-| New vocab words need translating | `node scripts/batch-translate.js` | Calls Azure OpenAI, outputs `topik-vocab-translated.json` |
+.setting-group {
+  padding: 4px 0;
+}
 
-### Batch translation workflow
+.setting-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #eeeef5;
+  margin-bottom: 6px;
+}
 
-Requires `AZURE_OPENAI_KEY` env var. Safe workflow to avoid overwriting good data:
+.size-badge {
+  margin-left: auto;
+  background: #25253a;
+  border: 1px solid #34344e;
+  border-radius: 999px;
+  padding: 1px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #a78bfa;
+}
 
-```powershell
-$env:AZURE_OPENAI_KEY="<your-key>"
-node scripts/batch-translate.js
-# Review src/assets/topik-vocab-translated.json
-Move-Item src/assets/topik-vocab-translated.json src/assets/topik-vocab.json -Force
-pnpm test   # verify data integrity
-```
+.setting-hint {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #8f8fb8;
+}
 
-### Screenshots
+/* ── Toggle row ── */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 
-Both images are captured from `docs/index.html` via headless Chrome (Puppeteer). No server needed — the script opens the local HTML file directly.
+.toggle-container {
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-track {
+  display: block;
+  width: 42px;
+  height: 24px;
+  background: #34344e;
+  border-radius: 999px;
+  transition: background 0.25s;
+  position: relative;
+}
+.toggle-input:checked + .toggle-track {
+  background: #8b5cf6;
+  box-shadow: 0 0 12px rgba(139,92,246,0.45);
+}
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.25s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.toggle-input:checked + .toggle-track .toggle-thumb {
+  transform: translateX(18px);
+}
 
-| File | Dimensions | Used for |
-|---|---|---|
-| `.github/images/landingpage.png` | 1280×700, nav hidden | README hero image |
-| `.github/images/landingpage-1280x800.png` | 1280×800, full page | Chrome Web Store marquee tile |
+/* ── Level pills ── */
+.level-pills {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.pill-btn {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 8px;
+  border: 1px solid #34344e;
+  background: #1d1d2e;
+  color: #8f8fb8;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  font-family: inherit;
+}
+.pill-btn:hover {
+  border-color: #8b5cf6;
+  color: #eeeef5;
+}
+.pill-btn.active {
+  background: #251550;
+  border-color: #8b5cf6;
+  color: #a78bfa;
+  box-shadow: 0 0 0 1px #8b5cf6 inset, 0 0 12px rgba(139,92,246,0.15);
+}
 
----
+/* ── Slider ── */
+.slider-input {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #34344e;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(139,92,246,0.5);
+  transition: transform 0.15s;
+}
+.slider-input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.slider-input::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  cursor: pointer;
+  border: none;
+}
+.size-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 10px;
+  color: #8f8fb8;
+}
 
-## Release Process
+/* ── Language dropdown ── */
+.lang-select {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid #34344e;
+  background: #1d1d2e;
+  color: #eeeef5;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238f8fb8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+  margin-bottom: 6px;
+  transition: border-color 0.18s;
+}
+.lang-select:hover,
+.lang-select:focus {
+  border-color: #8b5cf6;
+}
+.lang-select option {
+  background: #1d1d2e;
+  color: #eeeef5;
+}
 
-Step-by-step checklist for cutting a new release.
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: #34344e;
+  margin: 10px 0;
+}
 
-> ⚠️ Version must be bumped in **two places** — they are independent and both affect outputs.
+/* ── Info / landing link ── */
+.info-section {
+  background: #1d1d2e;
+  border: 1px solid #34344e;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+.landing-link {
+  font-size: 12px;
+  color: #a78bfa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.landing-link:hover {
+  color: #eeeef5;
+}
 
-**1. Bump version**
+/* ── Save status ── */
+.save-status {
+  margin-top: 8px;
+  padding: 7px 10px;
+  background: #1a0f35;
+  border: 1px solid #5b3d9e;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: #a78bfa;
+  font-weight: 600;
+}
 
-Just say *"bump to vX.Y.Z"* — Copilot will edit both files. Or do it manually:
-
-```
-package.json          → "version": "x.y.z"
-wxt.config.ts         → version: 'x.y.z'   ← controls the ZIP filename
-```
-
-**2. Update docs + assets (if changed)**
-```bash
-pnpm update-counts    # if topik-vocab.json changed
-pnpm screenshot       # if docs/index.html changed visually
-```
-
-**3. Update CHANGELOG.md** — user-facing entries only (Added / Improved / Fixed)
-
-**4. Run tests**
-```bash
-pnpm test
-```
-
-**5. Commit, tag, push**
-```bash
-git add -A
-git commit -m "feat: vX.Y.Z"
-git tag vX.Y.Z
-git push origin main
-git push origin vX.Y.Z
-```
-
-**6. Build ZIP**
-```bash
-pnpm zip
-# Output: .output/wordwise-korean-X.Y.Z-chrome.zip
-```
-
-**7. Create GitHub Release**
-- Go to `https://github.com/multilingual-lab/wordwise_korean/releases/new?tag=vX.Y.Z`
-- Paste CHANGELOG entries as release notes
-- Attach `.output/wordwise-korean-X.Y.Z-chrome.zip`
-
----
-
-## Quick Reference
-
-### Project Structure
-
-```
-wordwise_korean/
-├── src/
-│   ├── entrypoints/
-│   │   ├── content.ts           # Two-phase init, styles, config listener
-│   │   ├── background.ts        # Background script
-│   │   └── popup/               # Settings UI (Vue 3)
-│   ├── utils/
-│   │   ├── annotator.ts         # Core annotation engine (POS-aware stem lookup)
-│   │   ├── vocabulary-loader.ts # Load + filter vocab by level
-│   │   ├── korean-stem.ts       # Conjugation stripping, extractStemsForLookup()
-│   │   └── dom-observer.ts      # MutationObserver for dynamic content
-│   ├── assets/
-│   │   └── topik-vocab.json     # Bundled vocabulary database (see data/README.md)
-│   ├── tests/
-│   │   ├── vocab-translations.test.ts
-│   │   └── stem-matching.test.ts
-│   └── types/
-│       └── index.ts             # UserConfig, VocabEntry, STORAGE_KEYS, DEFAULT_CONFIG
-├── scripts/
-│   ├── batch-translate.js       # AI translation tool (Azure OpenAI)
-│   ├── update-vocab-counts.mjs  # Sync word counts in docs/index.html
-│   ├── screenshot.mjs           # Capture landing page screenshots
-│   ├── generate-icons.mjs       # Rebuild extension icon PNGs from icon.svg
-│   ├── validate-docs.mjs        # Pre-commit doc fact checker
-│   └── README.md
-├── git-hooks/
-│   └── pre-commit               # Runs validate-docs.mjs on every commit
-├── data/
-│   └── README.md                # Vocabulary sources & customization guide
-├── docs/                        # GitHub Pages landing page
-├── .github/images/              # README + store screenshots
-├── vitest.config.ts
-├── wxt.config.ts                # Version must match package.json
-└── package.json
-```
-
-### Important Files
-- `src/entrypoints/content.ts` — two-phase init, styles, config change listener
-- `src/utils/annotator.ts` — core matching engine (POS-aware stem lookup)
-- `src/utils/korean-stem.ts` — conjugation stripping, `extractStemsForLookup()`
-- `src/utils/vocabulary-loader.ts` — load + filter vocab by level
-- `src/utils/dom-observer.ts` — MutationObserver for dynamic content
-- `src/entrypoints/popup/App.vue` — popup UI
-- `src/assets/topik-vocab.json` — bundled vocabulary database
-- `src/types/index.ts` — `UserConfig`, `VocabEntry`, `STORAGE_KEYS`, `DEFAULT_CONFIG`
-
-### Key Constants
-- `SKIP_TAGS` - Elements to ignore
-- `ANNOTATION_CLASS` - Ruby tag class
-- `DEBOUNCE_MS` - Observer delay (500ms)
-
-### Useful Commands
-```bash
-pnpm dev           # Development with hot reload
-pnpm build         # Production build
-pnpm compile       # Type check only
-pnpm test          # Run automated test suite
-pnpm test:watch    # Tests in watch mode
-pnpm zip           # Create distributable ZIP
-pnpm update-counts # Sync vocab counts in docs/index.html from JSON
-pnpm screenshot    # Regenerate store + README screenshots
-pnpm generate-icons # Rebuild icon PNGs from icon.svg
-```
+/* ── Fade transition ── */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.3s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+</style>
