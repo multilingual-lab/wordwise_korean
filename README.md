@@ -19,7 +19,9 @@ A browser extension that adds Kindle Word Wise style annotations for Korean lang
 ## 🚀 Installation
 
 1. Get the latest ZIP from [GitHub Releases](https://github.com/multilingual-lab/wordwise_korean/releases/latest)
-2. Open Chrome and go to `chrome://extensions/`
+   - **Chrome / Edge / Brave / Opera**: download `wordwise-korean-X.Y.Z-chromium.zip`
+   - **Firefox**: download `wordwise-korean-X.Y.Z-firefox.zip`
+2. Open your browser's extensions page (`chrome://extensions/` or `about:debugging` in Firefox)
 3. Enable **Developer mode** (toggle in top right)
 4. Drag and drop the ZIP directly onto the page
 5. Click the extension icon and enable it!

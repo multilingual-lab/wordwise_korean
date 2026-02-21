@@ -594,14 +594,15 @@ pnpm zip          # Chromium only
 pnpm zip:firefox  # Firefox + sources
 ```
 
-> **Note:** `sources.zip` is required by Firefox AMO (Mozilla's add-on store). Upload it as
-> "source code" in the AMO submission form so reviewers can build the extension themselves.
-> It is not needed for the Chrome Web Store.
+> **Note:** `sources.zip` is only for Mozilla reviewers — upload it as "source code" during
+> AMO submission. Firefox users install `firefox.zip` directly; do not attach `sources.zip`
+> to the GitHub release.
 
 **7. Create GitHub Release**
 - Go to `https://github.com/multilingual-lab/wordwise_korean/releases/new?tag=vX.Y.Z`
 - Paste CHANGELOG entries as release notes
 - Attach `.output/wordwise-korean-X.Y.Z-chromium.zip` and `.output/wordwise-korean-X.Y.Z-firefox.zip`
+- _(Do **not** attach `sources.zip` — that goes to AMO, not GitHub)_
 
 ---
 
