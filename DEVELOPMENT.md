@@ -87,7 +87,7 @@ pnpm dev       # builds, opens Chrome, loads extension, watches for changes
 1. Click the extension icon (puzzle piece) in the browser toolbar
 2. Popup controls:
    - **Toggle** – enable / disable
-   - **Level** – TOPIK I, TOPIK Ⅱ, or All (see [data/README.md](data/README.md) for current counts)
+   - **Level** – TOPIK I, TOPIK II, or All (see [data/README.md](data/README.md) for current counts)
    - **Language** – English, 中文 (Simplified Chinese), or 日本語 (Japanese)
    - **Font size** – 80%–150% slider
    - **Highlight** – show background highlight under annotated words

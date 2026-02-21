@@ -22,12 +22,12 @@ After merging, deduplication, and quality pass: **6,064 words** in `src/assets/t
 
 **✅ Completed: 6,064 words (after deduplication and quality pass)**
 - TOPIK I (Level 1): 1,578 words
-- TOPIK Ⅱ (Level 2): 4,487 words
+- TOPIK II (Level 2): 4,487 words
 
 | Level | Words | Verbs/Adj (ending in 다) | Expressions |
 |-------|-------|------------------------|-------------|
 | TOPIK I | 1,578 | ~400 | ~50 |
-| TOPIK Ⅱ | 4,487 | ~1,350 | ~190 |
+| TOPIK II | 4,487 | ~1,350 | ~190 |
 | **Total** | **6,064** | **~1,750** | **~240** |
 
 **Next Steps (Optional):**

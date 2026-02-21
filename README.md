@@ -32,7 +32,7 @@ A browser extension that adds Kindle Word Wise style annotations for Korean lang
 2. Enable the extension using the toggle
 3. Select your vocabulary level:
    - **TOPIK I**: Basic vocabulary
-   - **TOPIK Ⅱ**: Intermediate/Advanced
+   - **TOPIK II**: Intermediate/Advanced
    - **All**: Complete vocabulary
 4. Select your translation language: **English**, **Chinese**, or **Japanese**
 5. Adjust settings like translation size and highlighting
