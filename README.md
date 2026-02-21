@@ -5,7 +5,7 @@ A browser extension that adds Kindle Word Wise style annotations for Korean lang
 🌐 **[Live Demo & Landing Page](https://multilingual-lab.github.io/wordwise_korean/)**
 
 
-![Demo Screenshot](.github/images/landingpage.jpg)
+![Demo Screenshot](.github/images/landingpage.png)
 
 
 ## ✨ Features

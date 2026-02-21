@@ -1,5 +1,63 @@
 # Development Notes
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Test the Extension](#test-the-extension)
+  - [Configure Settings](#configure-settings)
+  - [Development Workflow](#development-workflow)
+- [Architecture Overview](#architecture-overview)
+  - [Content Script Flow](#content-script-flow)
+  - [Annotation Algorithm](#annotation-algorithm)
+  - [Ruby Tag Structure](#ruby-tag-structure)
+- [Performance Considerations](#performance-considerations)
+  - [Optimization Techniques](#optimization-techniques)
+- [Edge Cases Handled](#edge-cases-handled)
+- [Browser Compatibility](#browser-compatibility)
+  - [Chrome/Edge (Manifest V3)](#chromeedge-manifest-v3)
+  - [Firefox](#firefox)
+- [Chrome Storage Schema](#chrome-storage-schema)
+- [CSS Tips](#css-tips)
+  - [Ruby Tag Gotchas](#ruby-tag-gotchas)
+  - [Browser Differences](#browser-differences)
+- [Automated Tests](#automated-tests)
+  - [Test Files](#test-files)
+  - [Stem-Matching Architecture (v0.1.2)](#stem-matching-architecture-v012)
+  - [Digit-Compound Guard](#digit-compound-guard)
+  - [Known Stem-Matching Limitations](#known-stem-matching-limitations)
+- [Manual Testing Checklist](#manual-testing-checklist)
+  - [Static Pages](#static-pages)
+  - [Dynamic Pages](#dynamic-pages)
+  - [Edge Cases](#edge-cases)
+  - [Settings](#settings)
+- [Common Issues & Solutions](#common-issues--solutions)
+  - [Extension not loading](#issue-extension-not-loading)
+  - [No annotations](#issue-no-annotations)
+  - [Build errors / stale cache](#issue-build-errors--stale-cache)
+  - [Port already in use](#issue-port-already-in-use-port-3000)
+  - [Performance slow](#issue-performance-slow)
+  - [Wrong annotations](#issue-wrong-annotations)
+- [Debugging Tips](#debugging-tips)
+  - [Console Logging](#console-logging)
+  - [Chrome DevTools](#chrome-devtools)
+  - [Performance Profiling](#performance-profiling)
+- [Contracts & Dependencies](#contracts--dependencies)
+  - [1. Annotation HTML contract](#1-annotation-html-contract--rubyword-wise-korean)
+  - [2. Landing page vocab counts](#2-landing-page-vocab-counts--data-vocab-count-attributes)
+  - [3. Demo iframe language switcher](#3-demo-iframe-language-switcher--postmessage-protocol)
+  - [4. Popup word counts](#4-popup-word-counts--dynamic-derivation-from-json)
+  - [5. Vocab JSON schema](#5-vocab-json-schema)
+- [Release Process](#release-process)
+- [Quick Reference](#quick-reference)
+  - [Important Files](#important-files)
+  - [Key Constants](#key-constants)
+  - [Useful Commands](#useful-commands)
+  - [Screenshots](#screenshots)
+
+---
+
 ## Getting Started
 
 ### Prerequisites
@@ -118,16 +176,6 @@ The Korean base text comes **first**, the `<rt>` annotation comes **after** it i
 - ✅ **Sorted matching** (longest words first)
 - ✅ **Position tracking** (avoid overlap calculation)
 
-### Potential Bottlenecks
-- Large pages with lots of Korean text
-- Sites with heavy DOM manipulation
-- Deep nesting levels
-
-### Solutions
-- Process nodes in batches
-- Increase debounce delay if needed
-- Add option to disable on specific sites
-
 ## Edge Cases Handled
 
 1. **Overlapping Words**: "한국어" vs "한국"
@@ -163,45 +211,20 @@ The Korean base text comes **first**, the `<rt>` annotation comes **after** it i
 
 ## Chrome Storage Schema
 
+Storage key: `wordwise_config` (via `chrome.storage.sync`). Defined in `src/types/index.ts`.
+
 ```typescript
+// Key: STORAGE_KEYS.CONFIG = 'wordwise_config'
 {
-  "wordwise_config": {
-    enabled: boolean,
-    level: 1 | 2 | 3,
-    targetLanguage: "en" | "zh" | "ja",
-    showHighlight: boolean
-  },
-  "wordwise_stats": { // Future feature
-    wordsLearned: number,
-    pagesVisited: number,
-    lastUpdated: timestamp
-  }
+  enabled: boolean,           // annotation on/off
+  level: 1 | 2 | 3,          // 1 = TOPIK I only, 2 = TOPIK II only, 3 = all levels
+  targetLanguage: "en" | "zh" | "ja",
+  showHighlight: boolean,     // background tint under annotated words
+  fontSize: number,           // annotation font size, 80–150 (percentage)
 }
 ```
 
-## Vocabulary Data Schema
-
-```typescript
-interface VocabEntry {
-  word: string;              // Korean word (dictionary form)
-  level: 1 | 2;             // TOPIK level (1=I, 2=II) — must be integer
-  pos: string;              // Part of speech: "noun", "verb", "adjective", etc.
-  translations: {
-    en: string;              // English
-    zh: string;              // Simplified Chinese
-    ja: string;              // Japanese
-  };
-}
-```
-
-**Current Stats (v0.1.3):**
-- Total: **6,064 words** — TOPIK I: 1,578 · TOPIK II: 4,486
-- Grammar particles excluded: 20 common particles (은/는/이/가/을/를/의/도/와/과/etc.)
-- All three languages fully translated (EN / 中文 / 日本語)
-- English translations: parentheticals stripped, tilde meta-descriptions removed, near-synonyms deduplicated, verbose `to/being/to be` prefixes removed
-- `pos` field populated on all entries — required for POS-aware verb/noun disambiguation
-
-**File Size:** ~1.5 MB (uncompressed JSON), ~1 MB after Vite bundling into content script
+> **Note:** `level` in `UserConfig` means *which levels to show*: `3` = show all. This is different from `VocabEntry.level` which is always `1` or `2` (the word's TOPIK tier). Never use `3` as a vocab entry level.
 
 ## CSS Tips
 
@@ -213,7 +236,7 @@ interface VocabEntry {
 ### Browser Differences
 - Chrome/Edge: Fully supports ruby
 - Firefox: Mostly supports, minor rendering differences
-- Safari: Good support
+- Safari: Not a tested target
 
 ## Automated Tests
 
@@ -231,7 +254,7 @@ pnpm test:watch    # Watch mode during development
 | `src/tests/vocab-translations.test.ts` | Data integrity, polysemous word protection, verbose prefix removal, concise translation selection, new TOPIK II word coverage |
 | `src/tests/stem-matching.test.ts` | `extractStems()` output, past/present/connector conjugation resolution, `couldBeConjugationOf()`, known limitations |
 
-**Current results: 109/109 tests passing**
+**Current results: 166/166 tests passing**
 
 ### Stem-Matching Architecture (v0.1.2)
 
@@ -285,57 +308,6 @@ All other previously-known collisions (살/살다, 배우/배우다, 서/서다,
 - [ ] Level switching (1, 2, 3)
 - [ ] Language switching (en, zh, ja)
 - [ ] Highlight toggle
-
-## Future Enhancements
-
-### Short Term
-- [ ] Add ㅐ/ㅓ-contraction patterns (`가서→가다`, `와서→오다`)
-- [ ] Improve Chinese/Japanese translations (use batch-translate.js)
-- [ ] Add statistics tracking
-- [ ] Performance monitoring dashboard
-
-### Medium Term (Month 2)
-- [ ] User custom vocabulary
-- [ ] Import/export vocab lists
-- [ ] Pronunciation audio
-- [ ] Dark mode styling
-
-### Long Term (Month 3+)
-- [ ] Dictionary API integration
-- [ ] Spaced repetition system
-- [ ] Learning progress tracking
-- [ ] Cloud sync
-- [ ] Mobile support
-
-## Recent Bug Fixes & Improvements
-
-### v0.1.2 - POS-aware stem lookup + translation cleanup (2026-02-20)
-**Added**: POS-aware `extractStemsForLookup()` with `verbOnly` flags; `VERB_ONLY_ENDINGS`, `AMBIGUOUS_ENDINGS`, `HA_IRREGULAR_ENDINGS`
-**Added**: Two-pass annotator lookup (Pass 1: POS-enforced, Pass 2: pos-absent relaxation)
-**Added**: Translation display cleanup — parenthetical stripping, tilde meta-description removal, 38-cluster synonym dedup
-**Fixed**: Noun/verb collisions: `살`/`살다`, `배우`/`배우다`, `서`/`서다`, `해요`/`하다`
-**Fixed**: Digit-compound annotation (1심, 2층 etc.) with digit guard
-**Fixed**: Level-switch crash: `oldConfig ?? DEFAULT_CONFIG`
-**Added**: Merged extended TOPIK II word list → 6,064 total words
-**Fixed**: 277 duplicate entries, 260 verbose prefixes, 1,283 translation conflicts
-**Added**: Vitest test suite — 78 → 109 tests
-
-### v0.1.1 - Font size control (2026-02-16)
-See CHANGELOG.md for full details.
-
-### v2.2.5 - Grammar Particle Filtering (legacy)
-**Fixed**: Common particles (은/는/이/가/을/를) were being annotated as vocabulary words
-**Solution**: Added `COMMON_PARTICLES` Set to filter out 20 common functional words
-
-### v2.2.4 - Level Switching Bug
-**Fixed**: Changing vocabulary level in popup didn't reload vocabulary
-**Solution**: Changed comparison from `config.level` to `oldConfig.level` (captured before async update)
-
-### v2.2.3 - Enhanced Logging
-**Added**: Detailed console logging showing:
-- Old level → New level when changed
-- Vocabulary words loaded count
-- Annotations added/cleared count
 
 ## Common Issues & Solutions
 
@@ -461,6 +433,7 @@ All 6,064 translations are bundled locally
 - Do **not** change the `class="level-count"` on those elements (the regex anchors on the full opening tag).
 - Do **not** change the wording `"translations are bundled locally"` — the script uses that as an anchor.
 - After any change to `topik-vocab.json`, always run `pnpm update-counts` to keep the landing page in sync.
+- After any visual change to `docs/index.html`, always run `pnpm screenshot` to regenerate the screenshots (see [Screenshots](#screenshots) below).
 
 ---
 
@@ -536,13 +509,67 @@ Every entry must conform to:
 
 ---
 
+## Release Process
+
+Step-by-step checklist for cutting a new release.
+
+> ⚠️ Version must be bumped in **two places** — they are independent and both affect outputs.
+
+**1. Bump version**
+
+Just say *"bump to vX.Y.Z"* — Copilot will edit both files. Or do it manually:
+
+```
+package.json          → "version": "x.y.z"
+wxt.config.ts         → version: 'x.y.z'   ← controls the ZIP filename
+```
+
+**2. Update docs + assets (if changed)**
+```bash
+pnpm update-counts    # if topik-vocab.json changed
+pnpm screenshot       # if docs/index.html changed visually
+```
+
+**3. Update CHANGELOG.md** — user-facing entries only (Added / Improved / Fixed)
+
+**4. Run tests**
+```bash
+pnpm test
+```
+
+**5. Commit, tag, push**
+```bash
+git add -A
+git commit -m "feat: vX.Y.Z"
+git tag vX.Y.Z
+git push origin main
+git push origin vX.Y.Z
+```
+
+**6. Build ZIP**
+```bash
+pnpm zip
+# Output: .output/wordwise-korean-X.Y.Z-chrome.zip
+```
+
+**7. Create GitHub Release**
+- Go to `https://github.com/multilingual-lab/wordwise_korean/releases/new?tag=vX.Y.Z`
+- Paste CHANGELOG entries as release notes
+- Attach `.output/wordwise-korean-X.Y.Z-chrome.zip`
+
+---
+
 ## Quick Reference
 
 ### Important Files
-- `content.ts` - Main logic
-- `annotator.ts` - Core engine
-- `vocabulary-loader.ts` - Vocab management
-- `topik-vocab.json` - Data source
+- `src/entrypoints/content.ts` — two-phase init, styles, config change listener
+- `src/utils/annotator.ts` — core matching engine (POS-aware stem lookup)
+- `src/utils/korean-stem.ts` — conjugation stripping, `extractStemsForLookup()`
+- `src/utils/vocabulary-loader.ts` — load + filter vocab by level
+- `src/utils/dom-observer.ts` — MutationObserver for dynamic content
+- `src/entrypoints/popup/App.vue` — popup UI
+- `src/assets/topik-vocab.json` — bundled vocabulary database
+- `src/types/index.ts` — `UserConfig`, `VocabEntry`, `STORAGE_KEYS`, `DEFAULT_CONFIG`
 
 ### Key Constants
 - `SKIP_TAGS` - Elements to ignore
@@ -554,7 +581,28 @@ Every entry must conform to:
 pnpm dev           # Development with hot reload
 pnpm build         # Production build
 pnpm compile       # Type check only
-pnpm test          # Run automated test suite (109 tests)
+pnpm test          # Run automated test suite
 pnpm test:watch    # Tests in watch mode
 pnpm zip           # Create distributable ZIP
+pnpm update-counts # Sync vocab counts in docs/index.html from JSON
+pnpm screenshot    # Regenerate store + README screenshots (see below)
 ```
+
+---
+
+### Screenshots
+
+Screenshots are generated from `docs/index.html` via headless Chrome (Puppeteer) and stored in `.github/images/`.
+
+| File | Size | Used for |
+|---|---|---|
+| `landingpage.png` | 1280×700 — nav hidden | README hero image |
+| `landingpage-1280x800.png` | 1280×800 — full page | Chrome Web Store listing (marquee tile) |
+
+**Regenerate after any visual change to `docs/index.html`:**
+
+```bash
+pnpm screenshot
+```
+
+The script (`scripts/screenshot.mjs`) opens the local HTML file, waits for transitions to settle, captures both crops, and exits. No server needed.
