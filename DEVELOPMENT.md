@@ -54,8 +54,21 @@ See [scripts/README.md](scripts/README.md) for tools to parse PDFs, convert CSVs
 ## Architecture Overview
 
 ### Content Script Flow
+
+The content script uses a **two-phase initialization** to avoid loading vocabulary on non-Korean pages.
+
 ```
 Page Load
+    ↓
+── Phase 1: Korean presence check (cheap) ────────────────────
+KOREAN_RE.test(document.body.innerText)?
+    │ Yes                               │ No
+    ↓                                   ↓
+initializeFull()          sentinel MutationObserver
+    ↑                      (watches addedNodes + characterData)
+    │                      Korean text appears?
+    └──────────────────────────────────┘
+── Phase 2: Full init (runs only once, only on Korean pages) ─
     ↓
 Load User Config (chrome.storage)
     ↓
@@ -67,10 +80,12 @@ Process DOM (find Korean text nodes)
     ↓
 Replace with <ruby> tags
     ↓
-Start MutationObserver (watch for new content)
+Start DOMObserver (watch for new content)
     ↓
 Listen for config changes
 ```
+
+**Why two phases?** Korean text appears on `.kr` domains but also on Reddit, Wikipedia, Twitter, etc. URL patterns can't gate the cost. The sentinel observer watches only `addedNodes` and `characterData` mutations rather than rescanning `document.body.innerText` on every mutation, so Phase 1 stays near-zero cost on non-Korean pages.
 
 ### Annotation Algorithm
 
@@ -96,6 +111,7 @@ The Korean base text comes **first**, the `<rt>` annotation comes **after** it i
 ## Performance Considerations
 
 ### Optimization Techniques
+- ✅ **Two-phase init**: vocabulary (~1.5 MB uncompressed) is never loaded on non-Korean pages
 - ✅ **WeakSet** for processed nodes (prevents re-processing)
 - ✅ **Debouncing** (500ms) for dynamic content
 - ✅ **Skip tags** (script, style, svg, etc.)

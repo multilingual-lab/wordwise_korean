@@ -10,6 +10,7 @@ All notable changes to WordWise Korean will be documented in this file.
 ### Improved
 - **Popup redesign**: Dark theme matching the extension's brand — cleaner layout, better readability
 - **Translation quality**: English, Chinese, and Japanese translations reviewed and refined across the full vocabulary (verbose phrases shortened, near-synonyms deduplicated, parentheticals removed)
+- **Faster loading on non-Korean pages**: Vocabulary is no longer loaded on pages without Korean text — a sentinel observer gates initialization until Korean is actually detected
 
 ## [0.1.2] - 2026-02-20
 
