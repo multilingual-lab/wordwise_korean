@@ -13064,7 +13064,7 @@
     "level": 1,
     "pos": "noun",
     "translations": {
-      "en": "Chinese language",
+      "en": "Chinese",
       "zh": "中文",
       "ja": "中国語"
     }
@@ -43964,7 +43964,7 @@
     "level": 2,
     "pos": "noun",
     "translations": {
-      "en": "a very hot night",
+      "en": "tropical night",
       "zh": "热带夜",
       "ja": "熱帯夜"
     }
@@ -45567,16 +45567,6 @@
       "en": "concern",
       "zh": "担忧",
       "ja": "懸念"
-    }
-  },
-  {
-    "word": "우리말",
-    "level": 2,
-    "pos": "noun",
-    "translations": {
-      "en": "Korean language",
-      "zh": "韩语",
-      "ja": "韓国語"
     }
   },
   {

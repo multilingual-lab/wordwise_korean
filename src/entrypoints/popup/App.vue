@@ -52,15 +52,15 @@
       <!-- Translation Language -->
       <div class="setting-group">
         <label class="setting-label">Translation Language</label>
-        <div class="level-pills">
-          <button
-            v-for="(label, val) in { en: '🇬🇧 EN', zh: '🇨🇳 ZH', ja: '🇯🇵 JA' }"
-            :key="val"
-            class="pill-btn"
-            :class="{ active: config.targetLanguage === val }"
-            @click="config.targetLanguage = val as 'en' | 'zh' | 'ja'; saveConfig()"
-          >{{ label }}</button>
-        </div>
+        <select
+          v-model="config.targetLanguage"
+          @change="saveConfig"
+          class="lang-select"
+        >
+          <option value="en">English (EN)</option>
+          <option value="zh">中文 — Chinese Simplified</option>
+          <option value="ja">日本語 — Japanese</option>
+        </select>
         <p class="setting-hint">{{ langHint }}</p>
       </div>
 
@@ -125,8 +125,16 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
-import type { UserConfig } from '@/types';
+import type { UserConfig, VocabEntry } from '@/types';
 import { DEFAULT_CONFIG, STORAGE_KEYS } from '@/types';
+import vocabularyData from '@/assets/topik-vocab.json';
+
+const _vocab = vocabularyData as VocabEntry[];
+const vocabCounts = {
+  1: _vocab.filter(e => e.level === 1).length,
+  2: _vocab.filter(e => e.level === 2).length,
+  all: _vocab.length,
+};
 
 const config = ref<UserConfig>({ ...DEFAULT_CONFIG });
 const saveStatus = ref('');
@@ -134,11 +142,11 @@ const saveStatus = ref('');
 const levelHint = computed(() => {
   switch (config.value.level) {
     case 1:
-      return 'TOPIK I - Basic vocabulary (1,578 words)';
+      return `TOPIK I - Basic vocabulary (${vocabCounts[1].toLocaleString()} words)`;
     case 2:
-      return 'TOPIK II - Intermediate/Advanced (4,487 words)';
+      return `TOPIK II - Intermediate/Advanced (${vocabCounts[2].toLocaleString()} words)`;
     case 3:
-      return 'All levels (6,065 words)';
+      return `All levels (${vocabCounts.all.toLocaleString()} words)`;
     default:
       return '';
   }
@@ -393,6 +401,37 @@ async function saveConfig() {
   margin-top: 5px;
   font-size: 10px;
   color: #8f8fb8;
+}
+
+/* ── Language dropdown ── */
+.lang-select {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid #34344e;
+  background: #1d1d2e;
+  color: #eeeef5;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238f8fb8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+  margin-bottom: 6px;
+  transition: border-color 0.18s;
+}
+.lang-select:hover,
+.lang-select:focus {
+  border-color: #8b5cf6;
+}
+.lang-select option {
+  background: #1d1d2e;
+  color: #eeeef5;
 }
 
 /* ── Divider ── */

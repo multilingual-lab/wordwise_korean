@@ -49,7 +49,7 @@ Key files to edit:
 | `src/utils/annotator.ts` | Core matching engine |
 | `src/utils/korean-stem.ts` | Conjugation handling |
 | `src/entrypoints/popup/App.vue` | Popup UI |
-| `src/assets/topik-vocab.json` | 6,065-word vocabulary database |
+| `src/assets/topik-vocab.json` | TOPIK vocabulary database |
 
 See [scripts/README.md](scripts/README.md) for tools to parse PDFs, convert CSVs, and batch-translate. Source vocab files are in `data/`.
 
@@ -183,10 +183,7 @@ interface VocabEntry {
 }
 ```
 
-**Current Stats (as of 2026-02-20):**
-- Total: **6,065 words** (after dedup)
-- TOPIK I (Level 1): **1,578 words**
-- TOPIK Ⅱ (Level 2): **4,487 words**
+**Current Stats:**
 - Grammar particles excluded: 20 common particles (은/는/이/가/을/를/의/도/와/과/etc.)
 - Translations: English only (Chinese & Japanese are placeholders)
 - All translations free of verbose `to /being /to be ` prefixes (stripped 2026-02-20)

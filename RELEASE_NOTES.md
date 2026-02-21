@@ -1,5 +1,19 @@
 # WordWise Korean — Release Notes
 
+## [v0.1.3] — 2026-02-21
+
+### Added
+- **Three languages in the popup**: The language selector is now a proper dropdown — English, 中文, and 日本語 are all available directly in the extension popup.
+- **Live multilingual demo on the landing page**: Language tabs (English / 中文 / 日本語) above the demo iframe let visitors preview annotations in all three languages without installing anything.
+
+### Changed
+- **Vocabulary quality fixes**:
+  - `열대야` corrected to "tropical night" (was "a very hot night")
+  - `우리말` removed — too culturally specific to be a useful first-glance annotation
+- **Icon**: Deeper purple gradient with softer corners.
+
+---
+
 ## [v0.1.2] — 2026-02-20
 
 ### Fixed
@@ -16,7 +30,7 @@
 
 ### Added
 - **New extension icon**: Clean bold W on a purple gradient.
-- **Expanded vocabulary**: 4,341 → 6,065 words (TOPIK I: 1,578 | TOPIK II: 4,487)
+- **Expanded vocabulary**: TOPIK I + II fully translated (EN, ZH, JA)
 - **Cleaner translation display**:
   - Parenthetical notes removed: `"(a local district) gun"` → `"gun"`
   - Tilde meta-descriptions removed: `"~ person(s), ~ minute(s)"` → `"person, minute"`

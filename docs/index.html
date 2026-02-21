@@ -201,6 +201,30 @@
       font-size: 0.74rem; color: var(--muted);
       text-align: center;
     }
+    .demo-lang-tabs {
+      display: flex; gap: 6px; justify-content: center;
+      margin-top: 2px;
+    }
+    .demo-lang-tab {
+      padding: 5px 16px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      font-family: inherit;
+      letter-spacing: 0.02em;
+    }
+    .demo-lang-tab:hover { border-color: var(--purple); color: var(--text); }
+    .demo-lang-tab.active {
+      background: var(--purple-lo);
+      border-color: var(--purple);
+      color: var(--purple-hi);
+      box-shadow: 0 0 0 1px var(--purple) inset;
+    }
 
     /* ── DIVIDER ── */
     .divider {
@@ -325,9 +349,8 @@
 
       <div class="pill-row">
         <span class="pill">🔒 100% local, no tracking</span>
-        <span class="pill">⚡ Any Korean site</span>
         <span class="pill">🎯 TOPIK I &amp; II</span>
-        <span class="pill">🌐 EN · ZH · JA</span>
+        <span class="pill">🌐 EN · 中文 · 日本語</span>
       </div>
 
       <div class="cta-row">
@@ -355,6 +378,11 @@
         ></iframe>
         <div class="overlay" aria-hidden="true"></div>
       </div>
+      <div class="demo-lang-tabs">
+          <button class="demo-lang-tab active" data-lang="en">English</button>
+          <button class="demo-lang-tab" data-lang="zh">中文</button>
+          <button class="demo-lang-tab" data-lang="ja">日本語</button>
+        </div>
       <p class="demo-caption">Live demo — translations injected above every TOPIK vocabulary word</p>
     </div>
   </section>
@@ -368,17 +396,17 @@
       <div class="levels-grid">
         <div class="level-card">
           <div class="level-name">TOPIK I</div>
-          <div class="level-count">1,578</div>
+          <div class="level-count" data-vocab-count="1">1,578</div>
           <div class="level-desc">Beginner</div>
         </div>
         <div class="level-card">
           <div class="level-name">TOPIK II</div>
-          <div class="level-count">4,487</div>
+          <div class="level-count" data-vocab-count="2">4,486</div>
           <div class="level-desc">Intermediate</div>
         </div>
         <div class="level-card">
           <div class="level-name">All</div>
-          <div class="level-count">6,065</div>
+          <div class="level-count" data-vocab-count="all">6,064</div>
           <div class="level-desc">Full list</div>
         </div>
       </div>
@@ -398,7 +426,7 @@
           <div class="priv-icon">🌐</div>
           <div>
             <strong>No external API calls</strong>
-            <span>All 6,065 translations are bundled locally — available in English, Chinese, and Japanese.</span>
+            <span>All 6,064 translations are bundled locally — available in English, Chinese, and Japanese.</span>
           </div>
         </div>
         <div class="priv-item">
@@ -426,5 +454,18 @@
     </div>
   </footer>
 
+  <script>
+    (function() {
+      const tabs = document.querySelectorAll('.demo-lang-tab');
+      const iframe = document.querySelector('.demo-wrap iframe');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          iframe.contentWindow.postMessage({ type: 'setLang', lang: tab.dataset.lang }, '*');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

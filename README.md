@@ -10,7 +10,7 @@ A browser extension that adds Kindle Word Wise style annotations for Korean lang
 
 ## ✨ Features
 
-- **6,065 TOPIK words** — I (beginner) · II (intermediate) · or all levels
+- **TOPIK vocabulary** — I (beginner) · II (intermediate) · or all levels
 - **3 translation languages** — English, Simplified Chinese, Japanese
 - **Always-visible annotations** — translations above words, no hover needed
 - **Smart conjugation matching** — handles verb/adjective forms and noun/verb ambiguity
@@ -82,9 +82,9 @@ Output will be in `.output/` directory.
 1. Click the extension icon in your browser toolbar
 2. Enable the extension using the toggle
 3. Select your vocabulary level:
-   - **TOPIK I**: Basic vocabulary (1,578 words)
-   - **TOPIK Ⅱ**: Intermediate/Advanced (4,487 words)
-   - **All**: Complete vocabulary (6,065 words)
+   - **TOPIK I**: Basic vocabulary
+   - **TOPIK Ⅱ**: Intermediate/Advanced
+   - **All**: Complete vocabulary
 4. Select your translation language: **English**, **Chinese**, or **Japanese**
 5. Adjust settings like translation size and highlighting
 6. Visit any Korean website and see translations appear!
@@ -104,7 +104,7 @@ wordwise_korean/
 │   │   ├── korean-stem.ts      # Conjugation matching
 │   │   └── dom-observer.ts     # Dynamic content watcher
 │   ├── assets/
-│   │   └── topik-vocab.json    # 6,065 words from TOPIK I + II (deduplicated)
+│   │   └── topik-vocab.json    # TOPIK I + II vocabulary (deduplicated)
 │   ├── tests/
 │   │   ├── vocab-translations.test.ts  # Translation precision tests
 │   │   └── stem-matching.test.ts        # Conjugation matching tests
@@ -211,7 +211,7 @@ MIT License - feel free to use this project for learning and development!
 
 ## 🎯 Roadmap
 
-- [x] Expand vocabulary to TOPIK I + II (now 6,065 words)
+- [x] Expand vocabulary to TOPIK I + II
 - [x] Handle Korean verb/adjective conjugations
 - [x] Filter common grammar particles
 - [x] Translation quality pass (concise, no verbose prefixes, synonym dedup, tilde-description stripping)

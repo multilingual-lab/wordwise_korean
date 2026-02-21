@@ -169,7 +169,7 @@ Merges `src/assets/topik2-3900-vocab.json` (scraped TOPIK II words) into `src/as
 python scripts/merge-topik2-vocab.py
 ```
 
-**Result:** Updates `src/assets/topik-vocab.json` in-place. After running both scripts the vocabulary grows to ~6,065 words (1,578 TOPIK I + 4,487 TOPIK II, after deduplication and quality pass).
+**Result:** Updates `src/assets/topik-vocab.json` in-place. After running both scripts the vocabulary grows to ~6,064 words (1,578 TOPIK I + 4,486 TOPIK II, after deduplication and quality pass).
 
 **Note:** Already applied — current `topik-vocab.json` reflects the merged and quality-audited result.
 
@@ -216,7 +216,7 @@ node scripts/pdf-to-vocab.js topik-2662-words.txt --level 2 --merge
 # Apply the merged vocabulary
 Move-Item src/assets/topik-vocab-from-pdf.json src/assets/topik-vocab.json -Force
 
-# Result: merged into topik-vocab.json (~6,065 words)
+# Result: merged into topik-vocab.json (~6,064 words)
 ```
 
 ---

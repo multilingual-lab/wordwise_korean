@@ -1,20 +1,20 @@
 <svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#8b9cf7"/>
-      <stop offset="100%" stop-color="#4338ca"/>
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
     </linearGradient>
     <radialGradient id="shine" cx="28%" cy="22%" r="55%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
     <filter id="ws" x="-10%" y="-10%" width="120%" height="130%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#2d1f8a" flood-opacity="0.3"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#3b0764" flood-opacity="0.35"/>
     </filter>
   </defs>
 
-  <rect width="128" height="128" rx="22" fill="url(#bg)"/>
-  <rect width="128" height="128" rx="22" fill="url(#shine)"/>
+  <rect width="128" height="128" rx="26" fill="url(#bg)"/>
+  <rect width="128" height="128" rx="26" fill="url(#shine)"/>
 
   <text x="64" y="96"
         font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"

@@ -164,6 +164,7 @@
             text-align: center;
             user-select: none;
             letter-spacing: 0;
+            padding-bottom: 2px;
         }
 
         ruby.word-wise-highlight {
@@ -382,6 +383,108 @@
     </div>
 
     <script>
+        // ── Language switcher ──
+        const TRANS = {
+          'hello':        { zh: '你好',     ja: 'こんにちは' },
+          'Korean':       { zh: '韩语',     ja: '韓国語' },
+          'studying':     { zh: '学习',     ja: '勉強する' },
+          'student':      { zh: '学生',     ja: '学生' },
+          'lately':       { zh: '最近',     ja: '最近' },
+          'library':      { zh: '图书馆',   ja: '図書館' },
+          'book':         { zh: '书',       ja: '本' },
+          'read':         { zh: '阅读',     ja: '読む' },
+          'culture':      { zh: '文化',     ja: '文化' },
+          'interesting':  { zh: '有趣',     ja: '面白い' },
+          'today':        { zh: '今天',     ja: '今日' },
+          'morning':      { zh: '早上',     ja: '朝' },
+          'friend':       { zh: '朋友',     ja: '友達' },
+          'café':         { zh: '咖啡馆',   ja: 'カフェ' },
+          'met':          { zh: '见面了',   ja: '会った' },
+          'delicious':    { zh: '好吃',     ja: 'おいしい' },
+          'coffee':       { zh: '咖啡',     ja: 'コーヒー' },
+          'drinking':     { zh: '喝着',     ja: '飲みながら' },
+          'travel':       { zh: '旅行',     ja: '旅行' },
+          'plan':         { zh: '计划',     ja: '計画' },
+          'made':         { zh: '制定了',   ja: '立てた' },
+          'weekend':      { zh: '周末',     ja: '週末' },
+          'Busan':        { zh: '釜山',     ja: '釜山' },
+          'schedule':     { zh: '预定',     ja: '予定' },
+          'weather':      { zh: '天气',     ja: '天気' },
+          'good':         { zh: '好',       ja: '良い' },
+          'learning':     { zh: '学习',     ja: '学習' },
+          'sharing':      { zh: '分享',     ja: '共有' },
+          'every day':    { zh: '每天',     ja: '毎日' },
+          'drama':        { zh: '电视剧',   ja: 'ドラマ' },
+          'watching':     { zh: '看着',     ja: '見ながら' },
+          'subtitles':    { zh: '字幕',     ja: '字幕' },
+          'try reading':  { zh: '试着读',   ja: '読んでみて' },
+          'at first':     { zh: '起初',     ja: '最初' },
+          'difficult':    { zh: '虽难',     ja: '難しいが' },
+          'continuously': { zh: '持续',     ja: '続けて' },
+          'skill':        { zh: '实力',     ja: '実力' },
+          'improves':     { zh: '提高',     ja: '伸びる' },
+          'teacher':      { zh: '老师',     ja: '先生' },
+          'words':        { zh: '话语',     ja: '言葉' },
+          'practice':     { zh: '练习',     ja: '練習' },
+          'important':    { zh: '重要',     ja: '大切' },
+          'yesterday':    { zh: '昨天',     ja: '昨日' },
+          'restaurant':   { zh: '餐厅',     ja: 'レストラン' },
+          'food':         { zh: '食物',     ja: '食べ物' },
+          'especially':   { zh: '特别',     ja: '特に' },
+          'bibimbap':     { zh: '拌饭',     ja: 'ビビンバ' },
+          'best':         { zh: '最棒',     ja: '最高' },
+          'price':        { zh: '价格',     ja: '値段' },
+          'expensive':    { zh: '贵',       ja: '高い' },
+          'atmosphere':   { zh: '气氛',     ja: '雰囲気' },
+          'family':       { zh: '家人',     ja: '家族' },
+          'perfect':      { zh: '完美',     ja: '完璧な' },
+          'place':        { zh: '场所',     ja: '場所' },
+          'friends':      { zh: '朋友们',   ja: '友達' },
+          'art museum':   { zh: '美术馆',   ja: '美術館' },
+          'promised':     { zh: '约好了',   ja: '約束した' },
+          'exhibition':   { zh: '展览会',   ja: '展覧会' },
+          'started':      { zh: '开始了',   ja: '始まった' },
+          'art':          { zh: '艺术',     ja: '芸術' },
+          'artwork':      { zh: '作品',     ja: '作品' },
+          'hobby':        { zh: '爱好',     ja: '趣味' },
+          'time':         { zh: '时间',     ja: '時間' },
+          'last year':    { zh: '去年',     ja: '去年' },
+          'Jeju Island':  { zh: '济州岛',   ja: '済州島' },
+          'experience':   { zh: '经历',     ja: '経験' },
+          'share':        { zh: '分享',     ja: '共有' },
+          'people':       { zh: '人们',     ja: '人々' },
+          'kind':         { zh: '亲切',     ja: '親切' },
+          'sea':          { zh: '大海',     ja: '海' },
+          'beautiful':    { zh: '很美',     ja: '美しくて' },
+          'seafood':      { zh: '海鲜',     ja: '海産物' },
+          'fresh':        { zh: '新鲜',     ja: '新鮮' },
+          'happy':        { zh: '幸福',     ja: '幸せな' },
+          'this year':    { zh: '今年',     ja: '今年' },
+          'Seoul':        { zh: '首尔',     ja: 'ソウル' },
+          'activities':   { zh: '活动',     ja: '活動' },
+          'planning':     { zh: '计划中',   ja: '計画中' },
+          'museum':       { zh: '博物馆',   ja: '博物館' },
+          'performance':  { zh: '演出',     ja: '公演' },
+        };
+
+        function setLang(lang) {
+          document.querySelectorAll('ruby.word-wise-korean rt').forEach(function(rt) {
+            var en = rt.dataset.en;
+            if (!en) { rt.dataset.en = rt.textContent; en = rt.textContent; }
+            if (lang === 'en') { rt.textContent = en; }
+            else if (TRANS[en] && TRANS[en][lang]) { rt.textContent = TRANS[en][lang]; }
+          });
+        }
+
+        // Initialise data-en on load
+        document.querySelectorAll('ruby.word-wise-korean rt').forEach(function(rt) {
+          rt.dataset.en = rt.textContent;
+        });
+
+        window.addEventListener('message', function(e) {
+          if (e.data && e.data.type === 'setLang') { setLang(e.data.lang); }
+        });
+
         // Debug: Log when page loads
         console.log('X.com simulation loaded - WordWise Korean Demo');
         console.log('Waiting for extension to annotate Korean words...');

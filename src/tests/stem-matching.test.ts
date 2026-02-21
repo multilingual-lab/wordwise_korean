@@ -46,9 +46,9 @@ function buildMap(level: 1 | 2 | 3): Map<string, VocabEntry> {
   return map;
 }
 
-const L1 = buildMap(1);  // TOPIK I only  (~1,578 words)
-const L2 = buildMap(2);  // TOPIK II only (~4,487 words)
-const L3 = buildMap(3);  // All levels    (~6,065 words)
+const L1 = buildMap(1);  // TOPIK I only
+const L2 = buildMap(2);  // TOPIK II only
+const L3 = buildMap(3);  // All levels
 
 /**
  * Simulates the annotator two-pass POS-aware lookup against a given vocab map.

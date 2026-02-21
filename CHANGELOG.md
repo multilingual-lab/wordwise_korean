@@ -2,6 +2,23 @@
 
 All notable changes to WordWise Korean will be documented in this file.
 
+## [0.1.3] - 2026-02-21
+
+### Added
+- **Multilingual popup**: Language selector now a dropdown with all three options — English, 中文, 日本語
+- **Landing page demo language switcher**: EN / 中文 / 日本語 tabs switch live annotation previews in the demo iframe
+- **Vocab count automation**: `pnpm update-counts` script derives all word counts from JSON and patches `docs/index.html`; no more hardcoded numbers scattered across files
+
+### Changed
+- **Icon refresh**: Deeper purple gradient (#7c3aed → #a78bfa) with slightly larger corner radius for a softer look
+- **Vocabulary quality**:
+  - `열대야` EN fixed: "a very hot night" → "tropical night"
+  - `우리말` removed (culturally nuanced; not useful as a standalone annotation)
+
+### Developer
+- `pnpm update-counts` — syncs `docs/index.html` word counts from `topik-vocab.json`
+- `pnpm generate-icons` — rebuilds PNG icons from `icon.svg`
+
 ## [0.1.2] - 2026-02-20
 
 ### Added

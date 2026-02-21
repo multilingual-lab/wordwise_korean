@@ -1,6 +1,6 @@
 {
   "name": "wordwise-korean",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Browser extension that adds Kindle Word Wise style annotations for Korean learning",
   "type": "module",
   "private": true,
@@ -13,6 +13,8 @@
     "zip:firefox": "wxt zip -b firefox",
     "test": "vitest run",
     "test:watch": "vitest",
+    "update-counts": "node scripts/update-vocab-counts.mjs",
+    "generate-icons": "node scripts/generate-icons.mjs",
     "compile": "tsc --noEmit",
     "postinstall": "wxt prepare"
   },

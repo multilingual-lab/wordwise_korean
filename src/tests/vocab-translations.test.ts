@@ -212,7 +212,7 @@ describe('Chinese (zh) translation coverage', () => {
     expect(nonCjk.map(w => `${w.word}="${w.translations.zh}"`)).toEqual([]);
   });
 
-  it('zh coverage is 100% (all 6,065 words)', () => {
+  it('zh coverage is 100%', () => {
     const filled = vocab.filter(w => w.translations.zh && w.translations.zh.trim() !== '').length;
     expect(filled).toBe(vocab.length);
   });
@@ -288,7 +288,7 @@ describe('Japanese (ja) translation coverage', () => {
     expect(nonJa.map(w => `${w.word}="${w.translations.ja}"`)).toEqual([]);
   });
 
-  it('ja coverage is 100% (all 6,065 words)', () => {
+  it('ja coverage is 100%', () => {
     const filled = vocab.filter(w => w.translations.ja && w.translations.ja.trim() !== '').length;
     expect(filled).toBe(vocab.length);
   });

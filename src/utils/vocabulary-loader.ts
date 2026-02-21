@@ -34,18 +34,14 @@ const COMMON_PARTICLES = new Set([
 
 /**
  * Load vocabulary filtered by user's selected level
- * Level 1 = TOPIK I only (1,578 words)
- * Level 2 = TOPIK II only (4,487 words)
- * Level 3 = All levels (6,065 words)
+ * Level 1 = TOPIK I only
+ * Level 2 = TOPIK II only
+ * Level 3 = All levels
  *
  * ⚠️  WORD COUNT SYNC NOTE:
- * Whenever topik-vocab.json changes (words added/removed), update counts in:
- *   1. src/utils/vocabulary-loader.ts  ← this comment
- *   2. src/entrypoints/popup/App.vue   ← levelHint computed property
- *   3. README.md                       ← feature list + Architecture section
- *   4. docs/index.html                 ← level-count divs + bundle note
- * Run: ($vocab = Get-Content src/assets/topik-vocab.json | ConvertFrom-Json;
- *       "L1: $(($vocab|?{$_.level-eq 1}).Count)  L2: $(($vocab|?{$_.level-eq 2}).Count)  Total: $($vocab.Count)")
+ * topik-vocab.json is the single source of truth for counts.
+ * After any vocab changes run:  pnpm update-counts
+ * This patches docs/index.html with live counts.
  */
 export function loadVocabulary(config: UserConfig): Map<string, VocabEntry> {
   const entries = vocabularyData as VocabEntry[];
