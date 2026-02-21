@@ -1,34 +1,34 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to WordWise Korean will be documented in this file.
 
 ## [0.1.3] - 2026-02-21
 
 ### Added
-- **Chinese & Japanese translations**: All 6,064 vocabulary words now have full Σ╕¡µûç and µùÑµ£¼Φ¬₧ translations ΓÇö select your language in the popup
+- **Chinese & Japanese translations**: All 6,064 vocabulary words now have full 中文 and 日本語 translations — select your language in the popup
 
 ### Improved
-- **Popup redesign**: Dark theme matching the extension's brand ΓÇö cleaner layout, better readability
+- **Popup redesign**: Dark theme matching the extension's brand — cleaner layout, better readability
 - **Translation quality**: English, Chinese, and Japanese translations reviewed and refined across the full vocabulary (verbose phrases shortened, near-synonyms deduplicated, parentheticals removed)
-- **Faster loading on non-Korean pages**: Vocabulary is no longer loaded on pages without Korean text ΓÇö a sentinel observer gates initialization until Korean is actually detected
+- **Faster loading on non-Korean pages**: Vocabulary is no longer loaded on pages without Korean text — a sentinel observer gates initialization until Korean is actually detected
 
 ## [0.1.2] - 2026-02-20
 
 ### Added
-- **New Extension Icon**: Redesigned icon ΓÇö clean bold W on a purple gradient, replacing the original book/φò£ design
-- **Expanded Vocabulary**: 4,341 ΓåÆ **6,065 words**
+- **New Extension Icon**: Redesigned icon — clean bold W on a purple gradient, replacing the original book/한 design
+- **Expanded Vocabulary**: 4,341 → **6,065 words**
   - TOPIK I: 1,578 words (unchanged)
-  - TOPIK II: 2,729 ΓåÆ **4,487 words** (+1,725 new words, duplicates removed)
-- **Cleaner Translations**: English translations are now trimmed for display ΓÇö parenthetical notes, unit markers (`~ piece(s)`, `~ minute(s)`), and near-synonyms (`autumn, fall` ΓåÆ `autumn`) are removed automatically
+  - TOPIK II: 2,729 → **4,487 words** (+1,725 new words, duplicates removed)
+- **Cleaner Translations**: English translations are now trimmed for display — parenthetical notes, unit markers (`~ piece(s)`, `~ minute(s)`), and near-synonyms (`autumn, fall` → `autumn`) are removed automatically
 
 ### Fixed
-- **Wrong annotations on verb forms**: Words like `∞é┤∞òÿ∞û┤∞Üö`, `δ░░∞Ü░δïêΩ╣î`, `∞ä£Ω│á`, `∞ä£δèö`, `φò┤∞Üö` now correctly resolve to their verb (`∞é┤δïñ`, `δ░░∞Ü░δïñ`, `∞ä£δïñ`, `φòÿδïñ`) instead of a same-spelled noun
-- **Numbers before Korean no longer annotated**: `1∞ï¼`, `2∞╕╡`, `3δ│╡` etc. are skipped
+- **Wrong annotations on verb forms**: Words like `살았어요`, `배우니까`, `서고`, `서는`, `해요` now correctly resolve to their verb (`살다`, `배우다`, `서다`, `하다`) instead of a same-spelled noun
+- **Numbers before Korean no longer annotated**: `1심`, `2층`, `3복` etc. are skipped
 - **Extension crash on first level switch**: No longer crashes when switching level immediately after a fresh install
 - **Translation cleanup**: Removed verbose `to`/`to be`/`being` prefixes and resolved ~1,500 conflicting entries from the vocabulary expansion
 
 ### Known Issues
-- `Ω░Ç∞ä£` (Ω░Çδïñ + πàÅ-contraction) produces no annotation
+- `가서` (가다 + ㅏ-contraction) produces no annotation
 
 ## [0.1.1] - 2026-02-16
 
@@ -61,16 +61,16 @@ A browser extension that adds Kindle Word Wise style annotations for Korean lang
 
 - **Complete TOPIK I + II Vocabulary**: 4,341 words imported from official TOPIK materials
   - TOPIK I: 1,578 words (beginner level)
-  - TOPIK Γàí: 2,729 words (intermediate/advanced level)
+  - TOPIK Ⅱ: 2,729 words (intermediate/advanced level)
 - **Smart Conjugation Matching**: Handles Korean verb and adjective conjugations
   - Stem extraction algorithm with 30+ ending patterns
-  - Supports δïñ-form, ∞Üö-form, ∞û┤/∞òä-form, πä┤/∞¥Ç-form, and more
-- **Grammar Particle Filtering**: Excludes 20+ common particles (∞¥Ç/δèö/∞¥┤/Ω░Ç/∞¥ä/δÑ╝/∞¥ÿ/δÅä/etc.)
+  - Supports 다-form, 요-form, 어/아-form, ㄴ/은-form, and more
+- **Grammar Particle Filtering**: Excludes 20+ common particles (은/는/이/가/을/를/의/도/etc.)
   - Prevents cluttering text with functional words
   - Focuses on vocabulary learning
 - **Three Vocabulary Levels**: 
   - TOPIK I only
-  - TOPIK Γàí only  
+  - TOPIK Ⅱ only  
   - All levels combined
 - **Multiple Translation Languages**: English, Chinese (placeholder), Japanese (placeholder)
 - **Ruby Tag Annotations**: Translations appear directly above Korean words
