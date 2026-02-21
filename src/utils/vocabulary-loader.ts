@@ -28,13 +28,24 @@ const COMMON_PARTICLES = new Set([
   '만',
   // Contrast
   '보다',
+  // Bound nouns — only meaningful in grammatical context, not as standalone words
+  '수',  // ~ 할 수 있다/없다 (ability marker)
 ]);
 
 /**
  * Load vocabulary filtered by user's selected level
- * Level 1 = TOPIK I only (~1,578 words)
- * Level 2 = TOPIK II only (~4,487 words)
- * Level 3 = All levels (~6,065 words)
+ * Level 1 = TOPIK I only (1,578 words)
+ * Level 2 = TOPIK II only (4,487 words)
+ * Level 3 = All levels (6,065 words)
+ *
+ * ⚠️  WORD COUNT SYNC NOTE:
+ * Whenever topik-vocab.json changes (words added/removed), update counts in:
+ *   1. src/utils/vocabulary-loader.ts  ← this comment
+ *   2. src/entrypoints/popup/App.vue   ← levelHint computed property
+ *   3. README.md                       ← feature list + Architecture section
+ *   4. docs/index.html                 ← level-count divs + bundle note
+ * Run: ($vocab = Get-Content src/assets/topik-vocab.json | ConvertFrom-Json;
+ *       "L1: $(($vocab|?{$_.level-eq 1}).Count)  L2: $(($vocab|?{$_.level-eq 2}).Count)  Total: $($vocab.Count)")
  */
 export function loadVocabulary(config: UserConfig): Map<string, VocabEntry> {
   const entries = vocabularyData as VocabEntry[];

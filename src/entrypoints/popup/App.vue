@@ -119,11 +119,11 @@ const saveStatus = ref('');
 const levelHint = computed(() => {
   switch (config.value.level) {
     case 1:
-      return 'TOPIK I - Basic vocabulary (~1,600 words)';
+      return 'TOPIK I - Basic vocabulary (1,578 words)';
     case 2:
-      return 'TOPIK II - Intermediate/Advanced (~4,500 words)';
-     case 3:
-      return 'All levels (~6,000 words)';
+      return 'TOPIK II - Intermediate/Advanced (4,487 words)';
+    case 3:
+      return 'All levels (6,065 words)';
     default:
       return '';
   }

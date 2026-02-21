@@ -32,7 +32,7 @@ When you visit a Korean website, the extension:
 
 **Download the extension:**
 
-1. Get the latest ZIP from [GitHub Releases](https://github.com/leahyums/wordwise_korean/releases/latest)
+1. Get the latest ZIP from [GitHub Releases](https://github.com/multilingual-lab/wordwise_korean/releases/latest)
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable **Developer mode** (toggle in top right)
 4. Drag and drop the ZIP directly onto the page

@@ -135,7 +135,32 @@ python scripts/scrape-topik2-3900.py
 
 ---
 
-### 5. `merge-topik2-vocab.py` - Merge Scraped TOPIK II Vocabulary
+### 5. `improve-translations.py` - Improve Translation Quality
+
+Single script that runs two cleanup passes on every entry in `topik-vocab.json`:
+
+**Pass 1 – Simplify verbose comma-separated translations**
+- Keeps only the first/clearest term: `"simple, easy"` → `"simple"`
+- Drops Korean romanization prefixes: `"Kochujang, red pepper paste"` → `"red pepper paste"`
+- Applies word-level overrides for sentence-style phrases and ambiguous entries
+
+**Pass 2 – Shorten long translations**
+- Replaces lengthy descriptive strings with concise idiomatic equivalents
+- e.g. `"baked bread with red beans inside (street food)"` → `"fish-shaped pastry"`
+- e.g. `"the day of the year to eat nourishing food"` → `"hottest dog-day"`
+
+Both passes also mirror results to `zh`/`ja` fields that hold English placeholder text.
+
+**Usage:**
+```bash
+python scripts/improve-translations.py
+```
+
+**Note:** Already applied to the current `topik-vocab.json`. Re-run after adding or merging new vocabulary.
+
+---
+
+### 6. `merge-topik2-vocab.py` - Merge Scraped TOPIK II Vocabulary
 
 Merges `src/assets/topik2-3900-vocab.json` (scraped TOPIK II words) into `src/assets/topik-vocab.json`, deduplicating by Korean word.
 

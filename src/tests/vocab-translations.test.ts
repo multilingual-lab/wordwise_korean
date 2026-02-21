@@ -143,13 +143,13 @@ describe('More concise translation chosen', () => {
 
 describe('New TOPIK II words present with correct translations', () => {
   const newWords: [string, string][] = [
-    ['개념', 'concept, idea'],
+    ['개념', 'concept'],
     ['가치관', 'values'],
     ['개혁', 'reform'],
-    ['견해', 'view, opinion'],
+    ['견해', 'view'],
     ['고려', 'consideration'],
     ['고독', 'loneliness'],
-    ['강도', 'burglar, robber'],
+    ['강도', 'burglar'],
     ['가죽', 'leather'],
     ['가짜', 'fake'],
     ['감옥', 'prison'],
