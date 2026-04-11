@@ -12,6 +12,9 @@ export default defineContentScript({
   registration: 'manifest',
 
   async main() {
+    // Bail out on frames with no body (blank, hidden, or not yet loaded)
+    if (!document.body) return;
+
     // Phase 1: fast Korean-presence check.
     // If the page already has Korean, go straight to full init.
     // Otherwise, watch for Korean to appear (SPAs, lazy-loaded content)

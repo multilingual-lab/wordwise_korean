@@ -177,6 +177,7 @@ The Korean base text comes **first**, the `<rt>` annotation comes **after** it i
 - ✅ **Skip tags** (script, style, svg, etc.)
 - ✅ **Sorted matching** (longest words first)
 - ✅ **Position tracking** (avoid overlap calculation)
+- ✅ **`all_frames`**: content script runs in same-origin iframes; blank/hidden frames bail out immediately via `document.body` null-guard
 
 ## Edge Cases Handled
 
@@ -200,6 +201,9 @@ The Korean base text comes **first**, the `<rt>` annotation comes **after** it i
 
 7. **`contenteditable` editors (Notion, Google Docs, etc.)**: Rich-text editors own their DOM and actively revert external mutations. When the extension annotates text inside such an editor, the editor restores the node using `textContent` — which includes the `<rt>` translation text — causing the translation to leak into the plain text. The annotator then re-annotates the corrupted text, creating an infinite loop that appends the translation string on every cycle.
    - Solution: `isContentEditable` guard in `processNode()` — both ELEMENT_NODE (skip + don't recurse) and TEXT_NODE (skip if parent is contenteditable)
+
+8. **Pages that load content inside iframes**: Some sites (blog platforms, news readers) render their main article content inside a same-origin `<iframe>` while the outer shell has little or no Korean text. Without `all_frames: true` in the manifest, the content script only runs in the top frame and never sees the article text.
+   - Solution: `all_frames: true` in `wxt.config.ts` content_scripts entry; `document.body` null-guard at the top of `main()` to bail out of blank/hidden frames instantly
 
 ## Browser Compatibility
 

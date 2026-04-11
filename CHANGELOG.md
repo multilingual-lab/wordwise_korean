@@ -2,10 +2,11 @@
 
 All notable changes to WordWise Korean will be documented in this file.
 
-## [Unreleased]
+## [0.1.4] - 2026-04-11
 
 ### Fixed
-- **Infinite text corruption on Notion (and other `contenteditable` editors)**: When the extension annotated text inside a `contenteditable` element, the editor's DOM-lock mechanism would revert the mutation by reading back `textContent` — which includes the `<rt>` translation — causing the translation string to be appended to the plain text. The annotator would then re-process the corrupted text on the next observer cycle, growing the translation suffix infinitely. Fixed by skipping all nodes where `isContentEditable` is `true`.
+- **Infinite text corruption on `contenteditable` editors**: The editor's DOM-lock mechanism reverts external mutations by reading back `textContent`, which includes the `<rt>` translation text. This caused the translation to bleed into the raw text and grow unboundedly on each observer cycle. Fixed by skipping all nodes where `isContentEditable` is `true`.
+- **Annotations missing on sites that load content inside iframes**: Sites that render article content inside a same-origin `<iframe>` were not annotated because the content script only ran in the top frame. Fixed by adding `all_frames: true` to the manifest; blank/hidden frames bail out immediately via a `document.body` null-guard.
 
 ## [0.1.3] - 2026-02-21
 
