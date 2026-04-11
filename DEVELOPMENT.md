@@ -198,6 +198,9 @@ The Korean base text comes **first**, the `<rt>` annotation comes **after** it i
 6. **Already Processed**: Avoid re-annotation
    - Solution: WeakSet tracking
 
+7. **`contenteditable` editors (Notion, Google Docs, etc.)**: Rich-text editors own their DOM and actively revert external mutations. When the extension annotates text inside such an editor, the editor restores the node using `textContent` — which includes the `<rt>` translation text — causing the translation to leak into the plain text. The annotator then re-annotates the corrupted text, creating an infinite loop that appends the translation string on every cycle.
+   - Solution: `isContentEditable` guard in `processNode()` — both ELEMENT_NODE (skip + don't recurse) and TEXT_NODE (skip if parent is contenteditable)
+
 ## Browser Compatibility
 
 ### Chrome/Edge (Manifest V3)
@@ -658,7 +661,8 @@ wordwise_korean/
 - `src/types/index.ts` — `UserConfig`, `VocabEntry`, `STORAGE_KEYS`, `DEFAULT_CONFIG`
 
 ### Key Constants
-- `SKIP_TAGS` - Elements to ignore
+- `SKIP_TAGS` - Element tag names to ignore
+- `isContentEditable` guard - Skips annotation inside rich-text editors (Notion, Google Docs, etc.)
 - `ANNOTATION_CLASS` - Ruby tag class
 - `DEBOUNCE_MS` - Observer delay (500ms)
 

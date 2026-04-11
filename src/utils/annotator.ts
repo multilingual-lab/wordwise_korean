@@ -66,13 +66,19 @@ export class WordWiseAnnotator {
 
     // Skip certain elements
     if (node.nodeType === Node.ELEMENT_NODE) {
-      const element = node as Element;
+      const element = node as HTMLElement;
       if (SKIP_TAGS.has(element.tagName)) return;
       if (element.classList.contains(ANNOTATION_CLASS)) return;
+      // Skip contenteditable elements to avoid conflicts with rich-text editors
+      // (e.g., Notion reverts our DOM mutations causing infinite text corruption:
+      // the <rt> translation leaks into textContent on revert, growing on each cycle)
+      if (element.isContentEditable) return;
     }
 
     // Process text nodes
     if (node.nodeType === Node.TEXT_NODE) {
+      const parent = (node as Text).parentElement;
+      if (parent?.isContentEditable) return;
       this.processTextNode(node as Text);
       return;
     }
