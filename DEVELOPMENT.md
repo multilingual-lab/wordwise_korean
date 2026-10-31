@@ -72,7 +72,7 @@
 
 ```bash
 pnpm install   # ~1-2 minutes
-pnpm dev       # builds, opens Chrome, loads extension, watches for changes
+pnpm dev       # builds, opens Chrome on Naver Blog, loads extension, watches for changes
 ```
 
 ### Test the Extension
@@ -86,12 +86,13 @@ pnpm dev       # builds, opens Chrome, loads extension, watches for changes
 
 1. Click the extension icon (puzzle piece) in the browser toolbar
 2. Popup controls:
-   - **Toggle** – enable / disable
-   - **Level** – TOPIK I, TOPIK II, or All (see [data/README.md](data/README.md) for current counts)
-   - **Language** – English, 中文 (Simplified Chinese), or 日本語 (Japanese)
-   - **Font size** – 80%–150% slider
-   - **Highlight** – show background highlight under annotated words
+   - **Header** – global enable/disable toggle, homepage link, and current-site status
+   - **Learning tab** – TOPIK I, TOPIK II, or All; English, 中文 (Simplified Chinese), or 日本語 (Japanese)
+   - **Websites tab** – all websites or only listed domains; current-site shortcut and domain/HTTP(S) URL entry
+   - **Appearance tab** – 80%–150% translation size and word highlighting
 3. Changes apply immediately
+
+Domains include subdomains, but embedded frames must match independently. An empty allowlist enables no websites. Tab navigation supports Left/Right, Home, and End; switching tabs preserves unsaved domain input.
 
 ### Development Workflow
 
@@ -115,37 +116,36 @@ See [scripts/README.md](scripts/README.md) for tools to parse PDFs, convert CSVs
 
 ### Content Script Flow
 
-The content script uses a **two-phase initialization** to avoid loading vocabulary on non-Korean pages.
+The content script checks **website eligibility before Korean presence**. Each frame uses its own HTTP(S) hostname.
 
 ```
 Page Load
     ↓
-── Phase 1: Korean presence check (cheap) ────────────────────
-KOREAN_RE.test(document.body.innerText)?
-    │ Yes                               │ No
+Register storage listener, then load and validate settings
+    ↓
+Global toggle on + supported scheme + allowed hostname?
+    │ No                                │ Yes
     ↓                                   ↓
-initializeFull()          sentinel MutationObserver
-    ↑                      (watches addedNodes + characterData)
-    │                      Korean text appears?
-    └──────────────────────────────────┘
-── Phase 2: Full init (runs only once, only on Korean pages) ─
+Idle: settings listener only     Korean presence check
+                                        │ No
+                                        ↓
+                               sentinel MutationObserver
+                               (addedNodes + characterData)
+                                        │ Korean appears
+                                        ↓
+                               Load vocabulary for latest settings
+                                        ↓
+                               Create annotator and styles
+                                        ↓
+                               Process DOM and start DOMObserver
+
+Settings changed
     ↓
-Load User Config (chrome.storage)
-    ↓
-Load Vocabulary (filter by level)
-    ↓
-Create Annotator Instance
-    ↓
-Process DOM (find Korean text nodes)
-    ↓
-Replace with <ruby> tags
-    ↓
-Start DOMObserver (watch for new content)
-    ↓
-Listen for config changes
+Re-evaluate eligibility; stop observers and clear annotations
+when disabled; otherwise update styles or rebuild as needed
 ```
 
-**Why two phases?** Korean text appears on `.kr` domains but also on Reddit, Wikipedia, Twitter, etc. URL patterns can't gate the cost. The sentinel observer watches only `addedNodes` and `characterData` mutations rather than rescanning `document.body.innerText` on every mutation, so Phase 1 stays near-zero cost on non-Korean pages.
+**Why both checks?** Domain controls avoid all text scanning and DOM observation on unlisted pages. Allowed pages still wait for Korean text before constructing the vocabulary map and annotator. Storage changes are handled even on idle pages, without refreshing. Startup ignores an initial storage snapshot if a newer settings event arrives during the read; updates have no delayed restart callbacks.
 
 ### Annotation Algorithm
 
@@ -177,7 +177,8 @@ The Korean base text comes **first**, the `<rt>` annotation comes **after** it i
 - ✅ **Skip tags** (script, style, svg, etc.)
 - ✅ **Sorted matching** (longest words first)
 - ✅ **Position tracking** (avoid overlap calculation)
-- ✅ **`all_frames`**: content script runs in same-origin iframes; blank/hidden frames bail out immediately via `document.body` null-guard
+- ✅ **Domain gating**: unlisted pages keep only a storage listener, without scanning text or observing the DOM
+- ✅ **`all_frames`**: one WXT entrypoint registers top-level and iframe scripts; each frame checks its own hostname, and frames without a body bail out
 
 ## Edge Cases Handled
 
@@ -226,12 +227,16 @@ Storage key: `wordwise_config` (via `chrome.storage.sync`). Defined in `src/type
 // Key: STORAGE_KEYS.CONFIG = 'wordwise_config'
 {
   enabled: boolean,           // annotation on/off
+  siteMode: "all" | "allowlist",
+  allowedDomains: string[],   // normalized hostnames; each includes subdomains
   level: 1 | 2 | 3,          // 1 = TOPIK I only, 2 = TOPIK II only, 3 = all levels
   targetLanguage: "en" | "zh" | "ja",
   showHighlight: boolean,     // background tint under annotated words
   fontSize: number,           // annotation font size, 80–150 (percentage)
 }
 ```
+
+`getUserConfig()` in `src/utils/site-policy.ts` validates saved settings and adds defaults for older installations. Missing website settings default to `siteMode: "all"` and an empty list, preserving existing behavior. Domains are normalized and deduplicated; malformed settings produce a visible popup error and pause content processing rather than silently enabling all websites.
 
 > **Note:** `level` in `UserConfig` means *which levels to show*: `3` = show all. This is different from `VocabEntry.level` which is always `1` or `2` (the word's TOPIK tier). Never use `3` as a vocab entry level.
 
@@ -254,6 +259,8 @@ The project uses **Vitest** for unit testing. Run with:
 ```bash
 pnpm test          # Run all tests once
 pnpm test:watch    # Watch mode during development
+pnpm test:sites    # Production build, popup browser checks, real-extension browser checks
+pnpm test:extension # Real-extension checks against the current Chrome build
 ```
 
 ### Test Files
@@ -262,8 +269,12 @@ pnpm test:watch    # Watch mode during development
 |------|----------|
 | `src/tests/vocab-translations.test.ts` | Data integrity, polysemous word protection, verbose prefix removal, concise translation selection, new TOPIK II word coverage |
 | `src/tests/stem-matching.test.ts` | `extractStems()` output, past/present/connector conjugation resolution, `couldBeConjugationOf()`, known limitations |
+| `src/tests/site-policy.test.ts` | Domain normalization, URL validation, hostname boundaries, configuration migration, global toggle precedence |
+| `src/tests/content-site-policy.test.ts` | Idle-page gating, live activation/removal, later Korean text, rapid changes, initialization races |
+| `scripts/test-site-controls.mjs` | Popup tabs, keyboard navigation, header layout, scrollbar checks, domain editing, ordered saves, errors and retry |
+| `scripts/test-extension.mjs` | Actual unpacked Chrome extension injection, literal translations, independent frames, dynamic chat messages, live cleanup |
 
-**Current results: 166/166 tests passing**
+Browser checks use Puppeteer with installed Chrome/Edge on Windows, or `CHROME_PATH` pointing to a compatible browser executable. Run `pnpm test:extension` in a second terminal while `pnpm dev` runs to verify development registration. Stop the dev server before `pnpm test:sites` or packaging: they replace the Chrome output with a production build.
 
 ### Stem-Matching Architecture (v0.1.2)
 
@@ -317,6 +328,12 @@ All other previously-known collisions (살/살다, 배우/배우다, 서/서다,
 - [ ] Level switching (1, 2, 3)
 - [ ] Language switching (en, zh, ja)
 - [ ] Highlight toggle
+- [ ] Font size changes without re-annotation
+- [ ] All websites / only listed websites and an empty list
+- [ ] Add/remove the current domain without refreshing
+- [ ] Domain/subdomain matching and independently gated embedded frames
+- [ ] Keyboard tab navigation; no scrollbars in Appearance
+- [ ] Load/save errors remain visible and the header toggle stays disabled if settings fail to load
 
 ## Common Issues & Solutions
 
@@ -329,10 +346,13 @@ All other previously-known collisions (살/살다, 배우/배우다, 서/서다,
 ### Issue: No annotations
 **Check**:
 - Extension enabled in popup?
+- Current site allowed by website mode?
 - Page has Korean text?
 - Vocabulary level includes words?
 - Check processed nodes count
-- Check console for "Loaded X vocabulary words" message
+- Check console for errors or the annotation-count message
+
+WXT 0.19.29 includes compatibility handling for Vite's development WebSocket connection; older WXT releases can show a working popup without registering content scripts. Restore dependencies from the lockfile. In noninteractive environments, set `CI=true` before starting the dev server so Vite does not exit when stdin closes.
 
 ### Issue: Build errors / stale cache
 **Solution**: Clear caches and rebuild:
@@ -572,23 +592,19 @@ pnpm update-counts    # if topik-vocab.json changed
 pnpm screenshot       # if docs/index.html changed visually
 ```
 
-**3. Update CHANGELOG.md** — user-facing entries only (Added / Improved / Fixed)
+**3. Update CHANGELOG.md** — dated user-facing entries (Added / Improved / Fixed), plus any permission or privacy changes. Update the landing page, README, and privacy policy when behavior changes.
 
 **4. Run tests**
 ```bash
 pnpm test
+pnpm compile
+pnpm validate-docs
+pnpm test:sites
 ```
 
-**5. Commit, tag, push**
-```bash
-git add -A
-git commit -m "feat: vX.Y.Z"
-git tag vX.Y.Z
-git push origin main
-git push origin vX.Y.Z
-```
+Stop `pnpm dev` before production browser checks or packaging. A development popup alone is not sufficient validation: the browser checks must load the actual extension and find rendered translations.
 
-**6. Build ZIPs**
+**5. Build and verify ZIPs before committing**
 ```bash
 pnpm zip:all
 # Outputs:
@@ -605,11 +621,67 @@ pnpm zip:firefox  # Firefox + sources
 > AMO submission. Firefox users install `firefox.zip` directly; do not attach `sources.zip`
 > to the GitHub release.
 
+The source archive includes the regression tests via `zip.includeSources`, overriding WXT's default test-file exclusion. Verify that it contains the dependency lockfile, new helpers, and test scripts as well as the extension source.
+
+Inspect each packaged `manifest.json`: the version must match the release, there must be exactly one all-frame content script, and production packages must not contain development-only `tabs`/`scripting` permissions, localhost host entries, or a development content security policy. The Chrome package must retain `storage`, `activeTab`, and `<all_urls>` host access. Smoke-test the unpacked production build before uploading.
+
+**6. Review, commit, tag, push**
+
+Review the staged changes and add only the files intended for this release. Do not commit `.output/`, `node_modules/`, or temporary browser profiles. Rebuild from the committed tree if changes are made after packaging.
+
+```bash
+git diff --check
+git diff --stat
+git add <reviewed-release-files>
+git diff --cached
+git commit -m "feat: vX.Y.Z website controls and tabbed settings" -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+git tag vX.Y.Z
+git push origin main
+git push origin vX.Y.Z
+```
+
 **7. Create GitHub Release**
 - Go to `https://github.com/multilingual-lab/wordwise_korean/releases/new?tag=vX.Y.Z`
 - Paste CHANGELOG entries as release notes
 - Attach `.output/wordwise-korean-X.Y.Z-chromium.zip` and `.output/wordwise-korean-X.Y.Z-firefox.zip`
 - _(Do **not** attach `sources.zip` — that goes to AMO, not GitHub)_
+
+There is no tag-triggered GitHub release or Chrome Web Store publishing workflow in this repository. The existing GitHub Pages workflow deploys `docs/` changes pushed to `main`; wait for it to finish so the updated privacy policy is live before store submission.
+
+**8. Submit Chrome Web Store update**
+
+- Open the existing WordWise Korean item in the Chrome Web Store Developer Dashboard. Upload the **production Chromium ZIP**, not the Firefox ZIP or development output.
+- Update the description and screenshots to show website controls and the new settings tabs. Use real extension screenshots; `pnpm screenshot` captures the landing page, not the settings popup.
+- Review Privacy practices and permission justifications against the actual packaged manifest. Explain `storage` (preferences and browser-managed sync), `activeTab` (current-site status and explicit add/remove shortcut on popup opening), and `<all_urls>` (the optional all-websites mode).
+- Keep the single purpose: local inline Korean vocabulary annotations for learning. Website controls do not reduce host permissions.
+- Use the live privacy policy: `https://multilingual-lab.github.io/wordwise_korean/privacy.html`.
+- Save the submission draft, review all fields, then submit for review. Uploading a package is not the same as publishing it.
+
+### v0.1.5 submission notes
+
+**GitHub release title:** `v0.1.5 - Website controls and tabbed settings`
+
+Use the v0.1.5 section of [CHANGELOG.md](CHANGELOG.md) as the GitHub release body. Attach:
+- `.output/wordwise-korean-0.1.5-chromium.zip`
+- `.output/wordwise-korean-0.1.5-firefox.zip`
+
+**Chrome listing description addition:**
+
+> Choose where you learn: enable inline translations on all websites, or only domains you list. Add the current website with one click. Domains include subdomains, and changes apply immediately without refreshing. Adjust vocabulary and language in Learning, manage domains in Websites, and customize size/highlighting in Appearance. All translations run locally; your preferences and manually added domains may sync through your browser.
+
+**What's new / update summary:**
+
+> New website controls let you limit annotations to X.com, chat sites, or any domains you choose. The redesigned popup separates Learning, Websites, and Appearance settings, with an always-visible enable toggle and current-site status. Improved live settings updates and iframe handling. Existing users keep all-websites behavior until they choose a domain list.
+
+**Permission rationale for the new `activeTab` permission:**
+
+> When the user opens the popup, WordWise Korean reads the active tab's hostname to show whether annotations are enabled and offer an explicit Add/Remove this website action. The URL is not logged; only the hostname is saved if the user chooses to add it.
+
+**Store screenshot checklist:**
+- Show annotations on a Korean page with the Learning tab and header toggle visible.
+- Show Websites with Only listed websites selected and a sample domain list.
+- Show Appearance with translation size and highlighting, without scrollbars.
+- Capture screenshots in a Chrome Web Store-supported size (1280x800 or 640x400) and avoid displaying private chats, account details, or browsing history.
 
 ---
 

@@ -5,19 +5,18 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   srcDir: 'src',
   publicDir: 'public',
+  runner: {
+    startUrls: ['https://blog.naver.com'],
+  },
+  zip: {
+    includeSources: ['src/tests/**'],
+  },
   manifest: {
     name: 'WordWise Korean',
     description: 'Add Word Wise style annotations to Korean text for language learning',
-    version: '0.1.4',
-    permissions: ['storage'],
+    version: '0.1.5',
+    permissions: ['storage', 'activeTab'],
     host_permissions: ['<all_urls>'],
-    content_scripts: [
-      {
-        matches: ['<all_urls>'],
-        js: ['content-scripts/content.js'],
-        all_frames: true,
-      },
-    ],
   },
   vite: () => ({
     plugins: [vue()],

@@ -44,7 +44,7 @@
     <a class="back" href="index.html">← WordWise Korean</a>
 
     <h1>Privacy Policy</h1>
-    <p class="date">Effective date: February 21, 2026</p>
+    <p class="date">Effective date: November 1, 2026</p>
 
     <p>WordWise Korean ("the extension") is a free, open-source browser extension. This policy explains what data the extension does and does not handle.</p>
 
@@ -58,17 +58,19 @@
     </ul>
 
     <h2>Local Processing Only</h2>
-    <p>All annotation logic runs entirely on your device. The vocabulary database (6,065 TOPIK words) is bundled inside the extension package and never fetched from the internet.</p>
+    <p>All annotation logic runs entirely on your device. The vocabulary database (6,064 TOPIK words) is bundled inside the extension package and never fetched from the internet.</p>
 
     <h2>User Settings</h2>
-    <p>Your preferences (vocabulary level, font size, highlight toggle) are saved using Chrome's built-in <code>chrome.storage.sync</code> API. This syncs settings across your own signed-in Chrome devices only. The developer has no access to this data.</p>
+    <p>Your preferences (vocabulary level, translation language, font size, highlight toggle, website mode, and the domains you explicitly add) are saved using the browser's built-in <code>chrome.storage.sync</code> API. These settings may sync across your signed-in browser devices when browser sync is enabled. The domain list is a preference you manage, not a record of websites you visit. The current tab's URL is read when you open the popup to show website status and offer an add/remove shortcut; it is not stored unless you explicitly add its domain. The developer has no access to this data.</p>
 
     <h2>Permissions</h2>
     <ul>
       <li><strong>storage</strong> — saves your preferences locally/synced.</li>
+      <li><strong>activeTab</strong> — reads the current website when you open the extension popup, so you can add or remove its domain.</li>
 
       <li><strong>Host permissions (&lt;all_urls&gt;)</strong> — enables annotations on any Korean-language website you choose to visit.</li>
     </ul>
+    <p>The website mode controls where annotation processing runs; it does not change the browser's host permissions. In <strong>Only listed websites</strong> mode, unlisted pages are not scanned for Korean text or observed for text changes.</p>
 
     <h2>Remote Code</h2>
     <p>The extension does not load or execute any remote code. All JavaScript is bundled at build time and included in the extension package reviewed by the Chrome Web Store.</p>

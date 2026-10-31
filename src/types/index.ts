@@ -13,6 +13,8 @@ export interface VocabEntry {
 
 export interface UserConfig {
   enabled: boolean;
+  siteMode: 'all' | 'allowlist';
+  allowedDomains: string[];
   level: 1 | 2 | 3;
   targetLanguage: 'en' | 'zh' | 'ja';
   showHighlight: boolean;
@@ -33,6 +35,8 @@ export interface TextReplacement {
 
 export const DEFAULT_CONFIG: UserConfig = {
   enabled: true,
+  siteMode: 'all',
+  allowedDomains: [],
   level: 2,
   targetLanguage: 'en',
   showHighlight: true,

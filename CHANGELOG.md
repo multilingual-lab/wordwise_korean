@@ -2,6 +2,27 @@
 
 All notable changes to WordWise Korean will be documented in this file.
 
+## [0.1.5] - 2026-11-01
+
+### Added
+- **Tabbed settings popup**: Separate Learning, Websites, and Appearance settings, with the annotations toggle at the top right and a homepage link beneath the title. Current-site status stays visible above the tabs. Supports keyboard tab navigation, roomier setting spacing, and scrolling only for long website controls.
+- **Website controls**: Choose all websites or only listed domains, add the current website in one click, and manage domains or pasted URLs in the popup. Domains include subdomains; the global annotations toggle still pauses everything.
+- **Live website activation**: Domain changes apply to open pages without refreshing. Unlisted pages do not scan for Korean text or run DOM observers, and embedded frames match their own domains.
+
+### Improved
+- Preserve existing settings and all-website behavior when upgrading. Switching website modes keeps the saved domain list.
+- Show explicit load/save failures and prevent rapid popup changes from saving out of order.
+- Open the development browser on Naver Blog instead of a blank page.
+
+### Fixed
+- Prevent delayed settings updates from restarting annotations after they have been disabled.
+- Register the all-frame content script once through WXT instead of duplicating its manifest entry.
+- Update WXT to 0.19.29 for compatibility with Vite's development WebSocket handling, restoring content-script registration in the test browser. Add real-extension Chrome checks for rendered annotations and iframe behavior.
+
+### Permissions and privacy
+- Add `activeTab` to read the current website when the popup is opened for the add/remove shortcut. Existing all-site host access is unchanged.
+- Website mode and manually added domains sync with other extension preferences. Page content and browsing history are not recorded or sent to the developer.
+
 ## [0.1.4] - 2026-04-11
 
 ### Fixed

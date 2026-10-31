@@ -3,37 +3,131 @@
     <header class="header">
       <div class="header-inner">
         <div class="logo-mark">W</div>
-        <div>
+        <div class="header-brand">
           <h1 class="title">WordWise Korean</h1>
-          <p class="subtitle">Inline translations while you browse</p>
+          <a
+            class="landing-link"
+            href="https://multilingual-lab.github.io/wordwise_korean/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Visit homepage ↗</a>
         </div>
+        <label class="toggle-container header-toggle" title="Enable annotations">
+          <input
+            type="checkbox"
+            v-model="config.enabled"
+            @change="saveConfig"
+            class="toggle-input"
+            aria-label="Enable annotations"
+            :disabled="!settingsLoaded"
+          />
+          <span class="toggle-track">
+            <span class="toggle-thumb"></span>
+          </span>
+        </label>
       </div>
     </header>
 
     <main class="content">
-      <!-- Enable/Disable Toggle -->
-      <div class="setting-group">
-        <div class="toggle-row">
-          <div>
-            <span class="setting-label">Annotations</span>
-            <p class="setting-hint">Show translations above Korean words</p>
-          </div>
-          <label class="toggle-container">
-            <input
-              type="checkbox"
-              v-model="config.enabled"
-              @change="saveConfig"
-              class="toggle-input"
-            />
-            <span class="toggle-track">
-              <span class="toggle-thumb"></span>
-            </span>
-          </label>
-        </div>
+      <p class="setting-hint site-status" role="status">{{ siteStatus }}</p>
+      <div v-if="loadError" class="error-message" role="alert">
+        {{ loadError }}
+        <button class="site-button" @click="loadConfig">Retry</button>
+      </div>
+      <fieldset class="settings-fields" :disabled="!settingsLoaded" aria-label="Annotation settings">
+      <div class="settings-tabs" role="tablist" aria-label="Settings categories">
+        <button
+          v-for="(tab, index) in settingsTabs"
+          :key="tab.id"
+          :id="`tab-${tab.id}`"
+          type="button"
+          class="settings-tab"
+          role="tab"
+          :aria-selected="activeTab === tab.id"
+          :aria-controls="`panel-${tab.id}`"
+          :tabindex="activeTab === tab.id ? 0 : -1"
+          @click="activeTab = tab.id"
+          @keydown="navigateTabs($event, index)"
+        >{{ tab.label }}</button>
       </div>
 
-      <div class="divider"></div>
+      <section
+        id="panel-websites"
+        class="settings-panel"
+        role="tabpanel"
+        aria-labelledby="tab-websites"
+        :hidden="activeTab !== 'websites'"
+        tabindex="0"
+      >
+      <div class="setting-group">
+        <label class="setting-label" for="site-mode">Run on</label>
+        <select id="site-mode" v-model="config.siteMode" class="lang-select" @change="saveConfig">
+          <option value="all">All websites</option>
+          <option value="allowlist">Only listed websites</option>
+        </select>
+        <p v-if="currentSiteError" class="error-message" role="alert">{{ currentSiteError }}</p>
 
+        <template v-if="config.siteMode === 'allowlist'">
+          <template v-if="currentDomain">
+            <p class="setting-hint domain-name">Current website: {{ currentDomain }}</p>
+            <button
+              v-if="isCurrentDomainListed"
+              class="site-button"
+              @click="removeDomain(currentDomain)"
+            >Remove this website</button>
+            <button
+              v-else-if="!coveringDomain"
+              class="site-button"
+              @click="addCurrentDomain"
+            >Add this website</button>
+            <p v-else class="setting-hint">
+              Included by {{ coveringDomain }}. Remove that entry below to disable this site.
+            </p>
+          </template>
+          <details class="domain-manager">
+            <summary>Manage allowed websites ({{ config.allowedDomains.length }})</summary>
+            <ul v-if="config.allowedDomains.length" class="domain-list">
+              <li v-for="domain in config.allowedDomains" :key="domain">
+                <span class="domain-name">{{ domain }}</span>
+                <button class="site-button" :aria-label="`Remove ${domain}`" @click="removeDomain(domain)">
+                  Remove
+                </button>
+              </li>
+            </ul>
+            <p v-else class="setting-hint">No websites listed. Add one to enable annotations.</p>
+            <form class="domain-form" @submit.prevent="addDomain">
+              <label class="setting-hint" for="new-domain">Domain or HTTP(S) URL</label>
+              <div class="domain-input-row">
+                <input
+                  id="new-domain"
+                  v-model="domainInput"
+                  class="domain-input"
+                  placeholder="x.com or https://x.com/home"
+                  :aria-invalid="Boolean(domainError)"
+                  aria-describedby="domain-help domain-error"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  @input="domainError = ''"
+                />
+                <button class="site-button" type="submit">Add</button>
+              </div>
+              <p id="domain-error" v-if="domainError" class="error-message" role="alert">{{ domainError }}</p>
+            </form>
+          </details>
+          <p id="domain-help" class="setting-hint">Domains include their subdomains. Changes apply immediately.</p>
+        </template>
+      </div>
+      </section>
+
+      <section
+        id="panel-learning"
+        class="settings-panel"
+        role="tabpanel"
+        aria-labelledby="tab-learning"
+        :hidden="activeTab !== 'learning'"
+        tabindex="0"
+      >
       <!-- Vocabulary Level -->
       <div class="setting-group">
         <label class="setting-label">Vocabulary Level</label>
@@ -51,8 +145,9 @@
 
       <!-- Translation Language -->
       <div class="setting-group">
-        <label class="setting-label">Translation Language</label>
+        <label class="setting-label" for="translation-language">Translation Language</label>
         <select
+          id="translation-language"
           v-model="config.targetLanguage"
           @change="saveConfig"
           class="lang-select"
@@ -61,16 +156,25 @@
           <option value="zh">中文 — Chinese Simplified</option>
           <option value="ja">日本語 — Japanese</option>
         </select>
-        <p class="setting-hint">{{ langHint }}</p>
       </div>
+      </section>
 
+      <section
+        id="panel-appearance"
+        class="settings-panel"
+        role="tabpanel"
+        aria-labelledby="tab-appearance"
+        :hidden="activeTab !== 'appearance'"
+        tabindex="0"
+      >
       <!-- Font Size -->
       <div class="setting-group">
-        <label class="setting-label">
+        <label class="setting-label" for="translation-size">
           Translation Size
           <span class="size-badge">{{ config.fontSize }}%</span>
         </label>
         <input
+          id="translation-size"
           type="range"
           v-model.number="config.fontSize"
           @input="saveConfig"
@@ -96,6 +200,7 @@
               v-model="config.showHighlight"
               @change="saveConfig"
               class="toggle-input"
+              aria-label="Highlight annotated words"
             />
             <span class="toggle-track">
               <span class="toggle-thumb"></span>
@@ -103,19 +208,18 @@
           </label>
         </div>
       </div>
-
-      <div class="divider"></div>
-
-      <!-- Landing page link -->
-      <div class="info-section">
-        <a class="landing-link" href="https://multilingual-lab.github.io/wordwise_korean/" target="_blank">
-          Visit homepage ↗
-        </a>
-      </div>
+      </section>
+      </fieldset>
 
       <!-- Save Status -->
       <transition name="fade">
-        <div v-if="saveStatus" class="save-status">
+        <div
+          v-if="saveStatus"
+          class="save-status"
+          :class="{ 'save-status-error': saveStatus.startsWith('✗') }"
+          role="status"
+          aria-live="polite"
+        >
           {{ saveStatus }}
         </div>
       </transition>
@@ -124,9 +228,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import type { UserConfig, VocabEntry } from '@/types';
-import { DEFAULT_CONFIG, STORAGE_KEYS } from '@/types';
+import { STORAGE_KEYS } from '@/types';
+import { getUserConfig, isSiteEnabled, normalizeDomain } from '@/utils/site-policy';
 import vocabularyData from '@/assets/topik-vocab.json';
 
 const _vocab = vocabularyData as VocabEntry[];
@@ -136,53 +241,163 @@ const vocabCounts = {
   all: _vocab.length,
 };
 
-const config = ref<UserConfig>({ ...DEFAULT_CONFIG });
+const config = ref<UserConfig>(getUserConfig(undefined));
+const settingsTabs = [
+  { id: 'learning', label: 'Learning' },
+  { id: 'websites', label: 'Websites' },
+  { id: 'appearance', label: 'Appearance' },
+] as const;
+const activeTab = ref<(typeof settingsTabs)[number]['id']>('learning');
 const saveStatus = ref('');
+const settingsLoaded = ref(false);
+const loadError = ref('');
+const currentSiteError = ref('');
+const currentUrl = ref<URL>();
+const currentDomain = ref('');
+const domainInput = ref('');
+const domainError = ref('');
+let lastSavedConfig = getUserConfig(undefined);
+let saveQueue = Promise.resolve();
+let saveRevision = 0;
+let statusTimeout: ReturnType<typeof setTimeout> | undefined;
+
+const isCurrentDomainListed = computed(() => config.value.allowedDomains.includes(currentDomain.value));
+const coveringDomain = computed(() => {
+  const url = currentUrl.value;
+  return url && config.value.allowedDomains.find(domain =>
+    isSiteEnabled({
+      ...config.value, enabled: true, siteMode: 'allowlist', allowedDomains: [domain],
+    }, url),
+  );
+});
+const siteStatus = computed(() => {
+  if (!currentUrl.value || !['http:', 'https:'].includes(currentUrl.value.protocol)) {
+    return currentSiteError.value ? 'Current website unavailable' : 'Unavailable on this browser page';
+  }
+  if (!settingsLoaded.value) return 'Loading settings...';
+  if (!config.value.enabled) return 'Paused - annotations switched off';
+  return isSiteEnabled(config.value, currentUrl.value)
+    ? `Enabled on ${currentDomain.value}`
+    : 'Inactive - website not listed';
+});
 
 const levelHint = computed(() => {
   switch (config.value.level) {
     case 1:
-      return `TOPIK I - Basic vocabulary (${vocabCounts[1].toLocaleString()} words)`;
+      return `TOPIK I · ${vocabCounts[1].toLocaleString()} words`;
     case 2:
-      return `TOPIK II - Intermediate/Advanced (${vocabCounts[2].toLocaleString()} words)`;
+      return `TOPIK II · ${vocabCounts[2].toLocaleString()} words`;
     case 3:
-      return `All levels (${vocabCounts.all.toLocaleString()} words)`;
+      return `All levels · ${vocabCounts.all.toLocaleString()} words`;
     default:
       return '';
   }
 });
 
-const langHint = computed(() => {
-  switch (config.value.targetLanguage) {
-    case 'en': return 'English translations';
-    case 'zh': return 'Simplified Chinese translations';
-    case 'ja': return 'Japanese translations';
-    default:   return '';
-  }
+onMounted(() => {
+  void loadConfig();
+  void loadCurrentSite();
 });
 
-onMounted(async () => {
-  // Load saved configuration
-  const result = await chrome.storage.sync.get(STORAGE_KEYS.CONFIG);
-  if (result[STORAGE_KEYS.CONFIG]) {
-    config.value = result[STORAGE_KEYS.CONFIG];
-  }
+onUnmounted(() => {
+  clearTimeout(statusTimeout);
 });
 
-async function saveConfig() {
+function navigateTabs(event: KeyboardEvent, index: number): void {
+  let next: number;
+  switch (event.key) {
+    case 'ArrowRight': next = (index + 1) % settingsTabs.length; break;
+    case 'ArrowLeft': next = (index + settingsTabs.length - 1) % settingsTabs.length; break;
+    case 'Home': next = 0; break;
+    case 'End': next = settingsTabs.length - 1; break;
+    default: return;
+  }
+  event.preventDefault();
+  activeTab.value = settingsTabs[next].id;
+  document.getElementById(`tab-${activeTab.value}`)?.focus();
+}
+
+async function loadConfig(): Promise<void> {
+  loadError.value = '';
   try {
-    await chrome.storage.sync.set({
-      [STORAGE_KEYS.CONFIG]: config.value,
-    });
-    
-    saveStatus.value = '✓ Saved';
-    setTimeout(() => {
-      saveStatus.value = '';
-    }, 2000);
+    const result = await chrome.storage.sync.get(STORAGE_KEYS.CONFIG);
+    config.value = getUserConfig(result[STORAGE_KEYS.CONFIG]);
+    lastSavedConfig = getUserConfig(config.value);
+    settingsLoaded.value = true;
   } catch (error) {
-    console.error('Popup: Failed to save config:', error);
-    saveStatus.value = '✗ Save failed';
+    console.error('Popup: Failed to load config:', error);
+    loadError.value = 'Could not load settings. Please retry.';
   }
+}
+
+async function loadCurrentSite(): Promise<void> {
+  try {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (!tab?.url) {
+      currentSiteError.value = 'The current tab URL is unavailable. You can still add domains manually.';
+      return;
+    }
+    currentUrl.value = new URL(tab.url);
+    if (['http:', 'https:'].includes(currentUrl.value.protocol)) {
+      currentDomain.value = normalizeDomain(tab.url);
+    }
+  } catch (error) {
+    console.error('Popup: Failed to read current website:', error);
+    currentUrl.value = undefined;
+    currentDomain.value = '';
+    currentSiteError.value = 'Could not read the current website. You can still add domains manually.';
+  }
+}
+
+function addDomain(): void {
+  try {
+    const domain = normalizeDomain(domainInput.value);
+    if (config.value.allowedDomains.includes(domain)) {
+      domainError.value = 'This domain is already listed.';
+      return;
+    }
+    config.value.allowedDomains.push(domain);
+    domainInput.value = '';
+    domainError.value = '';
+    void saveConfig();
+  } catch (error) {
+    domainError.value = error instanceof Error ? error.message : 'Enter a valid domain.';
+  }
+}
+
+function addCurrentDomain(): void {
+  config.value.allowedDomains.push(currentDomain.value);
+  void saveConfig();
+}
+
+function removeDomain(domain: string): void {
+  config.value.allowedDomains = config.value.allowedDomains.filter(entry => entry !== domain);
+  void saveConfig();
+}
+
+function saveConfig(): Promise<void> {
+  const snapshot = getUserConfig(config.value);
+  const revision = ++saveRevision;
+  clearTimeout(statusTimeout);
+  saveStatus.value = 'Saving...';
+  // Serialize writes so rapid controls cannot persist an older snapshot last.
+  saveQueue = saveQueue.then(async () => {
+    try {
+      await chrome.storage.sync.set({ [STORAGE_KEYS.CONFIG]: snapshot });
+      lastSavedConfig = snapshot;
+      if (revision === saveRevision) {
+        saveStatus.value = '✓ Saved';
+        statusTimeout = setTimeout(() => { saveStatus.value = ''; }, 2000);
+      }
+    } catch (error) {
+      console.error('Popup: Failed to save config:', error);
+      if (revision === saveRevision) {
+        config.value = getUserConfig(lastSavedConfig);
+        saveStatus.value = '✗ Save failed. Changes were not saved; please try again.';
+      }
+    }
+  });
+  return saveQueue;
 }
 </script>
 
@@ -220,6 +435,20 @@ async function saveConfig() {
   align-items: center;
   gap: 12px;
 }
+.header-brand {
+  flex: 1;
+  min-width: 0;
+}
+
+.header-toggle {
+  margin-left: auto;
+}
+
+.header-toggle .toggle-input:disabled + .toggle-track {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .logo-mark {
   width: 36px;
   height: 36px;
@@ -241,22 +470,159 @@ async function saveConfig() {
   color: #eeeef5;
   letter-spacing: -0.01em;
 }
-.subtitle {
-  margin: 2px 0 0;
-  font-size: 11px;
-  color: #8f8fb8;
-}
-
 /* ── Content ── */
 .content {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 
 .setting-group {
   padding: 4px 0;
+}
+
+.settings-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.settings-fields:disabled {
+  opacity: 0.6;
+}
+
+.settings-tabs {
+  display: flex;
+  border-bottom: 1px solid #34344e;
+  margin-bottom: 20px;
+}
+
+.settings-tab {
+  flex: 1;
+  padding: 9px 4px;
+  margin-bottom: -1px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #8f8fb8;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.settings-tab[aria-selected="true"] {
+  border-bottom-color: #8b5cf6;
+  color: #a78bfa;
+}
+
+.settings-tab:hover {
+  color: #eeeef5;
+}
+
+.settings-tab:focus-visible,
+.settings-panel:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+.settings-panel {
+  padding: 3px;
+}
+
+#panel-websites {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.settings-panel:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.site-status {
+  color: #a78bfa;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.site-button {
+  padding: 5px 8px;
+  margin: 4px 0;
+  background: #25253a;
+  border: 1px solid #34344e;
+  border-radius: 6px;
+  color: #eeeef5;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.site-button:hover {
+  border-color: #8b5cf6;
+}
+
+.site-button:focus-visible,
+.domain-input:focus-visible,
+.domain-manager summary:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+.domain-manager {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.domain-manager summary {
+  cursor: pointer;
+  color: #a78bfa;
+}
+
+.domain-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.domain-list li,
+.domain-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.domain-name {
+  overflow-wrap: anywhere;
+  min-width: 0;
+  flex: 1;
+}
+
+.domain-input {
+  width: 100%;
+  min-width: 0;
+  padding: 7px;
+  background: #1d1d2e;
+  border: 1px solid #34344e;
+  border-radius: 6px;
+  color: #eeeef5;
+  font: inherit;
+}
+
+.error-message {
+  color: #ffb4b4;
+  font-size: 12px;
+}
+
+.toggle-input:focus-visible + .toggle-track {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
 }
 
 .setting-label {
@@ -365,7 +731,9 @@ async function saveConfig() {
 
 /* ── Slider ── */
 .slider-input {
+  display: block;
   width: 100%;
+  margin: 0;
   height: 4px;
   border-radius: 2px;
   background: #34344e;
@@ -434,43 +802,31 @@ async function saveConfig() {
   color: #eeeef5;
 }
 
-/* ── Divider ── */
-.divider {
-  height: 1px;
-  background: #34344e;
-  margin: 10px 0;
-}
-
-/* ── Info / landing link ── */
-.info-section {
-  background: #1d1d2e;
-  border: 1px solid #34344e;
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-}
 .landing-link {
-  font-size: 12px;
-  color: #a78bfa;
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: #8f8fb8;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
-.landing-link:hover {
+.landing-link:hover,
+.landing-link:focus-visible {
   color: #eeeef5;
 }
 
 /* ── Save status ── */
 .save-status {
-  margin-top: 8px;
-  padding: 7px 10px;
-  background: #1a0f35;
-  border: 1px solid #5b3d9e;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   color: #a78bfa;
-  font-weight: 600;
+}
+
+.save-status-error {
+  padding: 8px 10px;
+  border: 1px solid #ffb4b4;
+  border-radius: 8px;
+  color: #ffb4b4;
 }
 
 /* ── Fade transition ── */

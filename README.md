@@ -14,6 +14,7 @@ A browser extension that adds Kindle Word Wise style annotations for Korean lang
 - **3 languages** — English, 中文, 日本語
 - **Always-visible** — translations float above words, no hover required
 - **Smart matching** — handles conjugated verbs and adjective forms
+- **Website controls** — annotate all websites, or only domains you list
 - **100% local** — no data sent, works on any Korean site
 
 ## 🚀 Installation
@@ -34,16 +35,35 @@ Install directly from the **[Chrome Web Store](https://chromewebstore.google.com
 ## 📖 Usage
 
 1. Click the extension icon in your browser toolbar
-2. Enable the extension using the toggle
-3. Select your vocabulary level:
+2. Enable annotations using the toggle in the top-right corner of the popup
+3. In the **Websites** tab, choose **Run on**:
+   - **All websites**: Keep annotations enabled on all supported websites (the default).
+   - **Only listed websites**: Annotate only domains you add. Click **Add this website** on X.com or a chat site, or expand **Manage allowed websites** to enter a domain or paste an HTTP(S) URL.
+4. In the **Learning** tab (shown by default), select your vocabulary level:
    - **TOPIK I**: Basic vocabulary
    - **TOPIK II**: Intermediate/Advanced
    - **All**: Complete vocabulary
-4. Select your translation language: **English**, **Chinese**, or **Japanese**
-5. Adjust settings like translation size and highlighting
-6. Visit any Korean website and see translations appear!
+5. Select your translation language: **English**, **Chinese**, or **Japanese**
+6. In the **Appearance** tab, adjust translation size and highlighting
+7. Visit an enabled Korean website and see translations appear!
+
+The annotations toggle remains in the header, alongside the title and a **Visit homepage** link. Current-site status stays below the header in every tab. The selected tab has a purple underline. Settings save immediately, and switching tabs keeps any domain you are typing. Use Left/Right arrows, Home, or End to navigate the tab bar with a keyboard. Only long website controls scroll within their panel; Learning and Appearance fit without panel scrollbars.
+
+### Website controls
+
+- Domains include their subdomains: `x.com` enables `x.com` and `www.x.com`, but not `notx.com` or `x.com.example.org`.
+- Adding the current website uses its exact hostname, not a guessed parent domain. `twitter.com` and `x.com` are separate entries.
+- Pasted URLs are reduced to domains: `https://x.com/home` becomes `x.com`. Paths and ports do not restrict matching.
+- An empty list in **Only listed websites** mode disables annotations everywhere. Switching modes keeps your saved list.
+- Removing a matching domain clears existing annotations immediately; adding one enables the page without refreshing.
+- The **Annotations** toggle pauses everything without changing your mode or list.
+- Embedded frames must match the list independently. To enable an embedded chat hosted on another domain, add that domain too.
+- Browser-internal pages are unsupported. Website controls apply to HTTP(S) pages and do not reduce Chrome's existing all-site access permission.
+- Your domain list syncs with your other extension settings through your browser's settings storage. It is not a browsing-history log.
 
 ## 🔧 For Developers
+
+For versioning, package validation, GitHub releases, and Chrome Web Store submission, see the [release process](DEVELOPMENT.md#release-process). Release notes are in [CHANGELOG.md](CHANGELOG.md).
 
 ### Setup
 
@@ -60,16 +80,20 @@ pnpm dev
 
 This will:
 - Build the extension
-- Open Chrome with the extension loaded
+- Open Chrome with the extension loaded on Naver Blog
 - Watch for changes and auto-reload
 
 ### Running Tests
 ```bash
 pnpm test          # Run all tests
 pnpm test:watch    # Watch mode during development
+pnpm test:sites    # Build Chrome extension and run popup + real-extension browser checks
+pnpm test:extension # Check real annotations in the current Chrome build (including dev builds)
 ```
 
-Tests cover translation precision, vocabulary data integrity, Korean stem matching, and POS-aware collision resolution.
+Tests cover translation precision, vocabulary data integrity, Korean stem matching, POS-aware collision resolution, domain matching, and live website activation. Browser checks use Puppeteer; set `CHROME_PATH` to a browser executable if needed (installed Chrome/Edge is detected on Windows).
+
+`pnpm test:extension` loads the actual unpacked extension in Chrome and verifies rendered translations, live removal, domain restrictions, same-origin and cross-origin frames, and later chat messages. Run it in a second terminal while `pnpm dev` is running to also verify development content-script registration. Stop the dev server before `pnpm test:sites`, since that command replaces the Chrome output with a production build.
 
 ### Debugging
 - Open extension popup and check console: Right-click → Inspect
@@ -109,8 +133,10 @@ Output will be in `.output/` directory.
 ### Extension not working?
 
 1. Check if extension is enabled in popup
-2. Refresh the page after changing settings
+2. In **Only listed websites** mode, check that the current domain is listed (settings apply without refreshing)
 3. Check browser console for errors (F12 → Console)
+
+For development, use the locked WXT version: older WXT releases can fail to register content scripts with newer Vite versions even though the popup opens. In noninteractive/automation environments, set `CI=true` when launching the dev server so Vite does not stop when stdin closes.
 
 ### Annotations not appearing?
 

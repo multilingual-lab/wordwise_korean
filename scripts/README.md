@@ -11,6 +11,8 @@ Tools for managing, expanding, and maintaining the TOPIK vocabulary and project 
 | `screenshot.mjs` | `pnpm screenshot` | Capture landing page PNGs for README + store |
 | `generate-icons.mjs` | `pnpm generate-icons` | Rebuild extension icon PNGs from `icon.svg` |
 | `validate-docs.mjs` | `pnpm validate-docs` | Check docs match reality (version, scripts, word count) |
+| `test-site-controls.mjs` | `pnpm test:sites` | Build production Chrome and check popup tabs, settings, validation, and layout |
+| `test-extension.mjs` | `pnpm test:extension` | Check actual Chrome extension injection, translations, domain gating, and frames |
 | `improve-translations.py` | `python scripts/improve-translations.py` | Clean up verbose/noisy translations |
 | `merge-topik2-vocab.py` | `python scripts/merge-topik2-vocab.py` | Merge scraped TOPIK II words into main vocab |
 | `scrape-topik2-3900.py` | `python scripts/scrape-topik2-3900.py` | Scrape TOPIK II 3,900-word list from web |
@@ -80,6 +82,18 @@ pnpm generate-icons
 ```
 
 Run this after editing `icon.svg`.
+
+---
+
+### Browser regression checks
+
+`pnpm test:sites` builds the production Chrome extension, runs `test-site-controls.mjs`, then runs `test-extension.mjs`. Stop `pnpm dev` first because this replaces the Chrome build output.
+
+`test-site-controls.mjs` loads the built popup with controlled browser API fixtures to check keyboard navigation, header layout, domain editing, load/save failures, and absence of Appearance scrollbars.
+
+`test-extension.mjs` loads the actual unpacked extension through Chrome and verifies known literal translations in top-level pages and same-origin/cross-origin frames, live domain restrictions, pause/reactivation, and Korean text arriving later. `pnpm test:extension` runs it against the current output, so it can also check a development build while `pnpm dev` is running in another terminal.
+
+Both scripts use Puppeteer and detect installed Chrome/Edge on Windows. Set `CHROME_PATH` if needed. For the landing-page screenshot script, Puppeteer's `PUPPETEER_EXECUTABLE_PATH` environment variable selects an installed browser when no bundled browser is available.
 
 ---
 
